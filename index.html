@@ -1,0 +1,2069 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기준서 마스터</title>
+<script>
+// 인앱 브라우저 감지 및 외부 브라우저 유도
+(function(){
+  var ua = navigator.userAgent || '';
+  var isInApp = /KAKAOTALK|NAVER|Instagram|FB_IAB|FBAN|Line\//i.test(ua);
+  if(isInApp){
+    document.addEventListener('DOMContentLoaded', function(){
+      // 전체 콘텐츠를 안내 메시지로 교체
+      document.body.innerHTML = '<div style="font-family:-apple-system,sans-serif;max-width:400px;margin:80px auto;padding:28px;text-align:center;color:#d8d5d0;background:#08080d;min-height:100vh">'
+        + '<div style="font-size:48px;margin-bottom:20px">📋</div>'
+        + '<h2 style="font-size:20px;font-weight:700;margin-bottom:12px;color:#c9a96e">기준서 마스터</h2>'
+        + '<p style="font-size:14px;line-height:1.7;color:#999;margin-bottom:28px">인앱 브라우저에서는 정상 작동하지 않습니다.<br>아래 버튼을 눌러 외부 브라우저로 열어주세요.</p>'
+        + '<div style="background:#16161f;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #1e1e2a">'
+        + '<p style="font-size:13px;color:#c9a96e;font-weight:600;margin-bottom:10px">iPhone / iPad</p>'
+        + '<p style="font-size:13px;color:#888;line-height:1.6">우측 하단 <b style="color:#d8d5d0">⋯</b> 또는 <b style="color:#d8d5d0">공유</b> 버튼<br>→ <b style="color:#d8d5d0">Safari로 열기</b></p>'
+        + '</div>'
+        + '<div style="background:#16161f;border-radius:12px;padding:20px;border:1px solid #1e1e2a">'
+        + '<p style="font-size:13px;color:#c9a96e;font-weight:600;margin-bottom:10px">Android</p>'
+        + '<p style="font-size:13px;color:#888;line-height:1.6">우측 상단 <b style="color:#d8d5d0">⋮</b> 메뉴<br>→ <b style="color:#d8d5d0">다른 브라우저로 열기</b></p>'
+        + '</div>'
+        + '</div>';
+      document.body.style.background = '#08080d';
+    });
+  }
+})();
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=Crimson+Pro:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08080d;--sf:#0f0f16;--sf2:#16161f;--bd:#1e1e2a;--gold:#c9a96e;--text:#d8d5d0;--t2:#888;--t3:#555;--green:#4ade80;--yellow:#fbbf24;--red:#f87171}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+::selection{background:#c9a96e33}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:#2a2a3a;border-radius:3px}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 15% 0%,#1a152088,transparent 45%),radial-gradient(ellipse at 85% 100%,#15120a66,transparent 45%)}
+.wrap{max-width:820px;margin:0 auto;padding:48px 28px 80px;position:relative;z-index:1}
+@keyframes fu{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.fu{animation:fu .5s ease both}
+button{font-family:inherit;cursor:pointer}
+.btn-g{padding:14px 40px;border:none;border-radius:10px;font-size:15px;font-weight:600;background:linear-gradient(135deg,var(--gold),#a07c4a);color:var(--bg);transition:all .25s}
+.btn-g:hover{transform:translateY(-2px);box-shadow:0 6px 24px #c9a96e2a}
+.btn-g:disabled{opacity:.25;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-g.sm{padding:12px 32px;font-size:14px}
+.btn-o{padding:8px 18px;border-radius:7px;border:1px solid var(--bd);background:transparent;color:var(--t2);font-size:13px;transition:all .18s}
+.btn-o:hover{border-color:#555;color:var(--text)}
+.card{background:var(--sf);border-radius:11px;padding:20px;border:1px solid var(--bd);transition:border-color .2s}
+.card:hover{border-color:#c9a96e33}
+.card2{background:var(--sf2);border-radius:10px;padding:18px;border:1px solid var(--bd)}
+.prog{height:3px;background:var(--bd);border-radius:2px;overflow:hidden;margin-bottom:32px}
+.prog-fill{height:100%;background:var(--gold);transition:width .4s;border-radius:2px}
+.screen{display:none}.screen.on{display:block}
+textarea{width:100%;min-height:200px;padding:18px;border-radius:10px;border:1.5px solid var(--bd);background:var(--sf);color:var(--text);font-size:14px;line-height:1.85;resize:vertical;font-family:inherit;outline:none}
+textarea:focus{border-color:#c9a96e55}textarea::placeholder{color:var(--t3)}textarea:disabled{opacity:.5}
+details summary{cursor:pointer;color:var(--gold);font-size:13px;font-weight:500;list-style:none}
+details summary::before{content:'\25b8 '}details[open] summary::before{content:'\25be '}
+.dot{width:30px;height:30px;border-radius:7px;border:1.5px solid var(--bd);background:var(--sf);color:var(--t3);font-size:11.5px;display:inline-flex;align-items:center;justify-content:center;transition:all .18s;vertical-align:middle}
+.dot.cur{border-color:var(--gold);color:var(--gold);background:#c9a96e0c}
+.dot.done{border-color:var(--green);color:var(--green)}
+.dot.ans{border-color:#666;color:var(--t2)}
+.sec{margin-bottom:28px}
+.sec h3{font-size:14px;font-weight:600;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sec h3 .n{width:22px;height:22px;border-radius:6px;background:#c9a96e18;display:flex;align-items:center;justify-content:center;font-size:11px}
+.bp{font-size:14px;line-height:1.95;color:#bbb}
+.pt-row{display:flex;gap:9px;margin-bottom:10px;align-items:flex-start}
+.pt-badge{min-width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;margin-top:2px}
+.q-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+.q-table th{text-align:left;padding:8px 12px;background:var(--sf2);color:var(--gold);font-weight:600;border-bottom:1.5px solid var(--bd);font-size:12px}
+.q-table td{padding:8px 12px;border-bottom:1px solid var(--bd);color:#bbb}
+.q-table tr:last-child td{border-bottom:none;font-weight:600;color:var(--text)}
+.fc-detail{overflow:hidden;transition:max-height .35s ease, opacity .3s ease;max-height:0;opacity:0}
+.fc-detail.open{max-height:600px;opacity:1}
+svg .c-purple rect{fill:#2d2555;stroke:#9B93E8}
+svg .c-purple .th{fill:#D4D0FA;font-family:'Noto Sans KR',sans-serif;font-size:14px;font-weight:500}
+svg .c-purple .ts{fill:#AFA9EC;font-family:'Noto Sans KR',sans-serif;font-size:12px}
+svg .c-teal rect{fill:#0a3d30;stroke:#5DCAA5}
+svg .c-teal .th{fill:#9FE1CB;font-family:'Noto Sans KR',sans-serif;font-size:14px;font-weight:500}
+svg .c-teal .ts{fill:#5DCAA5;font-family:'Noto Sans KR',sans-serif;font-size:12px}
+svg .c-coral rect{fill:#3d1e10;stroke:#F0997B}
+svg .c-coral .th{fill:#F5C4B3;font-family:'Noto Sans KR',sans-serif;font-size:14px;font-weight:500}
+svg .c-coral .ts{fill:#F0997B;font-family:'Noto Sans KR',sans-serif;font-size:12px}
+svg .c-amber rect{fill:#332005;stroke:#EF9F27}
+svg .c-amber .th{fill:#FAC775;font-family:'Noto Sans KR',sans-serif;font-size:14px;font-weight:500}
+svg .c-amber .ts{fill:#EF9F27;font-family:'Noto Sans KR',sans-serif;font-size:12px}
+svg .c-gray rect{fill:#2C2C2A;stroke:#888780}
+svg .c-gray .th{fill:#D3D1C7;font-family:'Noto Sans KR',sans-serif;font-size:14px;font-weight:500}
+svg .c-gray .ts{fill:#B4B2A9;font-family:'Noto Sans KR',sans-serif;font-size:12px}
+svg .ts{fill:#aaa;font-family:'Noto Sans KR',sans-serif;font-size:12px}
+svg .th{fill:#ddd;font-family:'Noto Sans KR',sans-serif;font-size:14px;font-weight:500}
+svg .arr{stroke:#555;stroke-width:1.5;fill:none}
+.schema-ver{position:fixed;bottom:8px;right:12px;font-size:9px;color:#333;z-index:999}
+</style>
+</head>
+<body>
+<div class="schema-ver">Schema v1.2 · Engine v5.2.1</div>
+<div class="wrap">
+
+<div id="s-home" class="screen on">
+  <div class="fu" style="margin-bottom:44px">
+    <div style="font-size:10px;letter-spacing:5px;color:var(--gold);margin-bottom:10px;font-weight:500">ACCOUNTING STANDARDS MASTERY</div>
+    <h1 style="font-family:'Crimson Pro',serif;font-size:44px;font-weight:700;line-height:1.1;margin-bottom:10px">기준서 <span style="color:var(--gold)">마스터</span></h1>
+    <p style="color:var(--t3);font-size:14.5px;line-height:1.7">핵심 브리핑으로 프레임을 잡고, 서술형 문제로 강화합니다</p>
+    <div style="margin-top:10px;display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:5px;background:#4ade800a;border:1px solid #4ade8022">
+      <span style="width:5px;height:5px;border-radius:50%;background:var(--green);display:inline-block"></span>
+      <span style="font-size:10.5px;color:var(--green)">오프라인 사용 가능 · 키워드 자동채점 · Schema v1.2</span>
+    </div>
+  </div>
+  <div class="fu" style="animation-delay:.08s">
+    <h2 style="font-size:15px;font-weight:600;margin-bottom:14px">학습할 기준서 선택</h2>
+    <div id="std-list">
+      <!-- JS가 정상 실행되면 이 내용이 기준서 카드로 교체됩니다 -->
+      <div id="std-list-fallback" style="padding:24px;border-radius:12px;border:1px solid #1e1e2a;background:#0f0f16;text-align:center">
+        <div style="font-size:32px;margin-bottom:14px">📋</div>
+        <p style="font-size:15px;font-weight:600;color:#c9a96e;margin-bottom:10px">브라우저에서 열어주세요</p>
+        <p style="font-size:13px;color:#888;line-height:1.7;margin-bottom:18px">이 파일은 카카오톡 미리보기에서는<br>정상 작동하지 않습니다.</p>
+        <div style="text-align:left;background:#16161f;border-radius:10px;padding:16px;margin-bottom:10px;border:1px solid #1e1e2a">
+          <p style="font-size:12px;color:#c9a96e;font-weight:600;margin-bottom:6px">iPhone</p>
+          <p style="font-size:12.5px;color:#999;line-height:1.6">파일 저장 → 파일 앱에서 찾기 → 길게 누르기 → <span style="color:#d8d5d0;font-weight:500">공유 → Safari로 열기</span></p>
+        </div>
+        <div style="text-align:left;background:#16161f;border-radius:10px;padding:16px;border:1px solid #1e1e2a">
+          <p style="font-size:12px;color:#c9a96e;font-weight:600;margin-bottom:6px">Android</p>
+          <p style="font-size:12.5px;color:#999;line-height:1.6">파일 다운로드 → 알림 또는 파일관리자에서 탭 → <span style="color:#d8d5d0;font-weight:500">Chrome으로 열기</span></p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:24px;padding:20px;border-radius:10px;border:1px dashed #2a2a3a;text-align:center">
+      <p style="color:#444;font-size:13px">추가 기준서는 대화에서 요청하면 동일 스키마로 생성해 드립니다</p>
+    </div>
+  </div>
+</div>
+
+<div id="s-brief" class="screen">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+    <button class="btn-o" onclick="go('home')">← 기준서 선택</button>
+    <span style="font-size:12px;color:var(--t3)">브리핑</span>
+  </div>
+  <div class="prog"><div class="prog-fill" style="width:50%"></div></div>
+  <div style="margin-bottom:28px">
+    <span id="b-code" style="display:inline-block;background:#c9a96e18;color:var(--gold);padding:3px 10px;border-radius:5px;font-size:11.5px;font-weight:600;margin-bottom:10px"></span>
+    <h2 id="b-name" style="font-family:'Crimson Pro',serif;font-size:28px;font-weight:700;line-height:1.2;margin-bottom:6px"></h2>
+    <p id="b-desc" style="color:var(--t2);font-size:13px;line-height:1.6"></p>
+  </div>
+  <div id="b-content"></div>
+  <div style="display:flex;gap:12px;justify-content:flex-end;margin-top:36px;flex-wrap:wrap">
+    <button class="btn-o" onclick="go('ox')">OX 문제 →</button>
+    <button class="btn-o" onclick="go('drill')">기본문제 →</button>
+    <button class="btn-g" onclick="go('quiz')">케이스 스터디 →</button>
+  </div>
+</div>
+
+<div id="s-ox" class="screen">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+    <button class="btn-o" onclick="go('brief')">← 브리핑</button>
+    <span style="font-size:12px;color:var(--t3)">OX 문제</span>
+    <button class="btn-o" onclick="go('drill')">기본문제 →</button>
+  </div>
+  <div class="prog"><div class="prog-fill" id="ox-prog"></div></div>
+  <div id="ox-content"></div>
+</div>
+
+<div id="s-drill" class="screen">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+    <button class="btn-o" onclick="go('ox')">← OX 문제</button>
+    <span style="font-size:12px;color:var(--t3)">기본문제</span>
+    <button class="btn-o" onclick="go('quiz')">케이스 →</button>
+  </div>
+  <div class="prog"><div class="prog-fill" id="d-prog"></div></div>
+  <div id="d-content"></div>
+</div>
+
+<div id="s-quiz" class="screen">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+    <button class="btn-o" onclick="go('brief')">← 브리핑</button>
+    <div id="q-dots"></div>
+    <button class="btn-o" onclick="go('drill')">기본문제</button>
+  </div>
+  <div class="prog"><div class="prog-fill" id="q-prog"></div></div>
+  <div id="q-content"></div>
+</div>
+
+<div id="s-result" class="screen"><div id="r-content"></div></div>
+</div>
+
+<script>
+// ╔══════════════════════════════════════════════════════════════════════╗
+// ║  DATA SECTION — Schema v1.1                                        ║
+// ║  새 기준서를 추가하려면 이 섹션 안에 동일 형식의 객체를 추가하세요.  ║
+// ║  엔진 코드는 수정할 필요 없습니다.                                   ║
+// ║                                                                      ║
+// ║  개정 대응: stdText 필드를 개정 후 문장으로 교체하고,                ║
+// ║  explain/modelAnswer에서 해당 내용을 인용한 부분을 수정하세요.       ║
+// ╚══════════════════════════════════════════════════════════════════════╝
+
+const D = {
+
+// ─────────────────────────────────────────────────
+// K-IFRS 1036 자산손상
+// ─────────────────────────────────────────────────
+"K-IFRS 1036": {
+  code:"K-IFRS 1036", name:"자산손상",
+  desc:"손상검사, 회수가능액, 현금창출단위(CGU), 영업권 손상",
+
+  // ── flowDiagram: 브리핑 상단에 표시되는 판단흐름도 데이터 ──
+  // 각 노드는 {id, label, sub, color, x, y, w, h, notes[]}
+  // 각 엣지는 {from, to, label?, dash?}
+  // 엔진이 이 데이터로 SVG를 자동 생성합니다.
+  flowDiagram: {
+    title: "손상검사 판단 흐름",
+    subtitle: "왼쪽: 판단 단계 (위→아래) · 오른쪽: 세부사항 · 분기: Yes/No",
+    nodes: [
+      {id:"s1", label:"STEP 1", sub:"손상 징후 있는가?", color:"purple", x:20, y:30, w:200, h:56,
+       notes:["문단 12~14","외부: 시장가치 하락, 환경 변화, 이자율↑","내부: 물리적 손상, 사용 방식 변경, 나쁜 성과"]},
+      {id:"s1n", label:"", sub:"영업권·비한정 무형자산 매년 의무검사 (문단10)", color:"amber", x:530, y:52, w:250, h:30, notes:[]},
+      {id:"s2", label:"STEP 2", sub:"회수가능액 산정", color:"purple", x:20, y:130, w:200, h:56,
+       notes:["문단 18~57","= max(순공정가치, 사용가치)","둘 중 하나만 장부금액 초과 → 손상 아님"]},
+      {id:"s3", label:"STEP 3", sub:"장부금액 > 회수가능액?", color:"purple", x:20, y:240, w:200, h:56,
+       notes:[]},
+      {id:"s3n", label:"", sub:"No → 손상 없음 (종료)", color:"gray", x:530, y:250, w:170, h:36, notes:[]},
+      {id:"s3t", label:"", sub:"", color:"", x:200, y:300, w:0, h:0,
+       notes:["문단 59: 초과분 = 손상차손으로 인식"]},
+      {id:"s4", label:"STEP 4", sub:"개별자산 추정 가능?", color:"teal", x:20, y:390, w:200, h:56,
+       notes:["문단 66~67","독립적 현금유입 창출 여부로 판단"]},
+      {id:"s4a", label:"개별자산 손상", sub:"", color:"teal", x:20, y:490, w:130, h:44, notes:[]},
+      {id:"s4b", label:"CGU 식별", sub:"", color:"teal", x:170, y:490, w:130, h:44,
+       notes:["문단 65~73","독립적 현금유입의 최소 자산집단"]},
+      {id:"s5", label:"STEP 5 (영업권 有)", sub:"CGU에 영업권 배분", color:"coral", x:40, y:590, w:220, h:56,
+       notes:["문단 80~87","시너지 귀속 CGU에 배분","내부관리 최하위 수준 ≤ 보고부문"]},
+      {id:"s6", label:"STEP 6", sub:"손상차손 배분", color:"coral", x:40, y:690, w:220, h:56,
+       notes:["문단 104~105","① 영업권 장부금액 먼저 차감","② 나머지 자산에 비례 배분"]},
+      {id:"s6f", label:"하한(Floor) 규정", sub:"개별자산 최소 금액 보장", color:"amber", x:40, y:790, w:220, h:56,
+       notes:["문단 105","max(순공정가치, 사용가치, 0) 이하 감소 불가","미배분분 → 다른 자산에 재배분"]},
+      {id:"s7", label:"STEP 7", sub:"후속: 환입 검토", color:"purple", x:40, y:890, w:220, h:56,
+       notes:["문단 109~125","영업권 → 환입 불가 (문단 124)","기타 자산 → 추정치 변동 시만 환입","환입 한도: 손상 미인식 시 장부금액 (문단 117)"]}
+    ],
+    edges: [
+      {from:"s1", to:"s2", label:"Yes", labelColor:"green"},
+      {from:"s2", to:"s3"},
+      {from:"s3", to:"s4", label:"Yes", labelColor:"green"},
+      {from:"s3", to:"s3n", label:"No", labelColor:"red", dir:"right"},
+      {from:"s4", to:"s4a", label:"가능", labelColor:"green", fromX:85},
+      {from:"s4", to:"s4b", label:"불가능", labelColor:"red", fromX:185},
+      {from:["s4a","s4b"], to:"s5", merge:true},
+      {from:"s5", to:"s6"},
+      {from:"s6", to:"s6f"},
+      {from:"s6f", to:"s7"}
+    ],
+    viewBox: "0 0 800 1000"
+  },
+
+  // ── oxQuiz: 기준서 원문 OX 문제 (브리핑→OX→기본문제→케이스) ──
+  oxQuiz: [
+    {statement:"자산에 손상을 시사하는 징후가 있는 경우에만 회수가능액을 추정하여야 한다.", answer:false, ref:"문단 9~10", wrongPart:"'징후가 있는 경우에만'이 틀림", stdText:"문단 9는 징후가 있으면 회수가능액을 추정하도록 하나, 문단 10은 영업권과 비한정 내용연수 무형자산은 징후 유무에 관계없이 매년 손상검사를 수행하도록 규정한다."},
+    {statement:"사업결합에서 취득한 영업권은 손상을 시사하는 징후가 있는지에 관계없이 매년 손상검사를 수행하여야 한다.", answer:true, ref:"문단 10", wrongPart:"", stdText:"사업결합에서 취득한 영업권과 비한정 내용연수 무형자산은 손상을 시사하는 징후가 있는지에 관계없이 매년 손상검사를 수행하여야 한다."},
+    {statement:"자산의 시장가치가 시간의 경과나 정상적 사용에 따라 예상되는 것보다 유의적으로 더 하락한 경우, 이는 내부 정보원천에 의한 손상 징후에 해당한다.", answer:false, ref:"문단 12(d)", wrongPart:"'내부 정보원천'이 아니라 '외부 정보원천'임", stdText:"자산의 시장가치가 예상보다 유의적으로 더 감소한 것은 외부 정보원천에 의한 손상 징후에 해당한다."},
+    {statement:"기업의 순자산 장부금액이 시가총액을 초과하는 경우, 이는 손상을 시사하는 외부 징후에 해당한다.", answer:true, ref:"문단 12(d)", wrongPart:"", stdText:"시장이자율 등의 변동, 시장가치 하락, 순자산 초과 등은 외부 정보원천에 의한 손상 징후이다."},
+    {statement:"자산의 경제적 성과가 예상했던 것보다 나쁘다는 증거를 기업 내부 보고에서 입수할 수 있는 경우, 이는 손상의 내부 징후에 해당한다.", answer:true, ref:"문단 12(g)", wrongPart:"", stdText:"자산의 경제적 성과가 예상했던 것보다 나쁘거나 나빠질 것이라는 증거를 기업 내부 보고에서 입수할 수 있다."},
+    {statement:"자산이 영업활동을 영위하는 기술적·시장적·경제적·법률적 환경에 유의적으로 유리한 변화가 있으면 손상 징후로 본다.", answer:false, ref:"문단 12(b)", wrongPart:"'유리한 변화'가 아니라 '불리한 변화'가 손상 징후임", stdText:"자산이 영업활동을 영위하는 환경에 유의적으로 불리한 변화가 당기 중 발생하였거나 가까운 미래에 발생할 것으로 예상되는 경우 손상 징후에 해당한다."},
+    {statement:"비한정 내용연수를 가진 무형자산은 손상 징후가 있는 경우에만 손상검사를 수행한다.", answer:false, ref:"문단 10", wrongPart:"비한정 내용연수 무형자산도 영업권과 마찬가지로 매년 의무 검사 대상임", stdText:"비한정 내용연수를 가진 무형자산은 손상을 시사하는 징후가 있는지에 관계없이 매년 손상검사를 수행하여야 한다."},
+    {statement:"회수가능액은 자산의 순공정가치와 사용가치 중 작은 금액으로 정의한다.", answer:false, ref:"문단 18", wrongPart:"'작은 금액'이 아니라 '큰 금액'임", stdText:"회수가능액은 자산의 순공정가치와 사용가치 중 큰 금액으로 정의한다."},
+    {statement:"순공정가치와 사용가치 중 하나가 자산의 장부금액을 초과하면 자산이 손상되지 않은 것이며, 다른 금액을 추정할 필요가 없다.", answer:true, ref:"문단 19", wrongPart:"", stdText:"순공정가치와 사용가치 중 하나가 자산의 장부금액을 초과하면 자산이 손상되지 않은 것이며, 다른 금액을 추정할 필요가 없다."},
+    {statement:"자산의 순공정가치를 산정할 수 없는 경우에는 회수가능액을 결정할 수 없으므로 손상검사를 면제받는다.", answer:false, ref:"문단 20", wrongPart:"순공정가치를 산정할 수 없으면 사용가치를 회수가능액으로 사용함", stdText:"순공정가치를 산정할 수 없다고 믿을 합리적인 근거가 있는 경우, 자산의 사용가치를 회수가능액으로 사용할 수 있다."},
+    {statement:"순공정가치는 합리적인 판단과 거래 의사가 있는 독립된 당사자 간 거래에서 자산의 매각으로 수취할 금액에서 처분부대원가를 차감한 금액이다.", answer:true, ref:"문단 25~28", wrongPart:"", stdText:"순공정가치는 매각으로 수취할 금액에서 처분부대원가를 차감한 금액이다."},
+    {statement:"처분부대원가에는 금융원가와 법인세비용이 포함된다.", answer:false, ref:"문단 28", wrongPart:"금융원가와 법인세비용은 처분부대원가에 포함되지 않음", stdText:"처분부대원가에는 법률 원가, 인지세, 자산의 이전 관련 원가 등이 포함되나, 금융원가와 법인세비용은 제외한다."},
+    {statement:"사용가치를 산정할 때 미래현금흐름 추정치는 경영진이 승인한 가장 최근의 재무예산에 기초하되 최장 5년을 포괄하여야 한다.", answer:true, ref:"문단 33", wrongPart:"", stdText:"미래현금흐름 추정치는 경영진이 승인한 가장 최근의 재무예산에 기초하되 최장 5년을 포괄하여야 하며, 합리적이고 뒷받침할 수 있는 가정에 기초하여야 한다."},
+    {statement:"미래현금흐름 추정치에 경영진이 승인한 10개년 장기 사업계획을 그대로 사용할 수 있다.", answer:false, ref:"문단 33~35", wrongPart:"최장 5년까지만 사용 가능하며, 초과 기간은 성장률로 추정해야 함", stdText:"추정치는 최장 5년을 포괄하여야 한다. 5년을 초과하는 기간에 대해서는 일정하거나 체감하는 성장률을 사용하여 추정한다."},
+    {statement:"5년을 초과하는 기간의 미래현금흐름 추정에 사용하는 성장률은 체증하는 성장률도 허용된다.", answer:false, ref:"문단 36", wrongPart:"'체증하는 성장률'은 허용되지 않음. 일정하거나 체감하는 성장률만 가능", stdText:"5년을 초과하는 기간의 미래현금흐름은 일정하거나 체감하는 성장률을 사용하여 추정한다."},
+    {statement:"영구성장률은 해당 산업이나 국가의 장기평균성장률을 초과하여서는 안 된다.", answer:true, ref:"문단 36", wrongPart:"", stdText:"그 성장률은 기업의 제품, 산업, 국가의 장기평균성장률을 초과해서는 안 된다."},
+    {statement:"미래현금흐름 추정치에는 자산의 성과를 유지하는 데 필요한 미래의 현금유출을 포함하여야 한다.", answer:true, ref:"문단 39~40", wrongPart:"", stdText:"미래현금흐름에는 자산의 계속 사용에서 기대되는 현금유입과 자산의 성과를 유지하기 위하여 필요한 현금유출을 포함한다."},
+    {statement:"아직 확약되지 않은 구조조정으로 인한 미래 원가절감 효과를 사용가치의 현금흐름 추정에 포함할 수 있다.", answer:false, ref:"문단 44", wrongPart:"확약되지 않은 구조조정의 효과는 포함 불가", stdText:"확약되지 않은 구조조정이나 자산의 성과를 향상시킬 것으로 기대되는 미래의 현금흐름은 추정치에 포함하여서는 안 된다."},
+    {statement:"사용가치 산정 시 자산의 성과를 향상시킬 것으로 기대되는 미래의 자본적지출 효과는 포함하여서는 안 된다.", answer:true, ref:"문단 44", wrongPart:"", stdText:"자산의 성과를 향상시킬 것으로 기대되는 미래의 현금흐름은 추정치에 포함하여서는 안 된다."},
+    {statement:"내용연수 종료 시 자산의 처분으로 수취할 순현금흐름은 사용가치 산정에 포함하지 않는다.", answer:false, ref:"문단 39", wrongPart:"처분 순현금흐름은 포함해야 함", stdText:"미래현금흐름에는 내용연수 종료 시 자산의 처분에서 수취할 순현금흐름을 포함한다."},
+    {statement:"미래현금흐름 추정치에는 재무활동에서 생기는 현금유입이나 유출을 포함하여야 한다.", answer:false, ref:"문단 50", wrongPart:"재무활동의 현금유입/유출은 포함하지 않음", stdText:"미래현금흐름 추정치에는 재무활동에서 생기는 현금유입이나 유출, 법인세의 수취나 지급을 포함하여서는 안 된다."},
+    {statement:"사용가치 산정 시 할인율은 화폐의 시간가치와 자산의 특유한 위험을 반영한 세전 이율이어야 한다.", answer:true, ref:"문단 55", wrongPart:"", stdText:"할인율은 화폐의 시간가치와 그 자산의 특유한 위험에 대한 현행 시장의 평가를 반영한 세전 이율이어야 한다."},
+    {statement:"사용가치 산정 시 세후 할인율을 사용하는 것이 원칙이다.", answer:false, ref:"문단 55", wrongPart:"'세후'가 아니라 '세전' 할인율이 원칙", stdText:"할인율은 세전 이율이어야 한다."},
+    {statement:"할인율은 미래현금흐름 추정치를 조정할 때 이미 반영한 위험을 이중으로 반영하여서는 안 된다.", answer:true, ref:"문단 56", wrongPart:"", stdText:"할인율은 현금흐름 추정치를 조정할 때 이미 고려한 위험을 이중으로 반영하지 아니한다."},
+    {statement:"할인율의 출발점으로 기업의 가중평균자본비용(WACC)을 사용할 수 있으나, 자산의 특유한 위험을 반영하도록 조정하여야 한다.", answer:true, ref:"문단 A15", wrongPart:"", stdText:"할인율의 출발점으로 WACC 등을 사용할 수 있으나, 자산의 특유한 위험을 반영하도록 조정하여야 한다."},
+    {statement:"자산의 회수가능액이 장부금액에 미달하는 경우 장부금액을 회수가능액으로 감소시키며, 이 감소액이 손상차손이다.", answer:true, ref:"문단 59", wrongPart:"", stdText:"자산의 회수가능액이 장부금액에 미달하는 경우 장부금액을 회수가능액으로 감소시키며, 감소금액이 손상차손이다."},
+    {statement:"재평가모형을 적용하는 자산의 손상차손은 전액 당기손익으로 인식한다.", answer:false, ref:"문단 61", wrongPart:"재평가잉여금 범위에서 기타포괄손익으로 처리하고, 초과분만 당기손익", stdText:"재평가모형을 적용하는 자산의 손상차손은 해당 자산의 재평가잉여금 범위에서 기타포괄손익으로 처리하고, 잉여금을 초과하는 금액은 당기손익으로 인식한다."},
+    {statement:"손상차손을 인식한 후에는 감가상각을 조정하여 수정된 장부금액에서 잔존가치를 차감한 금액을 잔여 내용연수에 걸쳐 체계적으로 배분하여야 한다.", answer:true, ref:"문단 63", wrongPart:"", stdText:"손상차손을 인식한 후 감가상각비는 자산의 수정된 장부금액에서 잔존가치를 차감한 금액을 잔여 내용연수에 걸쳐 체계적으로 배분하여야 한다."},
+    {statement:"현금창출단위는 다른 자산이나 자산집단에서의 현금유입과 거의 독립적인 현금유입을 창출하는 식별가능한 최소 자산집단이다.", answer:true, ref:"문단 6, 66", wrongPart:"", stdText:"현금창출단위는 다른 자산이나 자산집단에서의 현금유입과 거의 독립적인 현금유입을 창출하는 식별가능한 최소 자산집단이다."},
+    {statement:"개별 자산의 회수가능액을 추정할 수 있는 경우에도 반드시 현금창출단위 수준에서 손상검사를 수행하여야 한다.", answer:false, ref:"문단 66~67", wrongPart:"개별 자산의 회수가능액을 추정할 수 있으면 개별 자산 수준에서 검사", stdText:"개별 자산의 회수가능액을 추정할 수 없는 경우에 그 자산이 속하는 현금창출단위의 회수가능액을 결정한다."},
+    {statement:"현금창출단위를 식별할 때에는 경영진이 기업의 영업활동을 모니터링하는 방식을 고려한다.", answer:true, ref:"문단 69", wrongPart:"", stdText:"CGU를 식별할 때는 경영진이 기업의 영업활동을 모니터링하는 방식과 자산의 계속 사용 또는 처분에 대한 의사결정 방식을 고려한다."},
+    {statement:"자산이나 자산집단의 산출물에 대한 활성시장이 존재하더라도, 산출물의 전부가 내부적으로 사용되면 별도의 현금창출단위로 식별할 수 없다.", answer:false, ref:"문단 70", wrongPart:"활성시장이 존재하면 내부 사용 여부와 무관하게 별도 CGU로 식별", stdText:"산출물에 대한 활성시장이 존재한다면, 산출물의 일부 또는 전부가 내부적으로 사용되더라도 그 자산이나 자산집단을 별도의 현금창출단위로 식별한다."},
+    {statement:"일단 식별한 현금창출단위는 합리적인 이유가 없는 한 일관되게 유지하여야 한다.", answer:true, ref:"문단 72", wrongPart:"", stdText:"현금창출단위는 같은 자산이나 같은 유형의 자산에 대하여 매 기간 일관되게 식별한다."},
+    {statement:"현금창출단위의 장부금액을 결정할 때 부채의 장부금액은 어떤 경우에도 포함하지 않는다.", answer:false, ref:"문단 78~79", wrongPart:"인식된 부채의 장부금액을 차감하지 않으면 회수가능액을 결정할 수 없는 경우에는 부채를 포함", stdText:"현금창출단위의 회수가능액을 결정하기 위하여 인식된 부채의 장부금액을 차감하여야 하는 경우가 있을 수 있다."},
+    {statement:"현금창출단위의 장부금액은 그 단위에 직접 귀속시키거나 합리적이고 일관된 기준으로 배분할 수 있는 자산의 장부금액만을 포함한다.", answer:true, ref:"문단 75~76", wrongPart:"", stdText:"현금창출단위의 장부금액은 그 단위에 직접 귀속시키거나 합리적이고 일관된 기준으로 배분할 수 있는 자산의 장부금액만을 포함한다."},
+    {statement:"사업결합에서 취득한 영업권은 취득일에 시너지 효과가 귀속될 것으로 기대되는 각 현금창출단위에 배분한다.", answer:true, ref:"문단 80", wrongPart:"", stdText:"사업결합에서 취득한 영업권은 취득일에 시너지 효과가 귀속될 것으로 기대되는 각 현금창출단위(또는 현금창출단위 집단)에 배분한다."},
+    {statement:"영업권이 배분되는 현금창출단위는 기업이 내부적으로 영업권을 관리하는 최하위 수준이면 되며, 보고부문의 크기 제한은 없다.", answer:false, ref:"문단 80", wrongPart:"보고부문보다 클 수 없다는 제한이 있음", stdText:"영업권이 배분되는 단위는 내부적으로 영업권을 관리하는 최하위 수준이되 K-IFRS 1108호의 보고부문보다 클 수 없다."},
+    {statement:"현금창출단위의 구성이 변경되는 경우 영업권은 영향을 받는 각 단위에 상대적 가치에 기초하여 재배분한다.", answer:true, ref:"문단 87", wrongPart:"", stdText:"현금창출단위의 구성이 변경되는 경우 영업권은 영향을 받는 각 단위에 상대적 가치에 기초하여 재배분한다."},
+    {statement:"영업권의 손상검사는 기준서가 정한 특정 월(12월)에만 수행할 수 있다.", answer:false, ref:"문단 96", wrongPart:"특정 월의 제한은 없으며, 매년 같은 시기이면 됨", stdText:"영업권이 배분된 현금창출단위는 매년 같은 시기에 손상검사를 수행하며, 특정 시기의 제한은 없다."},
+    {statement:"공통자산의 장부금액 중 합리적이고 일관된 기준으로 현금창출단위에 배분할 수 있는 부분은 해당 단위의 장부금액에 포함한다.", answer:true, ref:"문단 100~102", wrongPart:"", stdText:"공통자산의 장부금액 중 합리적이고 일관된 기준으로 현금창출단위에 배분할 수 있는 부분은 CGU 장부금액에 포함한다."},
+    {statement:"본사 건물과 같은 공통자산은 손상검사에서 항상 제외한다.", answer:false, ref:"문단 100~102", wrongPart:"공통자산도 합리적으로 배분 가능하면 CGU 장부금액에 포함해야 함", stdText:"공통자산의 장부금액을 합리적으로 배분할 수 있으면 CGU에 포함하고, 배분이 불가능하면 CGU를 포함하는 최소 CGU 집단에서 검사한다."},
+    {statement:"현금창출단위에 대한 손상차손은 먼저 해당 단위에 배분된 영업권의 장부금액을 감소시키고, 그 다음 다른 자산에 각각의 장부금액에 비례하여 배분한다.", answer:true, ref:"문단 104", wrongPart:"", stdText:"현금창출단위에 대하여 인식하는 손상차손은 먼저 해당 단위에 배분된 영업권의 장부금액을 감소시키고, 그 다음 단위에 속하는 다른 자산에 각각의 장부금액에 비례하여 배분한다."},
+    {statement:"경영진이 영업권에 여전히 시너지가 존재한다고 판단하면, 손상차손 배분 시 영업권을 건너뛰고 다른 자산에 먼저 배분할 수 있다.", answer:false, ref:"문단 104", wrongPart:"경영진의 시너지 판단과 관계없이 영업권부터 먼저 차감하는 것이 기준서 규정", stdText:"손상차손은 먼저 영업권의 장부금액을 감소시킨다. 이 순서는 변경할 수 없다."},
+    {statement:"개별 자산의 장부금액은 순공정가치, 사용가치, 영(0) 중 가장 큰 금액 아래로 감소시킬 수 없다.", answer:true, ref:"문단 105", wrongPart:"", stdText:"개별 자산의 장부금액은 순공정가치, 사용가치, 영(0) 중 가장 큰 금액 아래로 감소시킬 수 없다."},
+    {statement:"매 보고기간말에 영업권 이외의 자산에 대하여 과거에 인식한 손상차손이 더 이상 존재하지 않거나 감소하였을 수 있음을 나타내는 징후가 있는지 평가한다.", answer:true, ref:"문단 110", wrongPart:"", stdText:"매 보고기간말 영업권 이외의 자산에 대해 과거 손상차손이 감소했을 수 있음을 나타내는 징후를 평가한다."},
+    {statement:"손상차손의 환입은 추정치의 변동뿐 아니라 경영진의 의지 변화에 의해서도 인식할 수 있다.", answer:false, ref:"문단 114", wrongPart:"환입은 회수가능액 산정에 사용된 추정치의 변동이 있는 경우에만 인식 가능", stdText:"개별 자산이나 현금창출단위의 손상차손은 직전 손상차손의 인식시점 이후 회수가능액을 결정하는 데 사용된 추정치에 변동이 있는 경우에만 환입한다."},
+    {statement:"손상차손의 환입으로 증가된 자산의 장부금액은 과거에 손상차손을 인식하지 않았더라면 결정되었을 장부금액을 초과하여서는 안 된다.", answer:true, ref:"문단 117", wrongPart:"", stdText:"손상차손의 환입으로 증가된 자산의 장부금액은 과거에 손상차손을 인식하지 않았더라면 결정되었을 장부금액(감가상각이나 상각을 차감한 후의 금액)을 초과하여서는 안 된다."},
+    {statement:"환입 한도를 산정할 때 '손상차손을 인식하지 않았더라면 결정되었을 장부금액'은 취득원가를 의미한다.", answer:false, ref:"문단 117", wrongPart:"취득원가가 아니라 감가상각/상각을 차감한 후의 장부금액임", stdText:"과거에 손상차손을 인식하지 않았더라면 결정되었을 장부금액은 감가상각이나 상각을 차감한 후의 금액이다."},
+    {statement:"영업권에 대하여 인식한 손상차손은 후속 기간에 환입하여서는 안 된다.", answer:true, ref:"문단 124", wrongPart:"", stdText:"영업권에 대하여 인식한 손상차손은 후속 기간에 환입하여서는 안 된다."},
+    {statement:"영업권에 대한 후속 기간의 회수가능액 증가는 과거 손상차손의 환입에 해당한다.", answer:false, ref:"문단 125", wrongPart:"내부적으로 창출한 영업권의 증가일 가능성이 높음", stdText:"영업권에 대하여 후속 기간에 인식하게 될 회수가능액의 증가는 이전에 인식한 손상차손의 환입이 아니라 내부적으로 창출한 영업권의 증가일 가능성이 높다."}
+  ],
+
+  briefing: {
+    coreFramework: "K-IFRS 1036호는 자산의 장부금액이 회수가능액을 초과하지 않도록 보장하는 기준서입니다. 핵심 원리는 단순합니다 \u2014 자산으로부터 회수할 수 있는 금액(회수가능액)이 장부금액보다 낮으면, 그 차이만큼 손상차손을 인식해야 합니다. 회수가능액은 순공정가치(처분부대원가 차감)와 사용가치 중 큰 금액으로 결정됩니다(문단 6, 18). 이 기준서는 개별 자산뿐 아니라 현금창출단위(CGU) 수준에서의 손상검사, 영업권의 배분과 손상, 그리고 손상차손의 환입까지 포괄하는 체계적인 프레임워크를 제공합니다.",
+    keyDecisions: [
+      {title:"손상 징후 판단 (문단 12~14)", content:"매 보고기간말 자산에 손상 징후가 있는지 평가해야 합니다. 외부 징후(시장가치 유의적 하락, 기술·시장·경제·법률 환경의 불리한 변화, 시장이자율 상승)와 내부 징후(물리적 손상, 자산 사용 방식 변경 계획, 예상보다 나쁜 경제적 성과)를 구분합니다. 다만 영업권과 비한정 내용연수 무형자산은 손상 징후 유무와 관계없이 매년 의무적으로 손상검사를 수행해야 합니다(문단 10)."},
+      {title:"회수가능액 측정: 사용가치 vs 순공정가치 (문단 18~57)", content:"사용가치는 자산에서 기대되는 미래현금흐름의 현재가치로, 경영진의 합리적 가정에 기반한 현금흐름 추정치와 적절한 할인율이 필요합니다. 할인율은 화폐의 시간가치와 해당 자산의 고유위험을 반영한 세전 할인율을 사용합니다(문단 55). 순공정가치는 합리적 판단과 거래 의사가 있는 독립된 당사자 간 거래에서 자산의 매각으로 수취할 금액에서 처분부대원가를 차감한 금액입니다."},
+      {title:"현금창출단위(CGU) 식별 (문단 65~73)", content:"개별 자산의 회수가능액을 추정할 수 없는 경우, 해당 자산이 속한 CGU 수준에서 손상검사를 수행합니다. CGU는 다른 자산이나 자산집단의 현금유입과 거의 독립적인 현금유입을 창출하는 식별가능한 최소 자산집단입니다(문단 6). 일단 식별한 CGU는 일관되게 유지해야 합니다(문단 72)."},
+      {title:"영업권의 CGU 배분과 손상검사 (문단 80~99)", content:"사업결합으로 취득한 영업권은 취득일에 시너지 효과가 귀속되는 CGU(또는 CGU 집단)에 배분합니다. 배분 단위는 내부관리 목적으로 영업권을 모니터링하는 최하위 수준이되, K-IFRS 1108호의 보고부문보다 클 수 없습니다(문단 80)."},
+      {title:"손상차손 환입 제한 (문단 109~125)", content:"영업권의 손상차손은 환입할 수 없습니다(문단 124). 영업권 이외의 자산은 추정치 변동이 있는 경우에만 환입하며, 환입 후 장부금액은 손상을 인식하지 않았더라면 존재했을 장부금액을 초과할 수 없습니다(문단 117)."}
+    ],
+    auditFocus: "감사인으로서 가장 주의해야 할 영역은 세 가지입니다. 첫째, 사용가치 산정 시 경영진의 미래현금흐름 추정치와 할인율의 합리성. 둘째, CGU 식별의 일관성과 적정성. 셋째, 영업권 손상검사에서 CGU 장부금액에 본사자산과 공통자산이 적절히 배분되었는지 확인해야 합니다.",
+    connections: "1036호는 1038호(무형자산), 1103호(사업결합), 1113호(공정가치 측정), 1016호(유형자산), 1116호(리스)와 연결됩니다.",
+    practicalTip: "",
+    auditProcedure: [
+      {step:"STEP 1. 손상 징후 평가", ref:"문단 9, 12, 14", content:"보고기간말에 외부 징후(시장가치 하락, 환경 변화, 이자율 상승)와 내부 징후(물리적 손상, 가동률 하락, 예상보다 나쁜 성과)를 모두 점검합니다. 영업권·비한정 무형자산은 징후 유무와 관계없이 매년 의무 검사 대상인지 확인합니다."},
+      {step:"STEP 2. CGU 식별 검토", ref:"문단 66~72, 75~79", content:"경영진이 설정한 CGU가 독립적 현금유입을 창출하는 최소 단위인지, 경영진의 모니터링·의사결정 방식과 일치하는지 검토합니다. 활성시장이 있는 산출물이 내부이전되고 있다면 별도 CGU인지 확인합니다. CGU 장부금액에 운전자본이 포함되었는지 점검합니다."},
+      {step:"STEP 3. 영업권 배분 적정성 확인", ref:"문단 80~87, 96~99", content:"영업권이 시너지가 귀속되는 CGU에 배분되었는지, 배분 단위가 내부관리 최하위 수준이되 보고부문 이하인지 확인합니다. 당기 중 CGU 구성 변경이 있었다면 영업권 재배분이 수행되었는지 검토합니다."},
+      {step:"STEP 4. 회수가능액 산정 검토", ref:"문단 18~57", content:"회수가능액이 순공정가치와 사용가치 중 큰 금액으로 산정되었는지 확인합니다. 사용가치의 경우 현금흐름 추정 기간이 5년 이내인지, 경영진 승인 예산에 기초했는지, 확약되지 않은 성과개선이 포함되지 않았는지 검토합니다. 할인율이 세전 기준인지, 자산 고유위험이 반영되었는지, 영구성장률이 장기평균을 초과하지 않는지 확인합니다."},
+      {step:"STEP 5. 손상차손 배분 검증", ref:"문단 104~105", content:"CGU 손상차손이 영업권부터 먼저 차감되었는지, 잔여분이 다른 자산에 비례 배분되었는지 확인합니다. 개별 자산의 하한(순공정가치, 사용가치, 0 중 큰 금액) 이하로 감액되지 않았는지 검토합니다. 공통자산이 합리적으로 배분·포함되었는지 점검합니다."},
+      {step:"STEP 6. 환입 검토", ref:"문단 110~125", content:"영업권 이외의 자산에 대해 과거 손상차손 인식 시 사용한 추정치에 변동이 있는지 평가합니다. 환입 시 장부금액이 손상 미인식 시 장부금액(감가상각 차감)을 초과하지 않는지 확인합니다. 영업권 손상차손은 어떤 경우에도 환입 불가임을 확인합니다."}
+    ],
+    drills: [
+      {step:"STEP 1. 손상 징후 평가", situation:"(주)대한중공업의 수주잔고가 전기 대비 70% 감소했고, 국제유가가 50% 하락했습니다. 다만 해당 설비의 시장가치 하락폭은 8%에 불과합니다.",
+       choiceA:"시장가치 하락 8%는 유의적이지 않으나, 수주잔고 급감과 유가 하락이 환경의 불리한 변화에 해당하므로 손상검사를 수행한다.",
+       choiceB:"시장가치 하락이 8%로 유의적이지 않고, 수주잔고와 유가는 시장 전체 요인이므로 회사 고유의 손상 징후로 보기 어렵다.",
+       correct:"A", ref:"K-IFRS 1036 문단 12(b)", stdText:"자산이 영업활동을 영위하는 기술적·시장적·경제적·법률적 환경에 유의적으로 불리한 변화가 당기 중 발생하였거나 가까운 미래에 발생할 것으로 예상된다.", explain:"문단 12는 시장가치 하락 외에도 시장·경제 환경의 불리한 변화를 외부 징후로 열거합니다. 수주잔고 70% 감소와 유가 50% 하락은 이에 해당하며, 시장가치 하락폭 하나만으로 판단해서는 안 됩니다."},
+      {step:"STEP 2. CGU 식별 검토", situation:"(주)그린푸드의 신선식품 유통 사업부는 산출물의 70%를 가락시장(도매)에서 외부 판매하고, 30%를 냉동식품 사업부 원재료로 내부이전합니다. 경영진은 내부이전을 이유로 두 사업부를 하나의 CGU로 설정했습니다.",
+       choiceA:"내부이전이 30%이므로 두 사업부의 현금흐름이 상호 의존적이다. 경영진의 CGU 통합 설정이 합리적이다.",
+       choiceB:"산출물에 대한 활성시장(가락시장)이 존재하므로, 내부이전 비율과 무관하게 신선식품은 별도 CGU로 식별해야 한다.",
+       correct:"B", ref:"K-IFRS 1036 문단 70", stdText:"자산이나 자산집단의 산출물에 대한 활성시장이 존재한다면, 산출물의 일부 또는 전부가 내부적으로 사용되더라도 그 자산이나 자산집단을 별도의 현금창출단위로 식별한다.", explain:"문단 70은 활성시장 존재 시 내부이전 비율에 관계없이 별도 CGU로 식별하도록 규정합니다. 가락시장이라는 활성시장이 존재하므로 신선식품은 별도 CGU입니다."},
+      {step:"STEP 3. 영업권 배분 적정성", situation:"(주)메디코어가 바이오랩 인수 시 영업권 300억을 진단 부문에 전액 배분했습니다. 의료기기 부문에서도 바이오랩의 센서 기술을 활용한 차세대 장비를 개발 중입니다.",
+       choiceA:"진단과 의료기기 모두에 시너지가 귀속되므로, 영업권을 두 부문에 합리적 기준으로 배분해야 한다.",
+       choiceB:"주된 시너지가 진단 부문이므로 전액 배분이 적절하다. 의료기기의 기술 활용은 부수적 효과에 불과하다.",
+       correct:"A", ref:"K-IFRS 1036 문단 80", stdText:"사업결합에서 취득한 영업권은 취득일에 시너지 효과가 귀속될 것으로 기대되는 각 현금창출단위(또는 현금창출단위 집단)에 배분한다.", explain:"문단 80은 시너지 효과가 귀속되는 '각' CGU에 배분하도록 규정합니다. 의료기기 부문에서도 센서 기술을 실제 활용하고 있다면 시너지가 귀속되는 것이며, 부수적이라는 이유로 배분에서 제외할 수 없습니다."},
+      {step:"STEP 4. 회수가능액 산정 검토", situation:"(주)에코에너지의 사용가치 산정 시 외부 평가법인이 산출한 WACC 9.1%를 할인율로 적용했습니다. CFO에 따르면 타인자본비용에 법인세율 22%를 차감하여 산출된 수치입니다.",
+       choiceA:"외부 평가법인이 산출했고 업계에서 통용되는 방법이므로 WACC 9.1%를 그대로 수용하는 것이 적절하다.",
+       choiceB:"법인세가 차감된 WACC는 세후 할인율이므로 세전 기준으로 조정을 요구해야 한다.",
+       correct:"B", ref:"K-IFRS 1036 문단 55", stdText:"할인율은 화폐의 시간가치와 그 자산의 특유한 위험에 대한 현행 시장의 평가를 반영한 세전 이율이어야 한다.", explain:"문단 55는 사용가치 산정 시 할인율이 세전 이율이어야 한다고 명시합니다. 법인세율 22%를 차감하여 산출된 WACC는 세후 기준이므로 기준서 요건에 부합하지 않습니다. 외부 전문기관 산출이라는 사실만으로 적정성이 담보되지 않습니다."},
+      {step:"STEP 5. 손상차손 배분 검증", situation:"(주)TK모빌리티의 파워트레인 CGU에 손상차손 210억이 발생했습니다. CGU에는 영업권 150억, 유형자산 500억, 특허권 200억이 있습니다. 경영진은 영업권에 시너지가 남아있으므로 제외하고 유형·특허에만 배분하겠다고 합니다.",
+       choiceA:"시너지가 실제로 존재하는지 여부와 관계없이, 손상차손은 먼저 영업권 150억을 차감한 후 잔여분을 다른 자산에 비례 배분한다.",
+       choiceB:"경영진이 시너지 존재를 입증할 수 있다면 영업권을 보존하고 유형자산과 특허권에만 배분하는 것이 합리적이다.",
+       correct:"A", ref:"K-IFRS 1036 문단 104", stdText:"현금창출단위에 대하여 인식하는 손상차손은 다음의 순서로 해당 단위에 속하는 자산의 장부금액을 감소시키는 데 배분한다. 먼저 해당 현금창출단위에 배분된 영업권의 장부금액을 감소시킨다.", explain:"문단 104는 손상차손 배분 순서를 영업권 먼저로 명확히 규정하고 있으며, 경영진의 시너지 판단과 관계없이 이 순서는 변경할 수 없습니다."},
+      {step:"STEP 6. 환입 검토", situation:"(주)스카이모빌의 생산라인에 2년 전 손상차손 70억을 인식했습니다. 현재 장부금액 250억, 손상 미인식 시 장부금액 300억, 회수가능액 380억입니다.",
+       choiceA:"시장 회복은 추정치 변동에 해당하므로 환입 사유가 존재한다. 다만 환입 한도는 손상 미인식 시 장부금액 300억이므로, 환입금액은 50억이다.",
+       choiceB:"시장 회복으로 회수가능액이 380억이므로, 현재 장부금액과의 차이 130억을 전액 환입하여 회수가능액 수준으로 조정한다.",
+       correct:"A", ref:"K-IFRS 1036 문단 117", stdText:"손상차손의 환입으로 증가된 자산의 장부금액은 과거에 손상차손을 인식하지 않았더라면 결정되었을 장부금액(감가상각이나 상각을 차감한 후의 금액)을 초과하여서는 안 된다.", explain:"문단 117은 환입 후 장부금액이 손상 미인식 시 장부금액을 초과할 수 없다고 규정합니다. 300-250=50억만 환입 가능하며, 회수가능액 380억까지 올리는 것은 한도 초과입니다."}
+    ]
+  },
+  questions: [
+    {id:1, tag:"징후·사용가치·CGU·영업권환입·하한",
+     situation:"(주)동아식품그룹 — 식품 제조·유통 (감사 2년차)",
+     question:"기말감사 현장에 나와 있는데 재무팀장을 만나서 얘기를 들어보니 올해 원재료가 40% 올라서 냉동식품은 적자 전환했다고 한다. 근데 온라인몰이 50% 성장했으니 전체로는 괜찮다는 입장이다. 그러다가 작년에 인수한 프레시팜 영업권 120억 얘기가 나왔는데, 콜드체인 시너지가 안 나와서 지난 분기에 전액 손상처리했다고 한다. 그런데 이번에 정부가 콜드체인 보조금을 발표해서 이사님이 환입되는 거 아니냐고 물어보셨다고 한다.\n\nCFO 보고서를 받아서 보니 냉동식품 CGU 사용가치를 6개년 사업계획 기반으로 산정했고, 할인율은 KB증권이 산출한 당사 WACC 8.7%를 적용했다. 타인자본비용에 법인세율 22%를 차감하여 산출된 수치라고 되어 있다.\n\n내부감사팀 보고서도 확인해 보니 신선식품 유통은 가락시장 도매에서 70%를 외부 판매하고 30%를 냉동식품 원재료로 내부이전하고 있는데, 경영진은 냉동과 신선, 온라인을 하나의 CGU로 설정해 놓았다.\n\n지난해 감사조서를 뒤져보니 냉동식품 CGU 손상차손 80억을 배분할 때 기계장치에 50억을 배분해서 장부금액이 200억에서 150억이 됐는데, 그 기계장치의 순공정가치가 180억이었다. 하한 검토 기록은 없었다.",
+     keyPoints:[
+       {text:"", ref:"K-IFRS 1036 문단 12(g)", stdText:"자산의 경제적 성과가 예상했던 것보다 나쁘거나 나빠질 것이라는 증거를 기업 내부 보고에서 입수할 수 있다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 12(b)", stdText:"자산이 영업활동을 영위하는 기술적·시장적·경제적·법률적 환경에 유의적으로 불리한 변화가 당기 중 발생하였거나 가까운 미래에 발생할 것으로 예상된다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 33", stdText:"미래현금흐름 추정치는 경영진이 승인한 가장 최근의 재무예산에 기초하되 최장 5년을 포괄하여야 하며, 합리적이고 뒷받침할 수 있는 가정에 기초하여야 한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 55", stdText:"할인율은 화폐의 시간가치와 그 자산의 특유한 위험에 대한 현행 시장의 평가를 반영한 세전 이율이어야 한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 70", stdText:"산출물에 대한 활성시장이 존재하면, 산출물의 일부 또는 전부가 내부적으로 사용되더라도 별도의 현금창출단위로 식별한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 105", stdText:"개별 자산의 장부금액은 순공정가치, 사용가치, 영(0) 중 가장 큰 금액 아래로 감소시킬 수 없다.", keywords:[], needAll:false, needCount:0},
+       {text:"원재료 40% 상승+적자전환 = 내부 손상 징후 → 종합 평가 필요", ref:"K-IFRS 1036 문단 12", stdText:"자산의 경제적 성과가 예상보다 나쁘거나 나빠질 것이라는 증거를 기업 내부 보고에서 입수할 수 있다.", keywords:["징후","적자","내부","손상","12"], needAll:false, needCount:2},
+       {text:"추정 기간은 최장 5년 — 6개년은 기준서 위반", ref:"K-IFRS 1036 문단 33~35", stdText:"미래현금흐름 추정치는 경영진이 승인한 재무예산에 기초하되 최장 5년을 포괄하여야 한다.", keywords:["5년","6년","최장","기간"], needAll:false, needCount:2},
+       {text:"법인세 차감 WACC = 세후 할인율 → 세전으로 조정 필요", ref:"K-IFRS 1036 문단 55", stdText:"할인율은 화폐의 시간가치와 자산의 특유한 위험을 반영한 세전 이율이어야 한다.", keywords:["세전","세후","WACC","할인율","법인세"], needAll:false, needCount:3},
+       {text:"신선식품은 가락시장(활성시장) 존재 → 내부이전 있어도 별도 CGU", ref:"K-IFRS 1036 문단 70", stdText:"산출물에 대한 활성시장이 존재하면, 일부가 내부적으로 사용되더라도 별도의 현금창출단위로 식별한다.", keywords:["활성시장","별도","CGU","내부","70"], needAll:false, needCount:2},
+       {text:"기계장치 150억 < 순공정가치 180억 → 하한 위반 — 180억 이하로 감소 불가했음", ref:"K-IFRS 1036 문단 105", stdText:"개별 자산의 장부금액은 순공정가치, 사용가치, 영(0) 중 가장 큰 금액 아래로 감소시킬 수 없다.", keywords:["하한","순공정가치","150","180","105"], needAll:false, needCount:3},
+       {text:"영업권 손상차손은 어떤 경우에도 환입 불가 — 보조금은 내부창출 영업권", ref:"K-IFRS 1036 문단 124", stdText:"영업권에 대하여 인식한 손상차손은 후속 기간에 환입하여서는 안 된다.", keywords:["영업권","환입","불가","124"], needAll:false, needCount:3}
+     ],
+     modelAnswer:"우선 K-IFRS 1036호 문단 12에 따라 손상 징후를 판단해야 합니다. 원재료 가격 40% 상승과 냉동식품 사업부의 적자 전환은 문단 12(g)의 내부 징후에 해당하며, 감사인은 이를 인식하고 손상검사를 수행해야 합니다.\n\n다음으로 사용가치 산정과 관련하여, 문단 33에 따르면 미래현금흐름 추정 기간은 최장 5년이므로 경영진이 사용한 6개년 사업계획은 기준서 위반입니다. 5년을 초과하는 기간은 문단 36에 따라 영구성장률로 처리해야 합니다.\n\n할인율과 관련하여, CFO 보고서에 따르면 WACC 8.7%는 타인자본비용에 법인세율 22%를 차감하여 산출된 수치이므로 이는 세후 할인율에 해당합니다. 문단 55는 사용가치 산정 시 세전 할인율을 사용하도록 명시하고 있으므로, 세전 기준으로 재산정을 요구해야 합니다.\n\nCGU 식별과 관련하여, 신선식품 유통 사업부는 가락시장이라는 활성시장에서 산출물의 70%를 외부 판매하고 있습니다. 문단 70에 따르면 산출물에 대한 활성시장이 존재하는 경우 내부이전이 있더라도 별도의 현금창출단위로 식별해야 하므로, 3개 사업부를 하나의 CGU로 통합한 것은 부적절합니다. 지난해 감사조서의 하한 규정 미검토 건도 중요합니다. 기계장치의 순공정가치가 180억원인데 장부금액을 150억원으로 감액한 것은 문단 105의 하한 규정을 위반한 것입니다. 문단 105에 따르면 개별 자산의 장부금액은 순공정가치, 사용가치, 영 중 가장 큰 금액 아래로 감소시킬 수 없으므로, 기계장치는 180억원까지만 감액할 수 있었습니다. 마지막으로 영업권 환입 건입니다. 문단 124는 영업권에 대하여 인식한 손상차손은 후속 기간에 환입하여서는 안 된다고 명확히 규정하고 있습니다. 정부의 콜드체인 보조금 발표로 인한 가치 상승은 문단 125에 따라 내부적으로 창출한 영업권의 증가에 해당하므로, 과거 취득한 영업권의 손상차손을 환입할 수 없습니다."
+    },
+
+    {id:2, tag:"징후중요성·회수가능액·포함금지·영업권배분·CGU변경·환입",
+     situation:"(주)KT바이오팜 — 제약·바이오 그룹 (신규 감사)",
+     question:"신규 감사인으로 들어왔는데 전임 감사인한테 인수인계를 받아보니, 2년 전에 셀진바이오를 인수하면서 영업권이 250억 잡혀 있다고 한다. 보고부문이 진단, 신약, 의료기기 세 개인데 영업권은 진단에 전액 배분했다고 한다. 근데 인수 당시에 신약 부문에서도 셀진의 연구 파이프라인을 활용할 계획이 있었는데 이건 배분에 안 들어갔다고 한다.\n\n올해 조직 변경이 있었는데, 진단 부문을 면역진단과 분자진단으로 분할했다. 인력과 설비, 고객이 6대 4로 나뉘었고, 영업권 재배분은 아직 안 했다고 한다.\n\n경영진을 만나보니 신약 파이프라인이 임상 3상에서 떨어졌다고 한다. 주가가 15% 빠졌는데 바이오 전체가 빠진 거라 자기네만의 문제는 아니라는 입장이다. 의료기기 쪽은 2년 전 기계장치에 손상 40억을 인식했는데 요즘 수출이 좋아서 회수가능액이 320억 나왔다고 한다. 취득원가 500억에 10년 정액법이었고 손상 당시 장부금액 350억에서 310억으로 감액했으며, 지금은 감액 후 감가상각해서 258억이고, 손상을 안 했으면 290억이었을 거라고 한다. 사용가치 산정할 때 순공정가치랑 비교는 안 하고 사용가치만 했다고 한다.\n\nCFO한테 추가로 들어보니 신약 사용가치에 임상 실패한 거 대신 내년에 시작할 새 파이프라인의 기대매출을 넣었다고 한다. 아직 임상 1상 전인데 기술적으로 자신 있다는 이유에서다.",
+     keyPoints:[
+       {text:"", ref:"K-IFRS 1036 문단 12(g)", stdText:"자산의 경제적 성과가 예상했던 것보다 나쁘거나 나빠질 것이라는 증거를 기업 내부 보고에서 입수할 수 있다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 12(d)", stdText:"자산의 시장가치가 시간의 경과 또는 정상적인 사용에 따라 예상되는 감소보다 유의적으로 더 감소하였다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 18", stdText:"회수가능액은 자산의 순공정가치와 사용가치 중 큰 금액으로 정의한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 19", stdText:"순공정가치와 사용가치 중 하나가 자산의 장부금액을 초과하면 자산이 손상되지 않은 것이며, 다른 금액을 추정할 필요가 없다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 44", stdText:"확약되지 않은 구조조정이나 자산의 성과를 향상시킬 것으로 기대되는 미래의 현금흐름은 추정치에 포함하여서는 안 된다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 80", stdText:"사업결합에서 취득한 영업권은 취득일에 시너지 효과가 귀속될 것으로 기대되는 각 현금창출단위에 배분하며, 내부적으로 관리하는 최하위 수준이되 보고부문보다 클 수 없다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 96", stdText:"현금창출단위의 구성이 변경되는 경우 영업권은 영향을 받는 각 단위에 상대적 가치에 기초하여 재배분한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 110", stdText:"매 보고기간말 영업권 이외의 자산에 대해 과거 손상차손이 감소했을 수 있음을 나타내는 징후를 평가한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 117", stdText:"환입으로 증가된 장부금액은 과거에 손상차손을 인식하지 않았더라면 결정되었을 장부금액(감가상각 차감 후)을 초과할 수 없다.", keywords:[], needAll:false, needCount:0},
+       {text:"주가 15% 하락 + 핵심 파이프라인 임상 실패 = 외부+내부 징후 — '업종 전체'로 무시 불가", ref:"K-IFRS 1036 문단 9, 12, 14", stdText:"손상 징후가 있으면 회수가능액을 추정해야 한다. 외부·내부 정보원천을 모두 고려하여야 한다.", keywords:["징후","주가","임상","실패","손상검사","9"], needAll:false, needCount:2},
+       {text:"사용가치만 산정 — 하나가 장부금액 초과 시 다른 하나 불필요하나, 적정성 확인은 필수", ref:"K-IFRS 1036 문단 18, 19~21", stdText:"회수가능액은 순공정가치와 사용가치 중 큰 금액. 하나가 장부금액을 초과하면 다른 금액을 추정할 필요가 없다.", keywords:["회수가능액","순공정가치","사용가치","하나","초과"], needAll:false, needCount:2},
+       {text:"임상 1상 전 신규 파이프라인 = 확약 안 된 미래 성과개선 → 현금흐름 포함 불가", ref:"K-IFRS 1036 문단 44", stdText:"확약되지 않은 구조조정이나 자산의 성과를 향상시킬 것으로 기대되는 미래의 현금흐름은 추정치에 포함하여서는 안 된다.", keywords:["확약","포함","금지","성과","향상","파이프라인"], needAll:false, needCount:2},
+       {text:"인수 시 신약 부문 시너지도 영업권 배분에 반영했어야 함 — 전임 판단이라도 오류면 수정", ref:"K-IFRS 1036 문단 80~87", stdText:"영업권은 시너지 효과가 귀속될 CGU에 배분하며, 내부적으로 관리하는 최하위 수준이되 보고부문보다 클 수 없다.", keywords:["시너지","배분","신약","영업권","80"], needAll:false, needCount:2},
+       {text:"진단 부문 분할 → 영업권을 면역·분자진단에 상대적 가치 기준 재배분 필수", ref:"K-IFRS 1036 문단 96~99", stdText:"현금창출단위의 구성이 변경되면 영업권은 영향받는 각 단위에 상대적 가치에 기초하여 재배분한다.", keywords:["재배분","분할","변경","상대적","96"], needAll:false, needCount:2},
+       {text:"환입 한도 290억 — 62억이 아니라 290-258=32억만 환입 가능", ref:"K-IFRS 1036 문단 110~111, 117", stdText:"환입으로 증가된 장부금액은 손상차손을 인식하지 않았더라면 결정되었을 장부금액을 초과할 수 없다.", keywords:["290","32","한도","환입","117","258"], needAll:false, needCount:3}
+     ],
+     modelAnswer:"먼저 손상 징후를 판단합니다. 문단 9에 따르면 손상 징후가 있는 경우 회수가능액을 추정해야 합니다. 핵심 파이프라인의 임상 3상 실패는 문단 12(g)의 내부 징후에 해당하고, 주가 15% 하락은 문단 12(d)의 외부 징후에 해당합니다. 바이오 업종 전체가 하락했다는 사유만으로 회사 고유의 징후를 무시할 수 없으며, 문단 14의 중요성 판단도 개별 징후가 아닌 종합적 상황을 고려해야 합니다. 회수가능액 산정과 관련하여, 문단 18에 따르면 회수가능액은 순공정가치와 사용가치 중 큰 금액입니다. 경영진이 사용가치만 산정한 것은 문단 19에 따라 사용가치가 장부금액을 초과하면 순공정가치를 산정할 필요가 없으므로 그 자체로는 문제가 없으나, 사용가치 산정의 적정성은 별도로 검증해야 합니다.\n\n사용가치의 현금흐름 추정에서, 임상 1상도 시작하지 않은 신규 파이프라인의 기대매출을 포함한 것은 문단 44 위반입니다. 문단 44는 확약되지 않은 구조조정이나 자산의 성과를 향상시킬 것으로 기대되는 미래의 현금흐름을 추정치에 포함하여서는 안 된다고 규정하고 있으며, 임상 전 단계의 파이프라인은 확약으로 볼 수 없습니다.\n\n영업권 배분과 관련하여, 문단 80에 따르면 영업권은 시너지 효과가 귀속될 것으로 기대되는 현금창출단위에 배분해야 합니다.\n\n인수 당시 신약 부문에서도 연구 파이프라인 활용 계획이 있었으므로 해당 부문에도 영업권을 배분했어야 하며, 전임 감사인의 오류는 승계하는 것이 아니라 시정해야 합니다. 또한 문단 96에 따르면 현금창출단위의 구성이 변경되는 경우 영업권은 영향을 받는 각 단위에 상대적 가치에 기초하여 재배분해야 합니다. 진단 부문이 면역진단과 분자진단으로 분할되었으므로 인력과 설비의 6대 4 비율 등 합리적 기준에 따라 영업권을 재배분해야 합니다.\n\n의료기기 기계장치 환입과 관련하여, 문단 110에 따라 환입 사유 자체는 존재하나 환입 금액 산정에 오류가 있습니다. 문단 117에 따르면 환입 후 장부금액은 손상차손을 인식하지 않았더라면 결정되었을 장부금액을 초과할 수 없습니다. 손상 미인식 시 장부금액이 290억원이므로 환입 한도는 290억원이며, 올바른 환입금액은 290억에서 현재 장부금액 258억을 차감한 32억원입니다. 감사인이 산정한 62억원은 한도를 무시한 오류입니다."
+    },
+
+    {id:3, tag:"사용가치 전반·세전·성장률·WACC조정",
+     situation:"(주)에코에너지 — 태양광 발전·ESS (감사 3년차)",
+     question:"발전팀 실장한테 전화가 왔는데, 보조금이 20% 줄었고 내년에 더 줄어든다고 한다. 근데 ESS 쪽은 전력거래소 수요가 늘어서 상쇄될 거라는 얘기다. 그러면서 REC 가격 전망이 전력거래소 홈페이지에 나와 있는데 회사 추정이랑 좀 다르다고, 자기네가 좀 높게 잡긴 했다고 한다.\n\nCFO한테 이메일이 왔는데, 사용가치 산정을 5개년 승인 사업계획 기반으로 했고 6차년도 이후 영구성장률 4.5%를 적용했다고 한다. 태양광과 ESS가 국가 정책사업이라 장기 성장성이 높다는 판단이라고 한다. 할인율은 외부평가법인에서 받은 WACC 9.1%인데, 법인세 효과가 들어간 건지는 정확히 모르겠다고 한다. 그냥 받은 그대로 썼다는 것이다. 참고로 회사 신용등급이 최근 A-에서 BBB로 내려갔는데 그건 반영이 안 됐을 거라고 덧붙였다.\n\n현금흐름 추정 내역서를 살펴보니 세후 영업현금흐름에서 법인세를 차감한 후의 금액을 사용했다고 되어 있고, 할인율은 세전 기준이라고 보고서에 기재되어 있는데 위에서 CFO가 한 말과 상충된다.",
+     keyPoints:[
+       {text:"", ref:"K-IFRS 1036 문단 33", stdText:"미래현금흐름 추정치는 경영진이 승인한 가장 최근의 재무예산에 기초하되 최장 5년을 포괄하여야 하며, 합리적이고 뒷받침할 수 있는 가정에 기초하여야 한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 36", stdText:"5년을 초과하는 기간의 미래현금흐름은 일정하거나 체감하는 성장률을 사용하여 추정하며, 그 성장률은 산업·국가의 장기평균성장률을 초과해서는 안 된다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 55", stdText:"할인율은 화폐의 시간가치와 그 자산의 특유한 위험에 대한 현행 시장의 평가를 반영한 세전 이율이어야 한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 A15", stdText:"할인율의 출발점으로 WACC 등을 사용할 수 있으나, 자산의 특유한 위험을 반영하도록 조정하여야 한다.", keywords:[], needAll:false, needCount:0},
+       {text:"사용가치 구성: 현금흐름+할인율 — 둘의 세전/세후 기준이 일치해야", ref:"K-IFRS 1036 문단 30, 50", stdText:"사용가치 산정 시 현금흐름은 법인세 납부 전 기준이어야 하며, 할인율도 세전 이율이어야 한다.", keywords:["세전","세후","일치","현금흐름","법인세","30","50"], needAll:false, needCount:3},
+       {text:"현금흐름이 세후인데 할인율 기준 불명확 → 기준 불일치 왜곡 가능성", ref:"K-IFRS 1036 문단 55~57", stdText:"할인율은 세전 이율이어야 하며, 현금흐름 추정에 이미 반영한 위험을 이중으로 반영하여서는 안 된다.", keywords:["할인율","세전","이중","반영","55"], needAll:false, needCount:2},
+       {text:"영구성장률 4.5%는 장기평균성장률 초과 여부 검증 필요", ref:"K-IFRS 1036 문단 36~38", stdText:"5년 초과 기간의 성장률은 산업·국가의 장기평균성장률을 초과해서는 안 된다.", keywords:["성장률","장기","초과","4.5","영구"], needAll:false, needCount:2},
+       {text:"WACC는 출발점 — 신용등급 하락(BBB) 미반영이면 할인율 과소", ref:"K-IFRS 1036 문단 A15~A21", stdText:"WACC 등을 출발점으로 사용하되 자산의 특유한 위험을 반영하도록 조정하여야 한다.", keywords:["WACC","조정","신용","위험","과소","A15"], needAll:false, needCount:2},
+       {text:"REC 가격을 시장 전망보다 높게 잡은 것은 낙관적 편향 가능성 — 합리적 가정 검증 필요", ref:"K-IFRS 1036 문단 33~34", stdText:"추정치는 합리적이고 뒷받침할 수 있는 가정에 기초하여야 한다.", keywords:["합리","가정","낙관","편향","검증","REC"], needAll:false, needCount:2}
+     ],
+     modelAnswer:"사용가치의 구성요소와 관련하여, 문단 30은 사용가치를 산정할 때 미래현금흐름 추정치와 할인율이라는 두 가지 구성요소를 반영하도록 규정하고 있습니다. 이 두 요소의 세전과 세후 기준이 일치해야 올바른 결과를 얻을 수 있습니다. 문단 50에 따르면 미래현금흐름 추정치는 법인세 납부 전 기준이어야 하고, 문단 55에 따르면 할인율도 세전 이율이어야 합니다. 현재 현금흐름 추정 내역서에는 세후 영업현금흐름이 사용되었다고 기재되어 있고, CFO는 할인율이 세전인지 세후인지 정확히 모른다고 답변했습니다. 이 상태에서 현금흐름과 할인율의 기준 일치 여부를 확인하지 않고 넘어간 것은 중대한 감사 실패입니다. 문단 55는 특히 현금흐름 추정치에 이미 반영한 위험을 할인율에서 이중으로 반영하여서는 안 된다고 규정하고 있으므로, 위험의 이중반영 여부도 점검해야 합니다.\n\n현금흐름 추정의 합리성과 관련하여, REC 가격을 전력거래소 공식 전망보다 높게 잡은 것은 문단 33의 합리적이고 뒷받침할 수 있는 가정에 해당하는지 검증이 필요합니다. 시장에서 공표된 전망치와의 차이에 대해 경영진에게 합리적 근거를 요구해야 합니다.\n\n영구성장률 4.5%에 대해서는, 문단 36에 따르면 5년 초과 기간에 적용하는 성장률은 해당 산업이나 국가의 장기평균성장률을 초과해서는 안 됩니다. 태양광이 정책사업이라 하더라도 영구적으로 4.5%가 유지된다는 근거가 있는지, 한국의 장기 GDP 성장률이나 에너지 산업의 장기 평균과 비교하여 적정성을 검토해야 합니다.\n\n할인율과 관련하여 추가로, 문단 A15에 따르면 WACC는 할인율의 출발점으로 사용할 수 있으나 자산의 특유한 위험을 반영하도록 조정해야 합니다. 회사의 신용등급이 A-에서 BBB로 하락한 것은 자산의 고유위험이 증가했음을 의미하며, 이를 반영하지 않은 WACC는 할인율이 과소 산정된 것입니다."
+    },
+
+    {id:4, tag:"현금흐름 포함·제외 + 재평가 손상 + 손상징후",
+     situation:"(주)대성화학 — 석유화학 플랜트 (감사 4년차)",
+     question:"현장에서 생산본부장을 만나서 얘기를 들어보니 이 플랜트가 한 15년 됐는데, 내년에 반응기를 교체하면 수율이 30% 올라간다고 한다. 이사회에서 승인은 받았는데 아직 발주는 안 했고, 예산이 500억이라고 한다. 매년 정기보수비로 50억 정도 쓰고 있고, 플랜트 부지가 여수 산단이라 나중에 팔면 200억은 받을 거라고 한다.\n\n환경안전팀 보고를 보니 환경부 규제 강화로 폐수처리 설비를 추가 설치해야 하는데, 내년까지 80억 투자가 필요하고 미이행 시 조업정지가 가능하다고 되어 있다.\n\n재무팀에서는 이 플랜트에 재평가모형을 적용 중이라고 한다. 재평가잉여금이 80억 남아 있고, 이번에 손상차손이 120억 나왔다고 한다. 작년에는 환경 규제 얘기가 없어서 손상 징후를 안 봤는데, 올해 규제 발표 이후에야 검토하게 됐다고 한다.",
+     keyPoints:[
+       {text:"", ref:"K-IFRS 1036 문단 12(b)", stdText:"자산이 영업활동을 영위하는 기술적·시장적·경제적·법률적 환경에 유의적으로 불리한 변화가 당기 중 발생하였거나 가까운 미래에 발생할 것으로 예상된다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 39", stdText:"미래현금흐름에는 자산의 계속 사용에서 기대되는 현금유입, 성과를 유지하기 위한 현금유출, 내용연수 종료 시 처분 순현금흐름을 포함한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 44", stdText:"확약되지 않은 구조조정이나 자산의 성과를 향상시킬 것으로 기대되는 미래의 현금흐름은 추정치에 포함하여서는 안 된다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 61", stdText:"재평가모형을 적용하는 자산의 손상차손은 해당 자산의 재평가잉여금 범위에서 기타포괄손익으로 처리하고, 잉여금을 초과하는 금액은 당기손익으로 인식한다.", keywords:[], needAll:false, needCount:0},
+       {text:"환경규제 강화 = 법률 환경의 불리한 변화 → 외부 손상 징후", ref:"K-IFRS 1036 문단 12(b)", stdText:"자산이 영업활동을 영위하는 기술적·시장적·경제적·법률적 환경에 유의적으로 불리한 변화가 발생하였거나 예상된다.", keywords:["환경","법률","징후","변화","규제"], needAll:false, needCount:2},
+       {text:"미발주 반응기 교체의 수율 향상 = 확약 안 된 성과개선 → 제외 적절", ref:"K-IFRS 1036 문단 39~43, 44", stdText:"성과를 향상시킬 미래 자본적지출의 효과는 포함하지 않으며, 현재 상태의 성과 유지에 필요한 지출은 포함한다.", keywords:["향상","포함","금지","확약","제외","유지"], needAll:false, needCount:2},
+       {text:"폐수처리·정기보수·잔존가치 포함은 적절 — 성능 유지 + 처분 현금흐름", ref:"K-IFRS 1036 문단 39", stdText:"미래현금흐름에는 자산의 계속 사용 현금유입, 성과 유지 현금유출, 내용연수 종료 시 처분 순현금흐름을 포함한다.", keywords:["유지","처분","잔존","보수","포함"], needAll:false, needCount:2},
+       {text:"재평가모형: 잉여금 80억까지 기타포괄, 초과 40억 당기손익 — 적절", ref:"K-IFRS 1036 문단 59~61", stdText:"재평가모형 자산의 손상차손은 재평가잉여금 범위에서 기타포괄손익 처리, 초과분은 당기손익.", keywords:["재평가","잉여금","기타포괄","당기손익","80","40"], needAll:false, needCount:3}
+     ],
+     modelAnswer:"이 케이스에서 감사인의 판단은 전체적으로 적절합니다.\n\n손상 징후와 관련하여, 환경부의 규제 강화는 문단 12(b)에서 규정하는 자산이 영업활동을 영위하는 법률적 환경에 유의적으로 불리한 변화가 발생한 경우에 해당하므로, 이를 외부 손상 징후로 인식한 것은 적절합니다.\n\n사용가치 산정 시 현금흐름의 포함과 제외에 대해서는, 문단 44에 따라 확약되지 않은 성과개선 효과는 포함할 수 없습니다. 반응기 교체는 이사회 승인이 있었으나 아직 발주하지 않았으므로 확약으로 보기 어려우며, 이로 인한 수율 30% 향상 효과를 현금흐름에서 제외한 것은 적절합니다. 반면 문단 39에 따르면 자산의 계속 사용에서 기대되는 현금유입과 성과를 유지하기 위한 현금유출, 그리고 내용연수 종료 시 처분에서 수취할 순현금흐름은 포함해야 합니다. 환경 규제 대응을 위한 폐수처리 설비 80억원은 조업정지를 방지하기 위한 현재 성능 유지에 필수적인 지출이므로 포함이 적절하고, 연간 정기보수비 50억원과 부지 잔존가치 200억원의 포함도 문단 39에 부합합니다.\n\n손상차손 120억원의 회계처리와 관련하여, 이 플랜트는 재평가모형을 적용하고 있으므로 문단 60이 아닌 문단 61을 적용해야 합니다. 문단 61에 따르면 재평가모형을 적용하는 자산의 손상차손은 해당 자산의 재평가잉여금 범위에서 기타포괄손익으로 처리하고, 잉여금을 초과하는 금액은 당기손익으로 인식합니다. 따라서 재평가잉여금 80억원까지는 기타포괄손익으로 차감하고, 초과분 40억원만 당기손익으로 인식하는 것이 올바르며, 감사인의 처리는 이에 부합합니다."
+    },
+
+    {id:5, tag:"CGU 전체 — 독립CF·활성시장·장부금액·모니터링",
+     situation:"(주)삼화물산 — 건설자재·레미콘·골재 (감사 2년차)",
+     question:"경영기획실 회의에 배석했는데, 회사가 건설자재, 레미콘, 골재 세 개 사업을 하고 있다고 한다. 건설자재는 아파트 시공사한테 직접 팔고, 레미콘은 현장별로 단가 계약해서 배송하고, 골재는 자체 채석장에서 캐서 70%를 레미콘 원재료로 쓰고 나머지 30%는 골재 현물시장에서 판다고 한다. 골재 현물시장이 꽤 활발하다고 한다. 실적 관리는 사업부별로 하고 있고 사업부장이 가격이나 투자도 독립적으로 결정한다.\n\n재무팀 자료를 보니 손상검사 시 경영진은 세 사업부를 하나의 CGU로 봤다. 이유는 골재가 레미콘 원재료로 내부이전되니까 독립적이지 않다는 것이다. CGU 장부금액에는 유형자산과 무형자산만 포함했고, 운전자본은 빠져 있다. 매출채권이 150억, 재고가 80억, 매입채무가 60억이다.",
+     keyPoints:[
+       {text:"", ref:"K-IFRS 1036 문단 69", stdText:"CGU를 식별할 때는 경영진이 기업의 영업활동을 모니터링하는 방식과 자산의 계속 사용 또는 처분에 대한 의사결정 방식을 고려한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 70", stdText:"산출물에 대한 활성시장이 존재하면, 산출물의 일부 또는 전부가 내부적으로 사용되더라도 별도의 현금창출단위로 식별한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 75", stdText:"현금창출단위의 장부금액은 그 단위에 직접 귀속시키거나 합리적이고 일관된 기준으로 배분할 수 있는 자산의 장부금액만을 포함한다.", keywords:[], needAll:false, needCount:0},
+       {text:"각 사업부가 독립적 손익관리+의사결정 → 별도 CGU 식별", ref:"K-IFRS 1036 문단 66~68", stdText:"현금창출단위는 다른 자산집단의 현금유입과 거의 독립적인 현금유입을 창출하는 최소 자산집단이다.", keywords:["독립","현금유입","별도","CGU","최소"], needAll:false, needCount:3},
+       {text:"경영진 모니터링·의사결정 방식이 사업부별이면 CGU도 사업부별", ref:"K-IFRS 1036 문단 69~72", stdText:"CGU 식별 시 경영진의 모니터링 방식과 의사결정 방식을 고려하며, 일단 식별한 CGU는 일관되게 유지한다.", keywords:["모니터링","의사결정","일관","사업부"], needAll:false, needCount:2},
+       {text:"골재 현물시장(활성시장) 존재 → 70% 내부이전이어도 별도 CGU", ref:"K-IFRS 1036 문단 70", stdText:"산출물에 대한 활성시장이 존재하면 내부 사용되더라도 별도 현금창출단위로 식별한다.", keywords:["활성시장","내부","별도","골재","70"], needAll:false, needCount:2},
+       {text:"운전자본은 CGU 장부금액에 포함해야 함 — '실무 관행'은 근거 안 됨", ref:"K-IFRS 1036 문단 75~79", stdText:"현금창출단위의 장부금액은 직접 귀속시키거나 합리적으로 배분할 수 있는 자산의 장부금액만을 포함한다.", keywords:["장부금액","운전자본","포함","귀속","배분","75"], needAll:false, needCount:2}
+     ],
+     modelAnswer:"현금창출단위의 식별과 관련하여, 문단 66에 따르면 현금창출단위는 다른 자산이나 자산집단에서의 현금유입과 거의 독립적인 현금유입을 창출하는 식별가능한 최소 자산집단입니다. 건설자재, 레미콘, 골재 세 사업부는 각각 별도의 손익을 관리하고 사업부장이 가격과 투자를 독립적으로 결정하고 있으므로, 문단 69에 따라 경영진의 모니터링 방식과 의사결정 방식을 고려할 때 각각 별도의 현금창출단위로 식별해야 합니다. \n\n특히 골재 사업부의 경우, 산출물의 70%가 레미콘 원재료로 내부이전되고 있으나 골재 현물시장이라는 활성시장이 존재합니다. 문단 70은 산출물에 대한 활성시장이 존재한다면 산출물의 일부 또는 전부가 내부적으로 사용되더라도 그 자산이나 자산집단을 별도의 현금창출단위로 식별하도록 규정하고 있습니다. 따라서 골재의 내부이전은 CGU를 통합하는 근거가 될 수 없으며, 골재 사업부도 별도 CGU입니다.\n\nCGU의 장부금액 산정과 관련하여, 문단 75에 따르면 현금창출단위의 장부금액은 그 단위에 직접 귀속시키거나 합리적이고 일관된 기준으로 배분할 수 있는 자산의 장부금액만을 포함합니다. 매출채권, 재고자산, 매입채무 등 운전자본은 각 사업부에 직접 귀속되는 자산이자 부채이므로 CGU 장부금액에 반드시 포함해야 합니다. 실무 관행이라는 이유로 제외하는 것은 기준서의 근거가 되지 않으며, 운전자본을 제외하면 CGU 장부금액이 과소 산정되어 손상차손이 적게 인식될 수 있습니다."
+    },
+
+    {id:6, tag:"영업권 의무검사·배분단위·검사시기",
+     situation:"(주)메디코어 — 바이오 그룹 (감사 1년차)",
+     question:"인수합병팀 자료를 보니 작년에 바이오랩을 인수했는데 영업권이 300억이라고 한다. 시너지는 주로 진단키트 쪽에서 나올 거라 진단 부문에 전액 배분했다고 한다. 근데 사실 의료기기 부문에서도 바이오랩의 센서 기술을 활용해서 차세대 장비를 개발하고 있는데, 간접적인 시너지라 배분에 넣지 않았다고 한다.\n\n경영기획실에서 확인해 보니 진단 부문은 내부적으로 신속진단팀이랑 PCR진단팀으로 나눠서 관리하고 있다. 각각 별도 실적보고를 하고 있고, 보고부문은 진단 하나로 묶여 있다.\n\n재무팀장을 만나서 얘기를 들어보니 영업권 손상검사를 12월 말 기준으로 하려고 했는데 결산이 바빠서 3월에 할 예정이라고 한다. 작년에는 10월에 했었다고 한다. 올해는 특별히 나쁜 징후가 없으니 시간 여유 있을 때 해도 되지 않겠냐는 것이다.",
+     keyPoints:[
+       {text:"", ref:"K-IFRS 1036 문단 80", stdText:"사업결합에서 취득한 영업권은 취득일에 시너지 효과가 귀속될 것으로 기대되는 각 현금창출단위에 배분하며, 내부적으로 관리하는 최하위 수준이되 보고부문보다 클 수 없다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 88", stdText:"영업권이 배분된 현금창출단위는 매년 같은 시기에 손상검사를 수행하여야 한다.", keywords:[], needAll:false, needCount:0},
+       {text:"영업권은 징후 유무 관계없이 매년 손상검사 의무 — '징후 없으니 연기'는 불가", ref:"K-IFRS 1036 문단 10", stdText:"사업결합에서 취득한 영업권은 징후 유무에 관계없이 매년 손상검사를 수행하여야 한다.", keywords:["매년","의무","영업권","징후","관계없이","10"], needAll:false, needCount:3},
+       {text:"영업권 배분 = 시너지 귀속 CGU, 내부관리 최하위 수준 ≤ 보고부문", ref:"K-IFRS 1036 문단 80~87", stdText:"영업권은 시너지 효과가 귀속될 CGU에 배분하며, 내부적으로 관리하는 최하위 수준이되 보고부문보다 클 수 없다.", keywords:["시너지","배분","최하위","보고부문","관리","80"], needAll:false, needCount:3},
+       {text:"매년 같은 시기에 검사 — 작년 10월이면 올해도 10월에 수행해야", ref:"K-IFRS 1036 문단 88~95", stdText:"영업권이 배분된 CGU는 매년 같은 시기에 손상검사를 하며, 시너지가 여러 단위에 귀속되면 합리적으로 배분해야 한다.", keywords:["같은 시기","매년","10월","시기","88"], needAll:false, needCount:2}
+     ],
+     modelAnswer:"영업권의 손상검사 시기와 관련하여, 문단 10은 사업결합에서 취득한 영업권은 손상을 시사하는 징후가 있는지에 관계없이 매년 손상검사를 수행하여야 한다고 규정하고 있습니다. 따라서 올해 특별한 징후가 없다 하더라도 영업권 손상검사를 반드시 수행해야 하며, 결산이 바쁘다는 이유로 3월까지 연기하는 것은 허용되지 않습니다. 문단 88에 따르면 영업권이 배분된 현금창출단위는 매년 같은 시기에 손상검사를 수행해야 하므로, 작년에 10월에 수행했다면 올해도 10월에 수행하는 것이 적절합니다.\n\n\n\n영업권의 배분 단위와 관련하여, 문단 80은 영업권을 시너지 효과가 귀속될 것으로 기대되는 각 현금창출단위에 배분하되, 그 배분 단위는 기업 내부적으로 영업권을 관리하는 최하위 수준이어야 한다고 규정합니다. 진단 부문을 내부적으로 신속진단팀과 PCR진단팀으로 나누어 별도 실적보고를 하고 있다면, 이 두 단위가 내부관리 최하위 수준에 해당할 수 있으므로 배분 단위를 재검토해야 합니다. \n\n또한 의료기기 부문에서 바이오랩의 센서 기술을 활용한 차세대 장비를 개발하고 있다면 이는 인수로 인한 시너지 효과이므로, 문단 80에 따라 의료기기 부문에도 영업권을 배분해야 합니다. 간접적 시너지라는 이유로 배분에서 제외하는 것은 기준서에 부합하지 않습니다."
+    },
+
+    {id:7, tag:"CGU변경·공통자산·배분순서·하한",
+     situation:"(주)TK모빌리티 — 자동차 부품 (감사 3년차)",
+     question:"전략기획팀에서 공지가 왔는데, 올해 내연기관부품 사업부랑 전기차부품 사업부를 합쳐서 파워트레인 사업부로 통합했다고 한다. 내연기관 쪽에 영업권 150억이 배분되어 있었는데 통합하면서 그냥 그대로 두고 있다고 한다.<!--TABLE-->\n\n관리회계팀에 확인해 보니 본사 R&D센터 장부금액이 100억인데 파워트레인 사업부가 매출 기준 60%를 사용하고 있다고 한다. 손상검사에 R&D센터는 빼고 했는데, 이게 맞는 건지 모르겠다고 하면서 작년에도 그렇게 했다고 한다.\n\n감사팀 내부 토론에서 회수가능액이 700억 나왔는데 손상차손을 어떻게 배분해야 하는지 논의가 됐다. 영업권을 먼저 빼야 하는 거 아니냐는 의견이 있었는데, 이사님이 시너지가 아직 살아있으니 영업권은 건드리지 말라고 했다고 한다. 그러면 유형자산이랑 무형자산에만 비례 배분하면 되는 거냐는 질문이 나왔다.",
+     tableHTML:"<table class='q-table'><thead><tr><th>자산</th><th>장부금액</th><th>순공정가치</th></tr></thead><tbody><tr><td>영업권</td><td>150억</td><td>-</td></tr><tr><td>유형자산(설비)</td><td>500억</td><td>400억</td></tr><tr><td>특허권(무형)</td><td>200억</td><td>120억</td></tr><tr><td>합계</td><td>850억</td><td>-</td></tr></tbody></table>",
+     keyPoints:[
+       {text:"", ref:"K-IFRS 1036 문단 100", stdText:"공통자산의 장부금액 중 합리적이고 일관된 기준으로 현금창출단위에 배분할 수 있는 부분은 CGU 장부금액에 포함한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 104", stdText:"현금창출단위에 대한 손상차손은 먼저 해당 단위에 배분된 영업권의 장부금액을 감소시키고, 그 다음 다른 자산에 비례 배분한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 105", stdText:"개별 자산의 장부금액은 순공정가치, 사용가치, 영(0) 중 가장 큰 금액 아래로 감소시킬 수 없다.", keywords:[], needAll:false, needCount:0},
+       {text:"CGU 통합 시 영업권을 상대적 가치 기준으로 재배분해야 함", ref:"K-IFRS 1036 문단 96~99", stdText:"현금창출단위의 구성이 변경되면 영업권은 영향받는 단위에 상대적 가치에 기초하여 재배분한다.", keywords:["재배분","구성","변경","상대적","96"], needAll:false, needCount:2},
+       {text:"공통자산(R&D) 60%를 CGU 장부금액에 포함해야 함", ref:"K-IFRS 1036 문단 100~102", stdText:"공통자산의 장부금액 중 합리적으로 배분할 수 있는 부분은 CGU 장부금액에 포함한다.", keywords:["공통자산","R&D","배분","포함","100"], needAll:false, needCount:2},
+       {text:"손상차손은 반드시 영업권부터 차감 — 경영진 지시로 순서 변경 불가", ref:"K-IFRS 1036 문단 104", stdText:"CGU 손상차손은 먼저 영업권의 장부금액을 감소시키고, 다음 다른 자산에 비례 배분한다.", keywords:["영업권","먼저","차감","비례","104","순서"], needAll:false, needCount:3},
+       {text:"비례 배분 시 개별 자산의 하한(순공정가치·사용가치·0 중 큰 금액) 검토 필수", ref:"K-IFRS 1036 문단 105", stdText:"개별 자산의 장부금액은 순공정가치, 사용가치, 영(0) 중 가장 큰 금액 아래로 감소시킬 수 없다.", keywords:["하한","순공정가치","0","105","감소"], needAll:false, needCount:3}
+     ],
+     modelAnswer:"현금창출단위의 구성 변경과 관련하여, 문단 96은 현금창출단위의 구성이 변경되는 경우 영업권을 영향을 받는 각 단위에 재배분하도록 규정하고 있습니다. 내연기관부품 사업부와 전기차부품 사업부를 파워트레인 사업부로 통합한 것은 CGU 구성의 변경에 해당하므로, 영업권 150억원을 상대적 가치에 기초하여 재배분해야 합니다. 통합했으니 그대로 둔다는 접근은 부적절합니다.\n\n공통자산의 처리와 관련하여, 문단 100은 공통자산의 장부금액 중 합리적이고 일관된 기준으로 현금창출단위에 배분할 수 있는 부분은 해당 CGU의 장부금액에 포함하도록 규정하고 있습니다. 본사 R&D센터는 파워트레인 사업부가 매출 기준 60%를 사용하고 있으므로, 장부금액 100억원의 60%인 60억원을 CGU 장부금액에 포함해야 합니다. 이를 포함하면 CGU 장부금액은 910억원이 되고, 회수가능액 700억원과의 차이인 210억원이 손상차손입니다.\n\n손상차손의 배분과 관련하여, 문단 104는 현금창출단위에 대한 손상차손을 먼저 해당 단위에 배분된 영업권의 장부금액을 감소시키는 데 배분하고, 그 다음 단위에 속하는 다른 자산에 각각의 장부금액에 비례하여 배분하도록 규정하고 있습니다. 경영진이 시너지가 살아있다는 이유로 영업권을 건드리지 말라고 지시했더라도, 이는 기준서의 배분 순서를 변경하는 근거가 되지 않습니다. 영업권 150억원을 먼저 전액 차감하고, 잔여 60억원을 유형자산과 특허권에 장부금액 비례로 배분합니다. 이 과정에서 문단 105의 하한 규정을 적용하여, 각 개별 자산의 장부금액이 순공정가치, 사용가치, 영 중 가장 큰 금액 아래로 감소하지 않는지 확인해야 합니다."
+    },
+
+    {id:8, tag:"환입사유·환입한도·감가상각 재산정",
+     situation:"(주)스카이모빌 — 디스플레이 부품 (감사 2년차)",
+     question:"전임 감사인 조서를 보니 20X1년에 생산라인을 취득원가 600억, 10년 정액법, 잔존가치 0으로 취득했고, 취득 후 3년이 경과한 시점에 장부금액이 420억이었다고 한다. 스마트폰 침체로 회수가능액을 350억으로 산정해서 손상차손 70억을 인식했고, 감액 후 350억에서 잔여 7년으로 재산정해서 연간 50억씩 상각하고 있었다.\n\n올해 재무팀에서는 지금이 20X3년 말이라고 한다. 350억에서 2년간 감가상각 100억을 빼서 장부금액이 250억이고, 손상을 안 했으면 420억에서 60억씩 2년이니 300억이었을 거라고 한다. 올해 OLED 수요가 살아나서 회수가능액이 380억 나왔다고 한다.\n\n경영진과 감사팀 회의에서 환입 가능한 거 맞냐는 질문이 나왔다. 회수가능액이 380억이니까 380억에서 250억을 빼면 130억을 환입하면 된다는 얘기가 오갔고, 추정치가 변동된 거니까 환입 사유도 충족된다는 분위기였다.",
+     keyPoints:[
+       {text:"", ref:"K-IFRS 1036 문단 117", stdText:"환입으로 증가된 장부금액은 과거에 손상차손을 인식하지 않았더라면 결정되었을 장부금액(감가상각 차감 후)을 초과할 수 없다.", keywords:[], needAll:false, needCount:0},
+       {text:"환입 사유(추정치 변동) 판단은 적절", ref:"K-IFRS 1036 문단 110~111", stdText:"영업권 이외의 자산에 대해 과거 손상차손이 감소했을 수 있음을 나타내는 징후를 평가한다. 추정치에 변동이 있는 경우에만 환입한다.", keywords:["환입","추정","변동","징후","110"], needAll:false, needCount:2},
+       {text:"환입 한도 = 손상 미인식 시 장부금액(감가상각 차감) = 300억", ref:"K-IFRS 1036 문단 117", stdText:"환입으로 증가된 장부금액은 손상차손을 인식하지 않았더라면 결정되었을 장부금액(감가상각 차감 후)을 초과할 수 없다.", keywords:["300","한도","미인식","감가상각","117","초과"], needAll:false, needCount:3},
+       {text:"올바른 환입 = 300-250 = 50억 (130억 아님)", ref:"K-IFRS 1036 문단 117", stdText:"", keywords:["50","환입","250","300","130"], needAll:false, needCount:3}
+     ],
+     modelAnswer:"손상차손 환입의 사유와 관련하여, 문단 110은 매 보고기간말에 영업권 이외의 자산에 대하여 과거에 인식한 손상차손이 더 이상 존재하지 않거나 감소하였을 수 있음을 나타내는 징후가 있는지를 평가하도록 규정하고 있습니다. OLED 시장의 수요 회복은 과거 손상차손을 인식하는 데 사용한 추정치에 변동이 발생한 것이므로 환입 사유는 존재합니다. 이 부분에서 감사인의 판단은 적절합니다. \n\n그러나 환입 금액의 산정에서 오류가 있습니다. 문단 117은 손상차손의 환입으로 증가된 자산의 장부금액은 과거에 손상차손을 인식하지 않았더라면 결정되었을 장부금액을 초과하여서는 안 된다고 규정하고 있습니다. 이 장부금액은 감가상각이나 상각을 차감한 후의 금액입니다. 손상을 인식하지 않았을 경우의 장부금액을 계산하면, 취득원가 600억원에서 5년간의 정상 감가상각 누계액 300억원을 차감한 300억원입니다. 현재 장부금액이 250억원이므로, 환입 가능한 최대 금액은 300억원에서 250억원을 차감한 50억원입니다. 회수가능액이 380억원으로 산정되었더라도 문단 117의 한도 규정에 의해 장부금액은 300억원까지만 회복할 수 있습니다. 감사인이 산정한 130억원은 이 한도를 무시한 오류이며, 환입 후 장부금액을 380억원으로 조정하는 것은 기준서에 부합하지 않습니다."
+    },
+
+    {id:9, tag:"영업권 환입 불가 + 유형자산 환입 구분",
+     situation:"(주)넥스트웨어 — SaaS 인수 후 실적 변동 (감사 2년차)",
+     question:"IR팀 보도자료를 보니 당사가 3년 전 인수한 코드랩의 AI 보안 솔루션이 정부 조달 시장에서 대규모 수주에 성공하여 매출이 전기 대비 300% 증가했다고 되어 있다.\n\n재무팀한테 이메일이 왔는데, 작년에 코드랩 영업권 150억을 전액 손상처리했다고 한다. 교차판매 시너지가 안 나온다는 이유에서였다. 근데 이번에 AI 솔루션 때문에 CGU 회수가능액이 장부금액보다 200억 넘게 초과했다고 한다. 이사님이 영업권을 환입하라고 하시는데 맞는 건지 물어보고 있고, 서버 장비도 작년에 30억 손상처리했는데 같이 환입하면 되냐고 한다.\n\nCFO 지시사항이 내려왔는데, 영업권 150억은 문단 110에 따라 추정치 변동이니 환입 가능하다는 것이고, 서버도 같이 처리하라고 되어 있다.",
+     keyPoints:[
+       {text:"", ref:"K-IFRS 1036 문단 125", stdText:"영업권에 대한 후속 기간의 회수가능액 증가는 이전 손상차손의 환입이 아니라 내부적으로 창출한 영업권의 증가일 가능성이 높다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 110", stdText:"매 보고기간말 영업권 이외의 자산에 대해 과거 손상차손이 감소했을 수 있음을 나타내는 징후를 평가한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 117", stdText:"환입으로 증가된 장부금액은 과거에 손상차손을 인식하지 않았더라면 결정되었을 장부금액(감가상각 차감 후)을 초과할 수 없다.", keywords:[], needAll:false, needCount:0},
+       {text:"영업권 손상차손은 어떤 경우에도 환입 불가", ref:"K-IFRS 1036 문단 124", stdText:"영업권에 대하여 인식한 손상차손은 후속 기간에 환입하여서는 안 된다.", keywords:["영업권","환입","불가","124"], needAll:false, needCount:3},
+       {text:"회수가능액 증가는 내부창출 영업권 — 과거 취득 영업권 회복 아님", ref:"K-IFRS 1036 문단 125", stdText:"후속 기간의 회수가능액 증가는 이전 손상차손의 환입이 아니라 내부적으로 창출한 영업권의 증가일 가능성이 높다.", keywords:["내부창출","과거","회복","125"], needAll:false, needCount:2},
+       {text:"유형자산은 별개로 환입 검토 가능 — 추정치 변동 시 한도 내", ref:"K-IFRS 1036 문단 110~111, 117", stdText:"영업권 이외의 자산은 추정치에 변동이 있는 경우에만 환입하며, 한도를 초과할 수 없다.", keywords:["유형자산","별개","환입","한도","서버"], needAll:false, needCount:2}
+     ],
+     modelAnswer:"이 케이스에서 감사인의 판단은 적절합니다. 영업권의 손상차손 환입과 관련하여, 문단 124는 영업권에 대하여 인식한 손상차손은 후속 기간에 환입하여서는 안 된다고 명확히 규정하고 있습니다. CFO가 문단 110의 추정치 변동을 근거로 영업권 환입을 지시했으나, 문단 110의 환입 규정은 영업권 이외의 자산에만 적용됩니다. 문단 125는 그 이유를 설명하는데, 영업권에 대하여 후속 기간에 인식하게 될 회수가능액의 증가는 이전에 인식한 손상차손의 환입이 아니라 내부적으로 창출한 영업권의 증가일 가능성이 높다고 합니다. 코드랩의 AI 보안 솔루션 성공은 인수 당시 기대했던 교차판매 시너지와는 전혀 다른 사업에서 발생한 새로운 가치이므로, 이는 내부창출 영업권에 해당하며 과거 취득한 영업권의 회복이 아닙니다.\n\n한편 서버 장비는 유형자산으로서 영업권과는 별개의 기준을 적용해야 합니다. 문단 110에 따라 수주 증가에 따른 서버 가동률 상승이 과거 추정치의 변동에 해당하는지를 별도로 분석하고, 환입 사유가 인정된다면 문단 117의 한도 내에서 환입을 처리해야 합니다. 감사인이 영업권과 유형자산을 구분하여 각각의 기준서 요건을 적용한 것은 정확한 접근입니다."
+    },
+
+    {id:10, tag:"종합 — 전 영역 복합 판단",
+     situation:"(주)한양정밀 — 반도체 장비 (감사 1년차, 종합 시나리오)",
+     question:"전임 감사인한테 인수인계 전화를 받았는데, 한양정밀에 세 개 사업부가 있다고 한다. 식각장비, 증착장비, 세정장비인데 식각이 제일 크고 증착은 적자라고 한다. 2년 전에 일본 회사를 인수해서 영업권 200억이 식각장비 부문에 붙어 있고, 증착장비 생산라인에 작년 손상차손 60억을 잡았다고 한다. 취득원가 400억에 8년 정액법이었고 손상 당시 장부금액 280억에서 220억으로 감액했다고 한다.\n\n사업부장을 만나보니 식각장비는 삼성과 SK한테 독점 납품하는데 올해 반도체 투자 축소 발표가 나와서 수주가 30% 줄었다고 한다. 증착은 더 안 좋고 세정장비는 중국 수출이 늘어서 괜찮다고 한다. 그런데 증착 라인이 올해 갑자기 좋아졌는데, 중국 OLED향 수출이 터져서 회수가능액이 300억 나왔다고 한다. 손상을 안 했으면 장부금액이 250억이었을 거라고 한다.\n\nCFO 보고를 보니 식각장비 CGU 사용가치를 8개년 계획으로 산정했고, 할인율은 동종업계 WACC 10.2%인데 세후 기준이라고 한다. 영구성장률은 4%로 잡았는데, 반도체 장비가 성장 산업이라는 이유에서다. 내년 신규 EUV 장비 라인 증설 효과도 현금흐름에 반영했는데 아직 계약은 안 됐다고 한다.\n\n재무팀에서 추가로 얘기하길, 영업권 200억은 올해 특별히 나쁜 게 없어서 손상검사를 안 했다고 한다. 증착 환입은 회수가능액 300억에서 현재 장부금액을 빼면 된다는 입장인데, 현재 장부금액은 220억에서 감액 후 감가상각 1년분을 빼서 190억이라고 한다.",
+     keyPoints:[
+       {text:"", ref:"K-IFRS 1036 문단 33", stdText:"미래현금흐름 추정치는 경영진이 승인한 가장 최근의 재무예산에 기초하되 최장 5년을 포괄하여야 하며, 합리적이고 뒷받침할 수 있는 가정에 기초하여야 한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 36", stdText:"5년을 초과하는 기간의 미래현금흐름은 일정하거나 체감하는 성장률을 사용하여 추정하며, 그 성장률은 산업·국가의 장기평균성장률을 초과해서는 안 된다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 44", stdText:"확약되지 않은 구조조정이나 자산의 성과를 향상시킬 것으로 기대되는 미래의 현금흐름은 추정치에 포함하여서는 안 된다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 55", stdText:"할인율은 화폐의 시간가치와 그 자산의 특유한 위험에 대한 현행 시장의 평가를 반영한 세전 이율이어야 한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 10", stdText:"사업결합에서 취득한 영업권과 비한정 내용연수 무형자산은 손상을 시사하는 징후가 있는지에 관계없이 매년 손상검사를 수행하여야 한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 110", stdText:"매 보고기간말 영업권 이외의 자산에 대해 과거 손상차손이 감소했을 수 있음을 나타내는 징후를 평가한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1036 문단 117", stdText:"환입으로 증가된 장부금액은 과거에 손상차손을 인식하지 않았더라면 결정되었을 장부금액(감가상각 차감 후)을 초과할 수 없다.", keywords:[], needAll:false, needCount:0},
+       {text:"수주 30% 감소 + 고객사 투자 축소 = 외부 손상 징후", ref:"K-IFRS 1036 문단 9, 12", stdText:"자산에 손상 징후가 있으면 회수가능액을 추정해야 한다. 환경의 불리한 변화, 경제적 성과 악화는 징후에 해당한다.", keywords:["징후","수주","감소","손상","환경","12"], needAll:false, needCount:2},
+       {text:"8개년은 최장 5년 위반 / 미계약 EUV 증설 = 확약 안 된 성과개선 → 포함 불가", ref:"K-IFRS 1036 문단 33, 44", stdText:"추정 기간은 최장 5년이며, 확약되지 않은 성과개선 효과는 포함할 수 없다.", keywords:["5년","8년","확약","포함","증설"], needAll:false, needCount:2},
+       {text:"세후 WACC → 세전 필요 / 영구성장률 4%는 장기 평균 초과 검증 필요", ref:"K-IFRS 1036 문단 36~38, 55", stdText:"영구성장률은 장기평균성장률을 초과할 수 없으며, 할인율은 세전 이율이어야 한다.", keywords:["세전","세후","성장률","장기","4%","WACC"], needAll:false, needCount:3},
+       {text:"영업권은 매년 의무 검사 — '나쁜 게 없어서'는 면제 사유 안 됨", ref:"K-IFRS 1036 문단 10", stdText:"영업권은 징후 유무에 관계없이 매년 손상검사를 수행하여야 한다.", keywords:["매년","의무","영업권","10","관계없이"], needAll:false, needCount:3},
+       {text:"증착 환입 한도 = 손상 미인식 시 장부금액 250억. 환입 = 250-190 = 60억 (110억 아님)", ref:"K-IFRS 1036 문단 117", stdText:"환입 후 장부금액은 손상차손을 인식하지 않았더라면 결정되었을 장부금액을 초과할 수 없다.", keywords:["250","60","한도","환입","190","117"], needAll:false, needCount:3}
+     ],
+     modelAnswer:"우선 손상 징후를 판단합니다. 주요 고객사인 삼성과 SK의 반도체 투자 축소 발표와 그에 따른 수주 30% 감소는 문단 12(b)의 시장 환경의 불리한 변화에 해당하는 외부 손상 징후입니다. 이를 일시적이라는 이유로 무시하는 것은 부적절하며, 문단 9에 따라 손상검사를 수행해야 합니다.\n\n사용가치 산정과 관련하여, 경영진이 8개년 계획을 사용한 것은 문단 33이 규정하는 최장 5년을 초과하므로 기준서 위반입니다. 5년을 넘는 기간에 대해서는 문단 36에 따라 영구성장률을 적용해야 합니다. 경영진이 적용한 영구성장률 4%에 대해서는, 문단 36이 해당 산업이나 국가의 장기평균성장률을 초과해서는 안 된다고 규정하고 있으므로, 반도체 장비 산업의 장기 평균 성장률과 비교하여 적정성을 검증해야 합니다. 또한 내년 신규 EUV 장비 라인 증설은 아직 계약이 체결되지 않았으므로, 문단 44에 따라 확약되지 않은 성과개선 효과에 해당하며 현금흐름에 포함할 수 없습니다.\n\n할인율과 관련하여, 동종업계 WACC 10.2%가 세후 기준이므로 문단 55에 따라 세전 할인율로 조정해야 합니다.\n\n영업권 손상검사와 관련하여, 문단 10은 영업권은 징후 유무에 관계없이 매년 손상검사를 수행하도록 규정하고 있습니다. 올해 특별히 나쁜 것이 없다는 것은 면제 사유가 되지 않으며, 영업권 200억원에 대한 손상검사를 반드시 수행해야 합니다.\n\n증착장비 생산라인의 손상차손 환입과 관련하여, 중국 OLED향 수출 호조로 인한 추정치 변동은 문단 110에 따라 환입 사유에 해당합니다. 그러나 문단 117에 따르면 환입 후 장부금액은 손상을 인식하지 않았더라면 결정되었을 장부금액을 초과할 수 없습니다. 손상 미인식 시 장부금액은 250억원이므로, 환입 가능 금액은 250억원에서 현재 장부금액 190억원을 차감한 60억원입니다. 회수가능액이 300억원이더라도 한도 규정에 의해 장부금액은 250억원까지만 회복 가능하며, 감사인이 산정한 110억원은 한도를 무시한 오류입니다."
+    }
+  ]
+}
+
+,
+
+// ─────────────────────────────────────────────────
+// K-IFRS 1028 관계기업과 공동기업에 대한 투자
+// ─────────────────────────────────────────────────
+// K-IFRS 1028 관계기업과 공동기업에 대한 투자
+// Schema v1.1 compliant
+
+"K-IFRS 1028": {
+  code:"K-IFRS 1028", name:"관계기업과 공동기업에 대한 투자",
+  desc:"유의적인 영향력, 지분법, 내부거래 제거, 손실인식 한도, 손상검사",
+
+  flowDiagram: {
+    title: "지분법 적용 판단 흐름",
+    subtitle: "왼쪽: 판단 단계 (위→아래) · 오른쪽: 세부사항",
+    nodes: [
+      {id:"s1", label:"STEP 1", sub:"유의적인 영향력 있는가?", color:"purple", x:20, y:30, w:200, h:56,
+       notes:["문단 5~9","의결권 20% 이상 → 추정","이사회 참여, 정책결정 참여 등"]},
+      {id:"s1n", label:"", sub:"No → K-IFRS 1109 적용", color:"gray", x:530, y:42, w:180, h:36, notes:[]},
+      {id:"s2", label:"STEP 2", sub:"지분법 면제 요건 충족?", color:"purple", x:20, y:140, w:200, h:56,
+       notes:["문단 17~19","연결면제 지배기업, 벤처캐피탈 등"]},
+      {id:"s2n", label:"", sub:"Yes → 면제 (공정가치 선택 가능)", color:"amber", x:530, y:152, w:210, h:36, notes:[]},
+      {id:"s3", label:"STEP 3", sub:"매각예정 분류?", color:"teal", x:20, y:250, w:200, h:56,
+       notes:["문단 20~21","K-IFRS 1105 적용","잔여지분은 지분법 계속"]},
+      {id:"s4", label:"STEP 4", sub:"지분법 적용", color:"coral", x:20, y:360, w:200, h:56,
+       notes:["문단 10, 26~39","원가 인식 → 순자산변동 반영","내부거래 제거, 회계정책 통일"]},
+      {id:"s5", label:"STEP 5", sub:"손실인식 한도", color:"coral", x:20, y:470, w:200, h:56,
+       notes:["문단 38~39","투자지분+장기투자지분까지","영(0) 도달 시 인식 중단"]},
+      {id:"s6", label:"STEP 6", sub:"손상검사", color:"amber", x:20, y:580, w:200, h:56,
+       notes:["문단 40~43","단일자산으로 손상검사","영업권 별도 분리 불가"]},
+      {id:"s7", label:"STEP 7", sub:"지분법 중단 판단", color:"purple", x:20, y:690, w:200, h:56,
+       notes:["문단 22~25","종속기업 전환 → K-IFRS 1103","잔여지분 공정가치 측정","기타포괄손익 재분류"]}
+    ],
+    edges: [
+      {from:"s1", to:"s2", label:"Yes", labelColor:"green"},
+      {from:"s1", to:"s1n", label:"No", labelColor:"red", dir:"right"},
+      {from:"s2", to:"s3", label:"No", labelColor:"green"},
+      {from:"s2", to:"s2n", label:"Yes", labelColor:"red", dir:"right"},
+      {from:"s3", to:"s4"},
+      {from:"s4", to:"s5"},
+      {from:"s5", to:"s6"},
+      {from:"s6", to:"s7"}
+    ],
+    viewBox: "0 0 780 800"
+  },
+
+  oxQuiz: [
+    // ── 유의적인 영향력 (문단 5~9) ──
+    {statement:"기업이 피투자자에 대한 의결권의 20% 이상을 소유하고 있다면 반드시 유의적인 영향력을 보유하는 것이다.", answer:false, ref:"문단 5", wrongPart:"'반드시'가 틀림 — 유의적인 영향력이 없다는 사실을 명백하게 제시할 수 있으면 예외", stdText:"기업이 의결권의 20% 이상을 소유하고 있다면 유의적인 영향력을 보유하는 것으로 본다. 다만 유의적인 영향력이 없다는 사실을 명백하게 제시할 수 있는 경우는 그러하지 아니하다."},
+    {statement:"기업이 피투자자에 대한 의결권의 20% 미만을 소유하고 있다면 유의적인 영향력이 없는 것으로 본다. 다만 유의적인 영향력을 보유하고 있다는 사실을 명백하게 제시할 수 있는 경우는 그러하지 아니하다.", answer:true, ref:"문단 5", wrongPart:"", stdText:"기업이 의결권의 20% 미만을 소유하고 있다면 유의적인 영향력이 없는 것으로 본다. 다만 유의적인 영향력을 보유하고 있다는 사실을 명백하게 제시할 수 있는 경우는 그러하지 아니하다."},
+    {statement:"다른 투자자가 피투자자의 주식을 과반수 이상 소유하고 있으면, 기업은 유의적인 영향력을 보유할 수 없다.", answer:false, ref:"문단 5", wrongPart:"다른 투자자가 과반수를 소유하더라도 유의적인 영향력 보유 가능", stdText:"다른 투자자가 해당 피투자자의 주식을 상당한 부분 또는 과반수 이상을 소유하고 있다고 하여도 기업이 유의적인 영향력을 보유하고 있다는 것을 반드시 배제하는 것은 아니다."},
+    {statement:"피투자자의 이사회나 이에 준하는 의사결정기구에 참여하는 것은 유의적인 영향력의 존재를 입증하는 증거가 될 수 있다.", answer:true, ref:"문단 6(1)", wrongPart:"", stdText:"피투자자의 이사회나 이에 준하는 의사결정기구에 참여하는 것은 유의적인 영향력을 보유한다는 것이 입증되는 경우에 해당한다."},
+    {statement:"유의적인 영향력을 보유하는지 평가할 때, 현재 행사할 수 없는 잠재적 의결권도 고려하여야 한다.", answer:false, ref:"문단 7", wrongPart:"현재 행사할 수 있거나 전환할 수 있는 잠재적 의결권만 고려", stdText:"현재 행사할 수 있거나 전환할 수 있는 잠재적 의결권의 존재와 영향을 고려한다."},
+    {statement:"잠재적 의결권이 유의적인 영향력에 기여하는지 평가할 때, 그 행사나 전환에 대한 경영진의 의도와 재무 능력은 고려하지 아니한다.", answer:true, ref:"문단 8", wrongPart:"", stdText:"잠재적 의결권의 행사나 전환에 대한 경영진의 의도와 재무 능력은 고려하지 아니한다."},
+    {statement:"유의적인 영향력은 소유지분율이 변동하지 않더라도 상실할 수 있다.", answer:true, ref:"문단 9", wrongPart:"", stdText:"유의적인 영향력은 절대적이거나 상대적인 소유지분율의 변동에 따라 또는 소유지분율이 변동하지 않더라도 상실할 수 있다."},
+
+    // ── 지분법 기본 (문단 10~15) ──
+    {statement:"지분법에서 관계기업에 대한 투자를 최초 인식시 공정가치로 인식한다.", answer:false, ref:"문단 10", wrongPart:"'공정가치'가 아니라 '원가'로 인식", stdText:"지분법에서 관계기업이나 공동기업에 대한 투자를 최초 인식시 원가로 인식한다."},
+    {statement:"피투자자에게서 받은 분배액(배당)은 투자자의 수익으로 인식한다.", answer:false, ref:"문단 10", wrongPart:"분배액은 투자자산의 장부금액을 감소시키는 것이지 수익이 아님", stdText:"피투자자에게서 받은 분배액은 투자자산의 장부금액을 줄여준다."},
+    {statement:"피투자자의 기타포괄손익 변동액 중 투자자의 몫은 투자자의 기타포괄손익으로 인식한다.", answer:true, ref:"문단 10", wrongPart:"", stdText:"피투자자 기타포괄손익의 변동액 중 투자자의 몫은 투자자의 기타포괄손익으로 인식한다."},
+    {statement:"잠재적 의결권이 있는 경우, 관계기업에 대한 기업의 지분은 잠재적 의결권의 행사가능성을 반영하여 산정한다.", answer:false, ref:"문단 12", wrongPart:"현재 소유하고 있는 소유지분에만 기초하여 산정", stdText:"관계기업이나 공동기업에 대한 기업의 지분은 현재 소유하고 있는 소유지분에만 기초하여 산정하며, 잠재적 의결권의 행사가능성이나 전환가능성은 반영하지 않는다."},
+    {statement:"관계기업에 대한 투자가 매각예정으로 분류되지 않는 한, 비유동자산으로 분류한다.", answer:true, ref:"문단 15", wrongPart:"", stdText:"관계기업이나 공동기업에 대한 투자가 매각예정으로 분류되는 경우가 아니라면, 비유동자산으로 분류한다."},
+
+    // ── 지분법 적용/면제 (문단 16~19) ──
+    {statement:"피투자자에 대하여 유의적인 영향력을 갖는 기업은 예외 없이 지분법을 사용하여 회계처리하여야 한다.", answer:false, ref:"문단 16~17", wrongPart:"면제규정 충족 시 지분법 적용 불필요", stdText:"관계기업이나 공동기업에 대한 투자가 문단 17~19에 따른 면제규정을 충족하는 경우를 제외하고, 지분법을 사용하여 회계처리한다."},
+    {statement:"벤처캐피탈 투자기구가 관계기업에 대한 투자를 보유하는 경우, 그 투자를 당기손익-공정가치 측정 항목으로 선택할 수 있다.", answer:true, ref:"문단 18", wrongPart:"", stdText:"벤처캐피탈 투자기구나 뮤추얼펀드, 단위신탁 및 이와 유사한 기업이 관계기업이나 공동기업에 대한 투자를 보유하는 경우, 당기손익-공정가치 측정 항목으로 선택할 수도 있다."},
+    {statement:"벤처캐피탈 투자기구가 공정가치 선택권을 행사할 때, 모든 관계기업에 대해 동일하게 적용하여야 한다.", answer:false, ref:"문단 18", wrongPart:"각각의 관계기업이나 공동기업에 대하여 개별적으로 선택", stdText:"관계기업이나 공동기업에 대한 투자를 최초 인식할 때 각각의 관계기업이나 공동기업에 대하여 개별적으로 선택한다."},
+
+    // ── 매각예정 분류 (문단 20~21) ──
+    {statement:"관계기업에 대한 투자의 일부가 매각예정 분류 기준을 충족하면, 그 투자 전체에 대해 지분법을 중단한다.", answer:false, ref:"문단 20", wrongPart:"매각예정으로 분류되지 않은 잔여 보유분은 지분법 계속 적용", stdText:"매각예정으로 분류되지 않은 관계기업이나 공동기업에 대한 투자의 잔여 보유분은 매각예정으로 분류된 부분이 매각될 때까지 지분법을 적용하여 회계처리한다."},
+    {statement:"이전에 매각예정으로 분류된 관계기업 투자가 더 이상 그 분류기준을 충족하지 않는다면, 당초 매각예정으로 분류되었던 시점부터 소급하여 지분법으로 회계처리한다.", answer:true, ref:"문단 21", wrongPart:"", stdText:"이전에 매각예정으로 분류된 관계기업이나 공동기업에 대한 투자가 더 이상 그 분류기준을 충족하지 않는다면 당초 매각예정으로 분류되었던 시점부터 소급하여 지분법으로 회계처리한다."},
+
+    // ── 지분법 중단 (문단 22~25) ──
+    {statement:"관계기업이 종속기업이 되는 경우, 기업은 그 투자를 K-IFRS 1103 사업결합에 따라 회계처리한다.", answer:true, ref:"문단 22(1)", wrongPart:"", stdText:"피투자기업이 종속기업이 되는 경우, 기업은 그 투자를 기업회계기준서 제1103호 '사업결합'과 제1110호에 따라 회계처리한다."},
+    {statement:"지분법을 중단할 때, 관련 기타포괄손익은 항상 당기손익으로 재분류한다.", answer:false, ref:"문단 22(3)", wrongPart:"피투자자가 관련 자산이나 부채를 직접 처분한 경우의 회계처리와 동일한 기준으로 처리 — 항목에 따라 재분류 여부가 다름", stdText:"지분법의 사용을 중단한 경우, 그 투자와 관련하여 기타포괄손익으로 인식한 모든 금액에 대하여 피투자자가 관련 자산이나 부채를 직접 처분한 경우의 회계처리와 동일한 기준으로 회계처리한다."},
+    {statement:"관계기업 투자가 공동기업 투자로 되거나 공동기업 투자가 관계기업 투자로 되는 경우, 기업은 잔여 보유 지분을 공정가치로 재측정한다.", answer:false, ref:"문단 24", wrongPart:"지분법을 계속 적용하며 잔여 보유 지분을 재측정하지 않음", stdText:"관계기업 투자가 공동기업 투자로 되거나 공동기업 투자가 관계기업 투자로 되는 경우, 기업은 지분법을 계속 적용하며 잔여 보유 지분을 재측정하지 않는다."},
+    {statement:"관계기업에 대한 소유지분이 감소하지만 관계기업으로 계속 분류되는 경우, 기타포괄손익 중 소유지분 감소와 관련된 비례적 부분을 당기손익으로 재분류한다.", answer:true, ref:"문단 25", wrongPart:"", stdText:"관계기업이나 공동기업에 대한 투자자의 소유지분이 감소하지만 관계기업 또는 공동기업으로 계속 분류된다면, 소유지분의 감소와 관련된 비례적 부분을 당기손익으로 재분류한다."},
+
+    // ── 지분법 절차 (문단 26~39) ──
+    {statement:"기업과 관계기업 사이의 하향거래에서 발생한 손익에 대하여, 기업은 전액을 자신의 재무제표에 인식한다.", answer:false, ref:"문단 28", wrongPart:"관계기업에 대한 지분과 무관한 손익까지만 인식", stdText:"기업과 그 관계기업이나 공동기업 사이의 거래에서 발생한 손익에 대하여 기업은 그 관계기업이나 공동기업에 대한 지분과 무관한 손익까지만 재무제표에 인식한다."},
+    {statement:"하향거래가 매각대상 자산의 손상차손의 증거를 제공하는 경우, 투자자는 그러한 손실을 모두 인식한다.", answer:true, ref:"문단 29", wrongPart:"", stdText:"하향거래가 매각대상 또는 출자대상 자산의 순실현가능가치의 감소나 그 자산에 대한 손상차손의 증거를 제공하는 경우 투자자는 그러한 손실을 모두 인식한다."},
+    {statement:"관계기업에 대한 투자 취득 시, 투자원가와 순공정가치 중 기업의 몫의 차이가 양수이면 별도로 영업권을 인식한다.", answer:false, ref:"문단 32(1)", wrongPart:"영업권은 별도 인식하지 않고 투자자산의 장부금액에 포함", stdText:"관계기업이나 공동기업에 관련된 영업권은 해당 투자자산의 장부금액에 포함된다. 영업권의 상각은 허용되지 않는다."},
+    {statement:"투자자산의 원가보다 피투자자의 식별가능한 순공정가치 중 기업의 몫이 큰 경우, 그 초과분은 투자 취득 회계기간의 수익에 포함한다.", answer:true, ref:"문단 32(2)", wrongPart:"", stdText:"피투자자의 식별가능한 자산과 부채의 순공정가치 중 기업의 몫이 투자자산의 원가를 초과하는 부분은 투자자산을 취득한 회계기간의 수익에 포함한다."},
+    {statement:"지분법 적용 시 기업의 보고기간종료일과 관계기업의 보고기간종료일 간의 차이는 6개월 이내이어야 한다.", answer:false, ref:"문단 34", wrongPart:"3개월 이내이어야 함", stdText:"기업의 보고기간종료일과 관계기업이나 공동기업의 보고기간종료일 간의 차이는 3개월 이내이어야 한다."},
+    {statement:"관계기업이 기업의 회계정책과 다른 회계정책을 사용한 경우, 기업이 지분법을 적용할 때 관계기업의 회계정책을 기업의 회계정책과 일관되도록 해야 한다.", answer:true, ref:"문단 36", wrongPart:"", stdText:"관계기업이나 공동기업이 기업의 회계정책과 다른 회계정책을 사용한 경우, 관계기업이나 공동기업의 회계정책을 기업의 회계정책과 일관되도록 해야 한다."},
+    {statement:"관계기업이 자본으로 분류되는 누적적 우선주를 발행한 경우, 배당결의가 있을 때에만 해당 배당금을 조정하여 당기순손익에 대한 몫을 산정한다.", answer:false, ref:"문단 37", wrongPart:"배당결의 여부에 관계없이 조정", stdText:"관계기업이나 공동기업이 자본으로 분류되는 누적적 우선주를 발행하였고 이를 기업 이외의 다른 측이 소유하고 있는 경우, 배당결의 여부에 관계없이 이러한 주식의 배당금에 대하여 조정한 후 당기순손익에 대한 자신의 몫을 산정한다."},
+    {statement:"관계기업의 손실 중 기업의 지분이 투자지분과 같거나 초과하는 경우, 기업은 추가 손실에 대하여 인식을 중지한다.", answer:true, ref:"문단 38", wrongPart:"", stdText:"관계기업이나 공동기업의 손실 중 기업의 지분이 투자지분과 같거나 초과하는 경우, 기업은 관계기업 투자지분 이상의 손실에 대하여 인식을 중지한다."},
+    {statement:"손실인식 한도를 판단할 때 투자지분에는 지분법으로 결정되는 투자자산의 장부금액만 포함되며, 장기대여금은 제외한다.", answer:false, ref:"문단 38", wrongPart:"실질적으로 순투자의 일부를 구성하는 장기투자지분도 포함", stdText:"관계기업이나 공동기업에 대한 투자지분은 지분법을 사용하여 결정되는 투자자산의 장부금액과 실질적으로 기업의 순투자의 일부를 구성하는 장기투자지분 항목을 합한 금액이다."},
+    {statement:"매출채권이나 담보부대여금과 같이 적절한 담보가 있는 장기수취채권은 순투자의 일부를 구성하는 장기투자지분에 해당한다.", answer:false, ref:"문단 38", wrongPart:"매출채권, 매입채무, 담보부대여금은 장기투자지분에서 제외", stdText:"매출채권, 매입채무 또는 담보부대여금과 같이 적절한 담보가 있는 장기수취채권은 제외한다."},
+    {statement:"기업의 지분이 영(0)으로 감소된 이후, 법적의무나 의제의무가 있는 경우 그 금액까지 손실과 부채로 인식한다.", answer:true, ref:"문단 39", wrongPart:"", stdText:"기업의 지분이 영(0)으로 감소된 이후 추가 손실분에 대하여 기업은 법적의무 또는 의제의무가 있거나 관계기업이나 공동기업을 대신하여 지급하여야 하는 경우, 그 금액까지만 손실과 부채로 인식한다."},
+    {statement:"관계기업이 추후에 이익을 보고할 경우, 투자자는 즉시 자신의 지분에 해당하는 이익 전액을 인식한다.", answer:false, ref:"문단 39", wrongPart:"인식하지 못한 손실을 초과한 금액만을 이익으로 인식", stdText:"관계기업이나 공동기업이 추후에 이익을 보고할 경우 투자자는 자신의 지분에 해당하는 이익의 인식을 재개하되, 인식하지 못한 손실을 초과한 금액만을 이익으로 인식한다."},
+    {statement:"관계기업이나 공동기업에 비화폐성자산을 출자하는 경우, 상업적 실질이 결여되어 있으면 해당 손익은 미실현된 것으로 보아 인식하지 않는다.", answer:true, ref:"문단 30", wrongPart:"", stdText:"출자에 상업적 실질이 결여되어 있다면 해당 손익은 미실현된 것으로 보며 그 손익은 인식하지 않는다."},
+    {statement:"지분법 적용으로 보통주에 대한 투자자산 금액을 초과하여 인식되는 손실은 청산 시의 상환 우선순위 순서대로 투자지분의 다른 구성항목에 적용한다.", answer:false, ref:"문단 38", wrongPart:"청산 시의 상환 우선순위와는 '반대의' 순서로 적용", stdText:"지분법 적용으로 보통주에 대한 투자자산 금액을 초과하여 인식되는 손실은, 관계기업이나 공동기업 청산시의 상환 우선순위와는 반대의 순서로, 투자지분 중 다른 구성항목에 대해 적용한다."},
+    {statement:"기업은 장기투자지분에 대하여 K-IFRS 1028의 문단 38과 40~43을 적용하기 전에 K-IFRS 1109를 적용한다.", answer:true, ref:"문단 14A", wrongPart:"", stdText:"기업은 그러한 장기투자지분에 대하여 이 기준서의 문단 38과 문단 40~43을 적용하기 전에 기업회계기준서 제1109호를 적용한다."},
+
+    // ── 손상차손 (문단 40~43) ──
+    {statement:"관계기업이나 공동기업에 대한 순투자 장부금액의 일부를 구성하는 영업권은 분리하여 인식하고 별도의 손상검사를 한다.", answer:false, ref:"문단 42", wrongPart:"영업권은 분리하여 인식하지 않으며 별도 손상검사를 하지 않음", stdText:"관계기업이나 공동기업에 대한 순투자 장부금액의 일부를 구성하는 영업권은 분리하여 인식하지 않으므로 별도의 손상검사를 하지 않는다."},
+    {statement:"관계기업에 대한 투자는 단일 자산으로서 전체 장부금액을 회수가능액과 비교하여 손상검사를 한다.", answer:true, ref:"문단 42", wrongPart:"", stdText:"순투자자산의 손상 징후가 나타날 때마다 단일 자산으로서 투자자산 전체 장부금액을 회수가능액과 비교하여 손상검사를 한다."},
+    {statement:"관계기업 투자의 손상차손은 투자자산 장부금액의 일부를 구성하는 영업권에 우선 배분한다.", answer:false, ref:"문단 42", wrongPart:"어떠한 자산(영업권 포함)에도 배분하지 않음", stdText:"인식된 손상차손은 관계기업이나 공동기업에 대한 순투자 장부금액의 일부를 구성하는 어떠한 자산(영업권 포함)에도 배분하지 않는다."},
+    {statement:"관계기업 투자의 손상차손은 후속적으로 회수가능액이 증가하는 만큼 환입이 가능하다.", answer:true, ref:"문단 42", wrongPart:"", stdText:"이 손상차손의 모든 환입은 이러한 순투자자산의 회수가능액이 후속적으로 증가하는 만큼 인식한다."},
+    {statement:"관계기업의 공정가치가 하락한 사실 자체가 손상의 증거가 된다.", answer:false, ref:"문단 41B", wrongPart:"공정가치 하락 자체는 손상의 증거가 아니나, 다른 정보와 함께 고려하면 증거가 될 수 있음", stdText:"관계기업이나 공동기업의 신용등급 또는 공정가치가 하락한 사실 자체가 손상의 증거는 아니지만 이용할 수 있는 그 밖의 정보를 함께 고려하는 경우에는 손상의 증거가 될 수도 있다."},
+    {statement:"관계기업이나 공동기업에 대한 투자의 회수가능액은 반드시 각 관계기업이나 공동기업별로 평가하여야 한다.", answer:false, ref:"문단 43", wrongPart:"현금유입이 다른 자산과 거의 독립적으로 구별되지 않는 경우 예외", stdText:"관계기업이나 공동기업에 대한 투자의 회수가능액은 각 관계기업이나 공동기업별로 평가하여야 한다. 다만, 현금유입이 그 기업의 다른 자산에서 창출되는 현금흐름과 거의 독립적으로 구별되지 않는 경우에는 그러하지 아니한다."},
+    {statement:"관계기업이나 공동기업의 유의적인 재무적 어려움은 순투자가 손상되었다는 객관적 증거에 해당한다.", answer:true, ref:"문단 41A(1)", wrongPart:"", stdText:"순투자가 손상되었다는 객관적인 증거에는 관계기업이나 공동기업의 유의적인 재무적 어려움이 포함된다."},
+    {statement:"미래사건의 결과로 예상되는 손실은 발생 가능성이 높으면 인식한다.", answer:false, ref:"문단 41A", wrongPart:"미래사건의 결과로 예상되는 손실은 발생 가능성에 상관없이 인식하지 않음", stdText:"미래사건의 결과로 예상되는 손실은 발생 가능성에 상관없이 인식하지 않는다."},
+    {statement:"관계기업이나 공동기업이 영업하는 기술·시장·경제·법률 환경에서 불리한 영향을 미치는 유의적인 변화는 지분상품 투자의 손상에 대한 객관적 증거에 해당한다.", answer:true, ref:"문단 41C", wrongPart:"", stdText:"관계기업이나 공동기업이 영업하는 기술·시장·경제·법률 환경에서 발생한 변화 중 불리한 영향을 미치는 유의적인 변화에 대한 정보를 포함하며, 지분상품 투자의 원가가 회복되지 않을 수 있다는 것을 의미한다."},
+
+    // ── 기타 주요 문단 ──
+    {statement:"유의적인 영향력이란 피투자자의 재무정책과 영업정책에 관한 의사결정에 참여할 수 있는 능력이며, 그러한 정책의 지배력이나 공동지배력은 아니다.", answer:true, ref:"문단 3", wrongPart:"", stdText:"유의적인 영향력: 피투자자의 재무정책과 영업정책에 관한 의사결정에 참여할 수 있는 능력. 그러나, 그러한 정책의 지배력이나 공동지배력은 아니다."},
+    {statement:"관계기업이나 공동기업에 대한 연결실체의 몫은 연결실체의 다른 관계기업이나 공동기업이 소유하고 있는 지분도 합산한다.", answer:false, ref:"문단 27", wrongPart:"다른 관계기업이나 공동기업이 소유하고 있는 지분은 합산하지 않음", stdText:"관계기업이나 공동기업에 대한 연결실체의 몫은 연결실체 내 지배기업과 종속기업이 소유하고 있는 지분을 단순 합산한 것이다. 연결실체의 다른 관계기업이나 공동기업이 소유하고 있는 지분은 합산하지 아니한다."},
+    {statement:"관계기업이 영업권이나 유형자산 등에 대하여 손상차손을 인식한 경우, 기업은 취득 후 당기순손익 중 기업의 몫을 적절히 조정하여 회계처리한다.", answer:true, ref:"문단 32", wrongPart:"", stdText:"관계기업이나 공동기업이 영업권이나 유형자산 등에 대하여 손상차손을 인식한 경우, 기업은 취득 후 관계기업이나 공동기업의 당기순손익 중 기업의 몫을 적절히 조정하여 회계처리한다."},
+    {statement:"보고기간의 길이 그리고 보고기간종료일의 차이는 매 기간마다 동일하여야 한다.", answer:true, ref:"문단 34", wrongPart:"", stdText:"보고기간의 길이 그리고 보고기간종료일의 차이는 매 기간마다 동일하여야 한다."}
+  ],
+
+  briefing: {
+    coreFramework: "K-IFRS 1028호는 관계기업과 공동기업에 대한 투자의 회계처리를 규정하는 기준서입니다. 핵심은 지분법의 적용입니다 \u2014 투자를 원가로 최초 인식한 후, 피투자자의 순자산 변동 중 투자자의 몫을 투자자산에 가감합니다(문단 10). 유의적인 영향력은 의결권 20%를 기준으로 추정하되 실질에 따라 판단하며(문단 5), 지분법은 면제 요건 충족, 매각예정 분류, 관계기업 정의 미충족 시 중단합니다. 손실인식은 투자지분과 장기투자지분의 합계까지만 가능하고(문단 38), 손상검사는 영업권을 분리하지 않고 단일 자산으로 수행합니다(문단 42).",
+    keyDecisions: [
+      {title:"유의적인 영향력 판단 (문단 5~9)", content:"의결권 20% 이상이면 유의적인 영향력을 추정하지만, 이는 반증 가능한 추정입니다. 20% 미만이어도 이사회 참여, 정책결정 참여, 중요한 거래, 경영진 상호 교류, 필수적 기술정보 제공 등이 있으면 유의적인 영향력이 인정됩니다(문단 6). 잠재적 의결권은 현재 행사 가능한 것만 고려하되, 경영진의 행사 의도나 재무 능력은 고려하지 않습니다(문단 7~8)."},
+      {title:"지분법의 적용과 면제 (문단 16~19)", content:"유의적인 영향력이나 공동지배력이 있으면 원칙적으로 지분법을 적용합니다. 다만 연결재무제표 작성이 면제되는 지배기업이거나 일정 조건을 충족하면 면제됩니다(문단 17). 벤처캐피탈 등은 각 관계기업별로 개별적으로 공정가치 선택이 가능합니다(문단 18)."},
+      {title:"내부거래 제거와 지분법 절차 (문단 26~37)", content:"상향·하향거래에서 발생한 손익 중 관계기업 지분에 해당하는 부분은 제거합니다(문단 28). 다만 거래가 손상의 증거를 제공하면 손실은 전액 인식합니다(문단 29). 취득 시 영업권은 투자자산에 포함하고 별도 상각하지 않으며(문단 32), 보고기간 차이는 3개월 이내, 회계정책은 통일해야 합니다(문단 34, 36)."},
+      {title:"손실인식 한도와 장기투자지분 (문단 38~39)", content:"손실인식은 투자자산 장부금액 + 장기투자지분(우선주, 장기대여금 등) 합계까지만 가능합니다. 매출채권이나 담보부대여금은 장기투자지분에서 제외합니다. 영(0) 도달 후에는 법적의무나 의제의무가 있는 경우에만 추가 손실을 인식하고, 추후 이익 보고 시 미인식 손실을 초과하는 금액만 이익으로 인식합니다(문단 39)."},
+      {title:"지분법 중단과 기타포괄손익 처리 (문단 22~25)", content:"관계기업 정의를 충족하지 못하게 되면 지분법을 중단합니다. 종속기업이 되면 사업결합으로, 금융자산이 되면 공정가치로 측정합니다. 기타포괄손익은 피투자자가 직접 처분한 것과 동일하게 처리하며, 관계기업↔공동기업 전환 시에는 지분법을 계속 적용하고 재측정하지 않습니다(문단 24)."},
+      {title:"손상검사 (문단 40~43)", content:"지분법 적용 후 추가적인 손상 여부를 판단합니다. 영업권을 분리하지 않고 투자자산 전체를 단일 자산으로 회수가능액과 비교합니다(문단 42). 손상차손은 영업권 등 개별 자산에 배분하지 않으며, 환입은 회수가능액 증가분만큼 인식합니다. 손상의 객관적 증거에는 재무적 어려움, 채무불이행, 파산 가능성 등이 포함됩니다(문단 41A)."}
+    ],
+    auditFocus: "감사인으로서 가장 주의해야 할 영역은 네 가지입니다. 첫째, 유의적인 영향력의 실질적 판단 — 20% 기준은 추정일 뿐이며 실질적 참여 능력을 검토해야 합니다. 둘째, 내부거래 제거의 완전성 — 상향·하향거래 모두에서 미실현손익이 적절히 제거되었는지 확인합니다. 셋째, 손실인식 한도의 정확성 — 투자지분과 장기투자지분의 범위가 적절히 설정되었는지, 특히 장기대여금의 분류가 올바른지 검토합니다. 넷째, 손상검사의 적시성 — 손상 징후 발생 시 단일 자산으로 손상검사가 수행되었는지 확인합니다.",
+    connections: "1028호는 1110호(연결재무제표), 1111호(공동약정), 1103호(사업결합), 1109호(금융상품), 1105호(매각예정), 1036호(자산손상), 1112호(타 기업에 대한 지분의 공시)와 연결됩니다.",
+    practicalTip: "실무에서 가장 빈번한 오류는 장기대여금의 순투자 포함 여부 판단, 내부거래 미실현이익 제거 누락, 그리고 관계기업 손상 징후 미인식입니다. 특히 관계기업이 적자 전환했거나 순자산이 감소한 경우 손실인식 한도 검토와 손상검사를 반드시 수행해야 합니다.",
+    auditProcedure: [
+      {step:"STEP 1. 유의적인 영향력 판단", ref:"문단 5~9", content:"의결권 비율을 확인하고, 20% 기준의 추정이 실질에 부합하는지 검토합니다. 이사회 참여, 정책결정 참여, 중요한 거래, 경영진 교류, 기술정보 제공 등 문단 6의 지표를 점검합니다. 잠재적 의결권이 있으면 현재 행사 가능 여부를 확인합니다."},
+      {step:"STEP 2. 지분법 적용/면제 검토", ref:"문단 16~19", content:"면제 요건(문단 17) 충족 여부를 확인합니다. 벤처캐피탈 등이 공정가치 선택을 한 경우 각 관계기업별 개별 선택이 적절히 이루어졌는지 검토합니다."},
+      {step:"STEP 3. 지분법 절차 검증", ref:"문단 26~37", content:"내부거래(상향·하향) 미실현손익 제거가 완전한지 확인합니다. 취득 시 영업권이 투자자산에 포함되었는지, 공정가치 차이 조정이 적절한지 검토합니다. 보고기간 차이가 3개월 이내인지, 회계정책 통일이 이루어졌는지 점검합니다."},
+      {step:"STEP 4. 손실인식 한도 검증", ref:"문단 38~39", content:"투자지분의 범위가 적절한지 — 보통주 장부금액 + 장기투자지분(우선주, 장기대여금 등)이 맞는지 확인합니다. 매출채권이나 담보부대여금이 부적절하게 포함되지 않았는지 검토합니다. 영(0) 도달 후 법적·의제의무 존재 여부를 확인합니다."},
+      {step:"STEP 5. 손상검사 수행 확인", ref:"문단 40~43", content:"손상 징후(문단 41A~41C)가 있는지 평가합니다. 손상검사 시 영업권을 분리하지 않고 단일 자산으로 전체 장부금액과 회수가능액을 비교했는지 확인합니다. 손상차손이 개별 자산에 배분되지 않았는지 검토합니다."},
+      {step:"STEP 6. 지분법 중단 검토", ref:"문단 22~25", content:"관계기업 정의 미충족 시점이 적절한지 확인합니다. 종속기업 전환 시 사업결합 처리가 이루어졌는지, 잔여지분 공정가치 측정이 적절한지 검토합니다. 기타포괄손익 재분류가 항목별로 올바르게 처리되었는지 점검합니다."},
+      {step:"STEP 7. 장기투자지분 회계처리", ref:"문단 14A, 38", content:"장기투자지분에 K-IFRS 1109를 먼저 적용한 후 K-IFRS 1028 문단 38과 40~43을 적용했는지 확인합니다. 손실 배분 시 청산 우선순위의 반대 순서가 적용되었는지 검토합니다."}
+    ],
+    drills: [
+      {step:"STEP 1. 유의적인 영향력 판단", situation:"(주)한라테크가 (주)백두소프트의 의결권 18%를 보유하고 있습니다. 한라테크의 CTO가 백두소프트 이사회에 참여하고 있으며, 양사 간 핵심 기술 라이선스 계약이 체결되어 있습니다.",
+       choiceA:"의결권이 20% 미만이므로 유의적인 영향력이 없는 것으로 본다.",
+       choiceB:"20% 미만이지만 이사회 참여와 핵심 기술 제공이 있으므로 유의적인 영향력이 있는 것으로 판단한다.",
+       correct:"B", ref:"K-IFRS 1028 문단 5~6", stdText:"기업이 의결권의 20% 미만을 소유하고 있다면 유의적인 영향력이 없는 것으로 본다. 다만 유의적인 영향력을 보유하고 있다는 사실을 명백하게 제시할 수 있는 경우는 그러하지 아니하다.", explain:"문단 5는 20% 미만이어도 유의적인 영향력을 보유할 수 있다고 규정합니다. 문단 6은 이사회 참여(6(1))와 필수적 기술정보 제공(6(5))을 유의적인 영향력의 증거로 열거하고 있습니다."},
+      {step:"STEP 2. 지분법 적용/면제 검토", situation:"(주)스타벤처는 벤처캐피탈 투자기구로서 5개의 관계기업 투자를 보유하고 있습니다. 이 중 3개는 공정가치 측정을 선택하고 나머지 2개는 지분법을 적용하려 합니다.",
+       choiceA:"벤처캐피탈 투자기구는 모든 관계기업에 동일한 회계처리를 적용해야 하므로, 5개 전부에 대해 공정가치 또는 지분법 중 하나를 선택해야 한다.",
+       choiceB:"각각의 관계기업에 대하여 개별적으로 공정가치 또는 지분법을 선택할 수 있으므로, 3개는 공정가치, 2개는 지분법 적용이 가능하다.",
+       correct:"B", ref:"K-IFRS 1028 문단 18", stdText:"관계기업이나 공동기업에 대한 투자를 최초 인식할 때 각각의 관계기업이나 공동기업에 대하여 개별적으로 선택한다.", explain:"문단 18은 벤처캐피탈 등이 공정가치 선택권을 행사할 때 각 관계기업별로 개별적으로 선택할 수 있다고 규정합니다."},
+      {step:"STEP 3. 지분법 절차 검증", situation:"(주)동양물산이 관계기업 (주)서해건설에 장부금액 100억의 토지를 150억에 매각했습니다. 동양물산의 서해건설 지분율은 30%입니다.",
+       choiceA:"하향거래이므로 매각이익 50억 전액을 인식한다.",
+       choiceB:"매각이익 50억 중 지분에 해당하는 15억(50억×30%)을 제거하고, 35억만 인식한다.",
+       correct:"B", ref:"K-IFRS 1028 문단 28", stdText:"기업과 그 관계기업 사이의 하향거래에서 발생한 손익에 대하여 기업은 그 관계기업에 대한 지분과 무관한 손익까지만 재무제표에 인식한다.", explain:"문단 28은 하향거래 손익 중 관계기업 지분에 해당하는 부분을 제거하도록 규정합니다. 50억×30%=15억을 제거하고 35억만 인식합니다."},
+      {step:"STEP 4. 손실인식 한도 검증", situation:"(주)미래에너지의 관계기업 (주)그린파워에 대한 투자 현황입니다. 보통주 장부금액 200억(지분법), 장기대여금 80억(무담보, 상환계획 없음), 매출채권 30억. 그린파워의 당기 손실 중 미래에너지 몫이 350억입니다.",
+       choiceA:"손실인식 한도는 보통주 200억 + 장기대여금 80억 + 매출채권 30억 = 310억이므로, 350억 중 310억만 인식한다.",
+       choiceB:"매출채권은 장기투자지분에서 제외하므로, 한도는 200억 + 80억 = 280억이고, 350억 중 280억만 인식한다.",
+       correct:"B", ref:"K-IFRS 1028 문단 38", stdText:"투자지분은 투자자산의 장부금액과 실질적으로 순투자의 일부를 구성하는 장기투자지분을 합한 금액이다. 매출채권, 매입채무 또는 담보부대여금과 같이 적절한 담보가 있는 장기수취채권은 제외한다.", explain:"문단 38은 매출채권을 장기투자지분에서 명시적으로 제외합니다. 따라서 한도는 200+80=280억이고, 손실 350억 중 280억만 인식합니다."},
+      {step:"STEP 5. 손상검사 수행 확인", situation:"(주)세종바이오의 관계기업 (주)한빛제약에 대한 투자자산 장부금액이 500억(영업권 120억 포함)입니다. 한빛제약이 재무적 어려움에 빠져 회수가능액이 350억으로 산정되었습니다.",
+       choiceA:"손상차손 150억을 영업권 120억에 먼저 배분하고 잔여 30억을 다른 자산에 배분한다.",
+       choiceB:"투자자산 전체를 단일 자산으로 보아 150억의 손상차손을 인식하되, 영업권을 포함한 어떤 자산에도 배분하지 않는다.",
+       correct:"B", ref:"K-IFRS 1028 문단 42", stdText:"단일 자산으로서 투자자산 전체 장부금액을 회수가능액과 비교하여 손상검사를 한다. 인식된 손상차손은 어떠한 자산(영업권 포함)에도 배분하지 않는다.", explain:"문단 42는 관계기업 투자의 영업권을 분리하지 않고 전체를 단일 자산으로 손상검사하며, 손상차손을 개별 자산에 배분하지 않도록 규정합니다. 이는 K-IFRS 1036의 CGU 손상차손 배분과 다른 점입니다."},
+      {step:"STEP 6. 지분법 중단 검토", situation:"(주)대한항공물류가 관계기업 (주)아시아로지스의 지분 25%를 보유하고 있었는데, 추가 취득으로 60%가 되어 종속기업이 되었습니다. 기타포괄손익에 외화환산차이 20억이 누적되어 있습니다.",
+       choiceA:"종속기업이 되었으므로 지분법을 중단하고, 기존 투자를 공정가치로 재측정하며, 외화환산차이 20억을 당기손익으로 재분류한다.",
+       choiceB:"종속기업이 되었으므로 K-IFRS 1103 사업결합에 따라 회계처리하고, 외화환산차이는 피투자자가 해외사업장을 직접 처분한 경우의 기준에 따라 처리한다.",
+       correct:"B", ref:"K-IFRS 1028 문단 22(1),(3)", stdText:"피투자기업이 종속기업이 되는 경우 K-IFRS 1103과 K-IFRS 1110에 따라 회계처리한다. 기타포괄손익은 피투자자가 관련 자산이나 부채를 직접 처분한 경우의 회계처리와 동일한 기준으로 처리한다.", explain:"문단 22(1)은 종속기업 전환 시 사업결합 기준서를 적용하도록 하며, 22(3)은 기타포괄손익의 처리를 피투자자의 직접 처분 기준에 따르도록 규정합니다. 외화환산차이의 경우 해외사업장 처분 시 당기손익으로 재분류됩니다."},
+      {step:"STEP 7. 장기투자지분 회계처리", situation:"(주)코스모테크의 관계기업 (주)스타랩에 대해 보통주 투자 300억(지분법)과 장기대여금 100억(상각후원가 측정)을 보유하고 있습니다. 스타랩의 당기 손실 중 코스모테크 몫이 500억입니다. K-IFRS 1109 적용 후 장기대여금의 손실충당금이 20억입니다.",
+       choiceA:"K-IFRS 1109를 먼저 적용하여 손실충당금 20억을 반영한 후, 투자지분 한도(300+80=380억) 내에서 손실을 인식한다. 배분 순서는 보통주를 먼저 차감하고 잔여분을 장기대여금에 적용한다.",
+       choiceB:"K-IFRS 1109를 먼저 적용하여 손실충당금 20억을 반영한 후, 투자지분 한도(300+80=380억) 내에서 손실을 인식한다. 배분 순서는 청산 우선순위 순서대로 장기대여금부터 차감한다.",
+       correct:"A", ref:"K-IFRS 1028 문단 14A, 38", stdText:"장기투자지분에 대하여 문단 38과 40~43을 적용하기 전에 K-IFRS 1109를 적용한다. 손실은 청산시의 상환 우선순위와는 반대의 순서로 투자지분 중 다른 구성항목에 적용한다.", explain:"문단 14A에 따라 K-IFRS 1109를 먼저 적용하여 손실충당금 20억 반영 후 장기대여금은 80억이 됩니다. 문단 38에 따라 손실 배분은 청산 우선순위의 '반대' 순서, 즉 가장 후순위인 보통주(300억)부터 차감하고 잔여분을 장기대여금에 적용합니다."}
+    ]
+  },
+  questions: [
+    {id:1, tag:"유의적영향력·지분법적용·내부거래·손실한도",
+     situation:"(주)한강홀딩스 — 다각화 투자 (감사 2년차)",
+     question:"관계기업 투자 검토를 하고 있는데, 경영기획실장 얘기로는 작년에 (주)남산테크 지분 25%를 취득해서 이사 1명을 파견했다고 한다. 올해 남산테크에 장부금액 60억짜리 기계장치를 80억에 매각했는데, 남산테크 재무팀에서는 80억으로 장부에 잡아놨다고 한다.\n\n재무팀장한테 들어보니 남산테크가 올해 적자가 심해서 당기순손실 중 한강홀딩스 몫이 150억이라고 한다. 한강홀딩스의 남산테크 투자 현황은 보통주 200억에 장기대여금 50억이 있는데, 이 대여금은 상환 일정 없이 운영자금으로 빌려준 거라고 한다. 그 외에 남산테크한테 받을 매출채권이 30억 있다.\n\n재무팀에서는 손실인식 한도를 200+50+30=280억으로 잡고, 150억 전액을 손실로 인식했다고 한다. 내부거래 관련해서는 매각이익 20억을 전액 인식했다.",
+     keyPoints:[
+       {text:"", ref:"K-IFRS 1028 문단 5~6", stdText:"기업이 의결권의 20% 이상을 소유하고 이사회에 참여하고 있으므로 유의적인 영향력이 있다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1028 문단 28", stdText:"기업과 그 관계기업 사이의 하향거래에서 발생한 손익에 대하여 기업은 그 관계기업에 대한 지분과 무관한 손익까지만 재무제표에 인식한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1028 문단 38", stdText:"투자지분은 투자자산의 장부금액과 순투자의 일부를 구성하는 장기투자지분을 합한 금액이다. 매출채권은 제외한다.", keywords:[], needAll:false, needCount:0},
+       {text:"하향거래 매각이익 20억 중 지분 해당분 5억(20억×25%) 제거 필요 → 15억만 인식", ref:"K-IFRS 1028 문단 28", stdText:"기업과 관계기업 사이의 하향거래 손익 중 관계기업 지분과 무관한 부분만 인식한다.", keywords:["하향","제거","미실현","25%","5억","15억"], needAll:false, needCount:3},
+       {text:"매출채권 30억은 장기투자지분에서 제외 → 한도는 200+50=250억", ref:"K-IFRS 1028 문단 38", stdText:"매출채권, 매입채무 또는 담보부대여금은 장기투자지분에서 제외한다.", keywords:["매출채권","제외","250","장기투자지분","38"], needAll:false, needCount:3},
+       {text:"손실 150억은 한도 250억 이내이므로 전액 인식은 적절 — 다만 한도 산정 근거가 잘못됨", ref:"K-IFRS 1028 문단 38", stdText:"관계기업의 손실 중 기업의 지분이 투자지분과 같거나 초과하는 경우 인식을 중지한다.", keywords:["한도","280","250","매출채권","산정"], needAll:false, needCount:2}
+     ],
+     modelAnswer:"유의적인 영향력 판단과 관련하여, 한강홀딩스는 남산테크 의결권 25%를 보유하고 이사 1명을 파견하고 있으므로, 문단 5와 6(1)에 따라 유의적인 영향력이 있으며 지분법 적용 대상입니다.\n\n내부거래 처리와 관련하여, 기계장치 매각은 투자자가 관계기업에게 자산을 매각하는 하향거래입니다. 문단 28에 따르면 하향거래 손익 중 관계기업 지분에 해당하는 부분은 제거해야 합니다. 매각이익 20억 중 지분 해당분 5억(20억×25%)을 제거하고 15억만 인식해야 하므로, 20억 전액 인식은 부적절합니다.\n\n손실인식 한도와 관련하여, 문단 38에 따르면 투자지분은 지분법 투자자산 장부금액과 실질적으로 순투자의 일부를 구성하는 장기투자지분의 합계입니다. 상환 일정 없이 운영자금으로 빌려준 장기대여금 50억은 장기투자지분에 해당하나, 매출채권 30억은 문단 38에서 명시적으로 제외하고 있습니다. 따라서 올바른 한도는 200+50=250억이며, 280억이 아닙니다. 다만 당기 손실 몫 150억은 250억 이내이므로 전액 인식 자체는 결과적으로 적절하나, 한도 산정 근거가 잘못되어 있어 향후 손실이 확대될 경우 오류가 발생할 수 있습니다."
+    },
+
+    {id:2, tag:"손상검사·영업권·손실인식·장기투자지분",
+     situation:"(주)태백산업 — 제조업 그룹 (감사 3년차)",
+     question:"태백산업이 3년 전에 관계기업 (주)설악기계 지분 35%를 취득했는데, 취득원가 400억 중 영업권이 80억 포함되어 있다. 올해 설악기계가 주력 거래처를 잃으면서 매출이 60% 급감했고, 신용등급도 A에서 BBB로 하락했다.\n\n재무팀에서 손상검사를 했는데, 회수가능액이 280억으로 나왔다고 한다. 손상차손 120억을 인식하면서 영업권 80억에 먼저 배분하고 나머지 40억을 다른 자산에 배분했다. 이전에 인식한 손상차손은 없다.\n\n추가로 설악기계에 대한 장기대여금이 60억 있는데, 담보 없이 상환 계획도 없는 상태다. 재무팀에서는 이 대여금을 별도 금융자산으로만 관리하고 있고 지분법 손실인식 한도에는 포함하지 않았다.",
+     keyPoints:[
+       {text:"", ref:"K-IFRS 1028 문단 41A~41C", stdText:"관계기업의 유의적인 재무적 어려움, 신용등급 하락과 함께 다른 정보를 고려하면 손상의 객관적 증거가 될 수 있다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1028 문단 42", stdText:"단일 자산으로서 투자자산 전체 장부금액을 회수가능액과 비교하여 손상검사를 한다. 손상차손은 어떠한 자산(영업권 포함)에도 배분하지 않는다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1028 문단 38", stdText:"투자지분은 투자자산 장부금액과 실질적으로 순투자의 일부를 구성하는 장기투자지분을 합한 금액이다.", keywords:[], needAll:false, needCount:0},
+       {text:"매출 60% 급감 + 신용등급 하락 = 손상의 객관적 증거 → 손상검사 수행은 적절", ref:"K-IFRS 1028 문단 41A, 41B, 41C", stdText:"유의적인 재무적 어려움, 환경 변화 등은 손상의 객관적 증거에 해당한다.", keywords:["손상","징후","증거","재무적","어려움","41"], needAll:false, needCount:2},
+       {text:"손상차손 120억을 영업권에 배분한 것은 오류 — 어떤 자산에도 배분 불가", ref:"K-IFRS 1028 문단 42", stdText:"인식된 손상차손은 관계기업에 대한 순투자 장부금액의 일부를 구성하는 어떠한 자산(영업권 포함)에도 배분하지 않는다.", keywords:["배분","불가","영업권","단일","42"], needAll:false, needCount:3},
+       {text:"무담보 장기대여금 60억은 순투자의 일부 → 손실인식 한도에 포함해야 함", ref:"K-IFRS 1028 문단 38", stdText:"예측 가능한 미래에 상환받을 계획도 없고 상환가능성도 높지 않은 항목은 실질적으로 순투자의 일부를 구성한다.", keywords:["장기대여금","순투자","포함","한도","38"], needAll:false, needCount:3}
+     ],
+     modelAnswer:"손상 징후와 관련하여, 설악기계의 매출 60% 급감과 신용등급 하락은 문단 41A(1)의 유의적인 재무적 어려움에 해당하고, 문단 41C의 시장 환경의 불리한 변화에도 해당합니다. 문단 41B에 따르면 신용등급 하락 자체가 손상의 증거는 아니지만, 매출 급감 등 다른 정보와 함께 고려하면 손상의 객관적 증거가 됩니다. 손상검사 수행 자체는 적절합니다.\n\n그러나 손상차손의 처리에 중대한 오류가 있습니다. 문단 42는 관계기업에 대한 투자를 단일 자산으로서 전체 장부금액을 회수가능액과 비교하여 손상검사하도록 규정하고 있으며, 인식된 손상차손은 영업권을 포함한 어떠한 자산에도 배분하지 않는다고 명시하고 있습니다. 재무팀이 영업권 80억에 먼저 배분하고 나머지를 다른 자산에 배분한 것은 K-IFRS 1036의 CGU 손상차손 배분 방식을 잘못 적용한 것입니다. 120억 전체를 투자자산에 대한 손상차손으로 인식해야 합니다.\n\n장기대여금과 관련하여, 문단 38에 따르면 예측 가능한 미래에 상환받을 계획도 없고 상환가능성도 높지 않은 항목은 실질적으로 순투자의 일부를 구성합니다. 담보 없이 상환 계획도 없는 장기대여금 60억은 이에 해당하므로, 손실인식 한도 산정 시 투자자산 장부금액과 합산해야 합니다."
+    },
+
+    {id:3, tag:"지분법중단·기타포괄손익·종속기업전환",
+     situation:"(주)인천글로벌 — 물류 그룹 (감사 1년차)",
+     question:"인천글로벌이 관계기업 (주)부산해운 지분 30%를 보유하고 있었는데, 올해 추가 취득으로 55%가 되면서 종속기업이 되었다고 한다. 기존 30% 투자의 장부금액이 180억이고, 공정가치가 250억이다.\n\n재무팀에서는 추가 취득분만 취득원가로 잡고, 기존 30%는 장부금액 그대로 유지했다. 기타포괄손익에 외화환산차이 15억과 확정급여제도 재측정요소 8억이 누적되어 있는데, 둘 다 당기손익으로 재분류했다.\n\n재무팀장한테 물어보니 종속기업이 됐으니까 지분법을 중단하는 건 맞는데, 기타포괄손익은 전부 당기손익으로 돌리면 되는 거 아니냐고 한다.",
+     keyPoints:[
+       {text:"", ref:"K-IFRS 1028 문단 22(1)", stdText:"피투자기업이 종속기업이 되는 경우, 기업은 그 투자를 K-IFRS 1103 사업결합과 K-IFRS 1110에 따라 회계처리한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1028 문단 22(3)", stdText:"기타포괄손익으로 인식한 금액에 대하여 피투자자가 관련 자산이나 부채를 직접 처분한 경우의 회계처리와 동일한 기준으로 회계처리한다.", keywords:[], needAll:false, needCount:0},
+       {text:"종속기업 전환 시 기존 지분을 공정가치로 재측정해야 함 — 장부금액 유지는 오류", ref:"K-IFRS 1103, K-IFRS 1028 문단 22(1)", stdText:"단계적 사업결합에서 기존 보유 지분은 공정가치로 재측정한다.", keywords:["공정가치","재측정","180","250","사업결합"], needAll:false, needCount:3},
+       {text:"기타포괄손익 항목별 처리 필요 — 외화환산차이는 재분류, 재측정요소는 재분류 불가", ref:"K-IFRS 1028 문단 22(3)", stdText:"피투자자가 관련 자산이나 부채를 직접 처분한 경우의 회계처리와 동일한 기준으로 처리한다.", keywords:["재분류","외화환산","재측정요소","항목별","처분"], needAll:false, needCount:3}
+     ],
+     modelAnswer:"종속기업 전환 시 회계처리와 관련하여, 문단 22(1)에 따르면 피투자기업이 종속기업이 되는 경우 K-IFRS 1103 사업결합에 따라 회계처리해야 합니다. 단계적 사업결합에서 기존에 보유하던 30% 지분은 취득일의 공정가치 250억으로 재측정해야 하며, 장부금액 180억과의 차이 70억은 당기손익으로 인식합니다. 기존 지분을 장부금액 그대로 유지한 것은 오류입니다.\n\n기타포괄손익 처리와 관련하여, 문단 22(3)은 기타포괄손익으로 인식한 금액을 피투자자가 관련 자산이나 부채를 직접 처분한 경우와 동일한 기준으로 처리하도록 규정하고 있습니다. 이는 모든 기타포괄손익을 일괄적으로 당기손익에 재분류하라는 의미가 아닙니다. 외화환산차이 15억은 해외사업장 처분 시 당기손익으로 재분류되는 항목이므로 재분류가 적절하지만, 확정급여제도 재측정요소 8억은 후속적으로 당기손익에 재분류되지 않는 항목이므로 당기손익이 아닌 이익잉여금으로 직접 대체해야 합니다."
+    },
+
+    {id:4, tag:"보고기간차이·회계정책통일·영업권상각·취득시조정",
+     situation:"(주)수원전자 — IT 그룹 (감사 2년차)",
+     question:"수원전자가 관계기업 (주)판교소프트 지분 40%를 보유하고 있다. 판교소프트의 결산일이 9월 30일인데 수원전자는 12월 31일이라서, 재무팀에서는 판교소프트의 9월 30일 재무제표를 그대로 사용하고 있다. 작년에도 같은 방식이었다고 한다.\n\n취득 당시 판교소프트의 식별가능한 순자산 공정가치 중 수원전자 몫이 350억이었고 취득원가가 400억이었다. 재무팀에서는 차이 50억을 영업권으로 인식하고 10년 정액법으로 매년 5억씩 상각하고 있다.\n\n또 판교소프트가 재고자산 평가에 후입선출법을 사용하고 있는데, 수원전자는 선입선출법을 사용한다. 재무팀에서는 판교소프트 재무제표를 별도 조정 없이 그대로 사용해서 지분법을 적용했다.",
+     keyPoints:[
+       {text:"", ref:"K-IFRS 1028 문단 34", stdText:"기업의 보고기간종료일과 관계기업의 보고기간종료일 간의 차이는 3개월 이내이어야 한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1028 문단 32(1)", stdText:"영업권은 투자자산의 장부금액에 포함된다. 영업권의 상각은 허용되지 않는다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1028 문단 36", stdText:"관계기업이 기업의 회계정책과 다른 회계정책을 사용한 경우, 관계기업의 회계정책을 기업의 회계정책과 일관되도록 해야 한다.", keywords:[], needAll:false, needCount:0},
+       {text:"보고기간 차이 3개월 → 9/30 사용은 적절하나, 10~12월 유의적 거래 반영 필요", ref:"K-IFRS 1028 문단 34", stdText:"보고기간종료일이 다른 경우 유의적인 거래나 사건의 영향을 반영한다. 차이는 3개월 이내이어야 한다.", keywords:["3개월","유의적","거래","반영","34"], needAll:false, needCount:3},
+       {text:"영업권 상각은 기준서 위반 — 투자자산에 포함하되 상각 불가", ref:"K-IFRS 1028 문단 32(1)", stdText:"영업권은 해당 투자자산의 장부금액에 포함된다. 영업권의 상각은 허용되지 않는다.", keywords:["영업권","상각","허용","불가","포함","32"], needAll:false, needCount:3},
+       {text:"회계정책 차이(후입선출 vs 선입선출) 미조정 → 기준서 위반", ref:"K-IFRS 1028 문단 36", stdText:"관계기업의 회계정책을 기업의 회계정책과 일관되도록 해야 한다.", keywords:["회계정책","통일","일관","조정","36"], needAll:false, needCount:2}
+     ],
+     modelAnswer:"보고기간 차이와 관련하여, 수원전자의 결산일 12월 31일과 판교소프트의 결산일 9월 30일 간 차이는 3개월이므로 문단 34의 요건은 충족합니다. 그러나 문단 34는 보고기간종료일이 다른 경우 그 사이에 발생한 유의적인 거래나 사건의 영향을 반영하도록 요구하고 있습니다. 10월부터 12월 사이의 유의적인 거래나 사건을 확인하고 반영해야 합니다.\n\n영업권 처리와 관련하여, 문단 32(1)은 관계기업 관련 영업권이 투자자산의 장부금액에 포함되며 영업권의 상각은 허용되지 않는다고 명시하고 있습니다. 재무팀이 영업권 50억을 10년 정액법으로 매년 5억씩 상각하고 있는 것은 기준서 위반이며, 과거 상각 누계액을 환원하고 투자자산 장부금액을 수정해야 합니다.\n\n회계정책 통일과 관련하여, 문단 36에 따르면 관계기업이 기업의 회계정책과 다른 회계정책을 사용한 경우 기업의 회계정책과 일관되도록 조정해야 합니다. 판교소프트가 후입선출법을 사용하고 수원전자가 선입선출법을 사용하는 상황에서, 판교소프트의 재무제표를 조정 없이 그대로 사용하여 지분법을 적용한 것은 문단 36 위반입니다."
+    },
+
+    {id:5, tag:"관계기업↔공동기업전환·소유지분감소·매각예정",
+     situation:"(주)대전모터스 — 자동차 부품 (감사 2년차)",
+     question:"대전모터스가 (주)광주기어 지분 40%를 보유하고 관계기업으로 회계처리하고 있었다. 올해 광주기어가 주주간 계약을 변경해서 공동기업이 되었는데, 재무팀에서는 관계기업에서 공동기업으로 바뀌었으니 기존 지분을 공정가치로 재측정하고 차이를 당기손익에 반영했다.\n\n또 대전모터스가 (주)전주부품 지분 35%를 보유하고 있었는데, 올해 10%를 매각해서 25%가 되었다. 여전히 관계기업이지만, 기타포괄손익에 누적된 재평가잉여금 관련 금액 12억이 있다. 재무팀에서는 소유지분이 줄어든 거니까 기타포괄손익은 건드리지 않았다.\n\n추가로 (주)청주캐스팅 지분 30%의 절반인 15%를 매각 예정으로 분류했는데, 나머지 15%에 대해서도 지분법을 중단했다.",
+     keyPoints:[
+       {text:"", ref:"K-IFRS 1028 문단 24", stdText:"관계기업 투자가 공동기업 투자로 되는 경우, 기업은 지분법을 계속 적용하며 잔여 보유 지분을 재측정하지 않는다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1028 문단 25", stdText:"소유지분이 감소하지만 관계기업으로 계속 분류되는 경우, 기타포괄손익 중 소유지분 감소와 관련된 비례적 부분을 당기손익으로 재분류한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1028 문단 20", stdText:"매각예정으로 분류되지 않은 잔여 보유분은 매각예정 부분이 매각될 때까지 지분법을 적용한다.", keywords:[], needAll:false, needCount:0},
+       {text:"관계기업→공동기업 전환 시 재측정 불가 — 지분법 계속 적용", ref:"K-IFRS 1028 문단 24", stdText:"관계기업 투자가 공동기업 투자로 되는 경우 지분법을 계속 적용하며 재측정하지 않는다.", keywords:["재측정","불가","계속","공동기업","24"], needAll:false, needCount:3},
+       {text:"소유지분 감소(35%→25%) 시 기타포괄손익 비례 재분류 필요 — 약 3.4억", ref:"K-IFRS 1028 문단 25", stdText:"소유지분 감소와 관련된 비례적 부분을 당기손익으로 재분류한다.", keywords:["비례","재분류","감소","기타포괄","25"], needAll:false, needCount:3},
+       {text:"매각예정 15%만 K-IFRS 1105 적용, 나머지 15%는 지분법 계속", ref:"K-IFRS 1028 문단 20", stdText:"매각예정으로 분류되지 않은 잔여 보유분은 지분법을 적용하여 회계처리한다.", keywords:["잔여","지분법","계속","매각예정","15"], needAll:false, needCount:3}
+     ],
+     modelAnswer:"광주기어 관련하여, 문단 24는 관계기업 투자가 공동기업 투자로 되는 경우 기업은 지분법을 계속 적용하며 잔여 보유 지분을 재측정하지 않는다고 규정하고 있습니다. 재무팀이 공정가치로 재측정하고 차이를 당기손익에 반영한 것은 오류이며, 장부금액을 그대로 유지하고 지분법을 계속 적용해야 합니다.\n\n전주부품 관련하여, 문단 25에 따르면 관계기업에 대한 소유지분이 감소하지만 관계기업으로 계속 분류되는 경우, 이전에 기타포괄손익으로 인식했던 금액 중 소유지분 감소와 관련된 비례적 부분을 당기손익으로 재분류해야 합니다. 지분율이 35%에서 25%로 감소했으므로 감소분 비율(10%/35%)에 해당하는 기타포괄손익 약 3.4억을 당기손익으로 재분류해야 합니다. 재무팀이 기타포괄손익을 건드리지 않은 것은 문단 25 위반입니다.\n\n청주캐스팅 관련하여, 문단 20에 따르면 관계기업 투자의 일부가 매각예정 분류 기준을 충족하는 경우 그 부분에만 K-IFRS 1105를 적용하고, 매각예정으로 분류되지 않은 잔여 보유분은 매각예정 부분이 매각될 때까지 지분법을 계속 적용해야 합니다. 15%만 매각예정이므로 나머지 15%에 대해 지분법을 중단한 것은 오류입니다."
+    },
+
+    {id:6, tag:"종합 — 유의적영향력·지분법절차·손실한도·손상·중단",
+     situation:"(주)서울캐피탈 — 금융 그룹 (감사 1년차, 종합 시나리오)",
+     question:"신규 감사인으로 들어왔는데, 전임 감사인한테 인수인계를 받아보니 서울캐피탈에 관계기업 투자가 4건 있다고 한다.\n\n첫 번째는 (주)강남핀테크 지분 15%인데, 서울캐피탈의 CEO가 강남핀테크 이사회 의장이고 핵심 결제 기술 라이선스를 제공하고 있다고 한다. 재무팀에서는 20% 미만이라 금융자산으로 분류해서 K-IFRS 1109를 적용하고 있다.\n\n두 번째는 (주)역삼에셋 지분 30%인데, 3년 전 취득 시 영업권이 50억 있었고 매년 10억씩 상각해서 지금 20억만 남아있다고 한다. 역삼에셋의 보고기간종료일이 3월 31일인데, 서울캐피탈은 12월 31일이다. 재무팀에서는 역삼에셋의 3월 31일 재무제표를 그대로 사용하고 있다.\n\n세 번째는 (주)송파로직스 지분 25%인데, 올해 대규모 손실이 발생해서 서울캐피탈 몫이 200억이라고 한다. 투자자산 장부금액이 120억이고, 무담보 장기대여금이 50억, 운영 관련 매입채무가 20억 있다. 재무팀에서는 120+50-20=150억을 한도로 잡고 150억만 손실을 인식했다.\n\n네 번째는 (주)잠실바이오 지분 40%인데, 잠실바이오가 파산 신청을 해서 회수가능액이 거의 0이라고 한다. 투자자산 장부금액이 300억이고 영업권 100억이 포함되어 있다. 재무팀에서는 영업권 100억에 먼저 손상차손을 배분하고 나머지 200억을 다른 자산에 배분했다.",
+     keyPoints:[
+       {text:"", ref:"K-IFRS 1028 문단 5~6", stdText:"20% 미만이어도 유의적인 영향력을 보유할 수 있다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1028 문단 32(1)", stdText:"영업권은 투자자산의 장부금액에 포함된다. 영업권의 상각은 허용되지 않는다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1028 문단 34", stdText:"보고기간종료일 간의 차이는 3개월 이내이어야 한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1028 문단 38", stdText:"투자지분은 투자자산 장부금액과 장기투자지분의 합계이다. 매출채권, 매입채무, 담보부대여금은 제외한다.", keywords:[], needAll:false, needCount:0},
+       {text:"", ref:"K-IFRS 1028 문단 42", stdText:"손상차손은 영업권 포함 어떠한 자산에도 배분하지 않는다.", keywords:[], needAll:false, needCount:0},
+       {text:"강남핀테크: 이사회 의장 + 기술 라이선스 → 유의적인 영향력 있음, 지분법 적용 필요", ref:"K-IFRS 1028 문단 5~6", stdText:"이사회 참여와 필수적 기술정보 제공은 유의적인 영향력의 증거이다.", keywords:["15%","이사회","기술","영향력","지분법"], needAll:false, needCount:3},
+       {text:"역삼에셋: 영업권 상각 불가 + 보고기간 차이 9개월은 3개월 초과 위반", ref:"K-IFRS 1028 문단 32(1), 34", stdText:"영업권 상각은 허용되지 않으며, 보고기간 차이는 3개월 이내이어야 한다.", keywords:["영업권","상각","3개월","9개월","위반"], needAll:false, needCount:3},
+       {text:"송파로직스: 매입채무는 한도 산정에서 차감 불가, 한도는 120+50=170억", ref:"K-IFRS 1028 문단 38", stdText:"투자지분은 투자자산 장부금액과 장기투자지분의 합계이며, 매입채무는 제외한다.", keywords:["매입채무","차감","170","한도","38"], needAll:false, needCount:3},
+       {text:"잠실바이오: 손상차손을 영업권에 배분한 것은 오류 — 단일 자산으로 전체 인식", ref:"K-IFRS 1028 문단 42", stdText:"손상차손은 어떠한 자산(영업권 포함)에도 배분하지 않는다.", keywords:["배분","불가","영업권","단일","42","300"], needAll:false, needCount:3}
+     ],
+     modelAnswer:"강남핀테크와 관련하여, 의결권이 15%로 20% 미만이지만 문단 5는 유의적인 영향력을 보유하고 있다는 사실을 명백하게 제시할 수 있는 경우 예외를 인정합니다. 서울캐피탈의 CEO가 강남핀테크 이사회 의장을 맡고 있고(문단 6(1)) 핵심 결제 기술 라이선스를 제공하고 있으므로(문단 6(5)) 유의적인 영향력이 존재합니다. 금융자산이 아닌 관계기업으로 분류하고 지분법을 적용해야 합니다.\n\n역삼에셋과 관련하여, 두 가지 오류가 있습니다. 첫째, 문단 32(1)은 영업권의 상각을 허용하지 않습니다. 매년 10억씩 상각한 누계 30억을 환원해야 합니다. 둘째, 문단 34에 따르면 보고기간종료일 간의 차이는 3개월 이내이어야 합니다. 서울캐피탈의 12월 31일과 역삼에셋의 3월 31일은 9개월 차이로, 3개월 제한을 위반합니다. 역삼에셋이 서울캐피탈과 동일한 보고기간종료일의 재무제표를 작성하거나, 적어도 9월 30일 이후의 재무제표를 사용해야 합니다.\n\n송파로직스와 관련하여, 문단 38에 따르면 손실인식 한도는 투자자산 장부금액과 실질적으로 순투자의 일부를 구성하는 장기투자지분의 합계입니다. 무담보 장기대여금 50억은 장기투자지분에 해당하나, 매입채무 20억은 문단 38에서 제외하는 항목입니다. 따라서 올바른 한도는 120+50=170억이며, 매입채무를 차감한 150억이 아닙니다. 손실 200억 중 170억만 인식해야 합니다.\n\n잠실바이오와 관련하여, 문단 42는 관계기업 투자를 단일 자산으로 전체 장부금액을 회수가능액과 비교하여 손상검사하며, 인식된 손상차손은 영업권을 포함한 어떤 자산에도 배분하지 않는다고 규정하고 있습니다. 재무팀이 영업권 100억에 먼저 배분한 것은 K-IFRS 1036의 CGU 배분 방식을 잘못 적용한 것이며, 300억 전체를 투자자산에 대한 손상차손으로 인식해야 합니다."
+    }
+  ]
+},
+
+// ─────────────────────────────────────────────────
+// K-IFRS 1109 금융상품
+// ─────────────────────────────────────────────────
+"K-IFRS 1109": {
+  code:"K-IFRS 1109", name:"금융상품",
+  desc:"분류·측정, 기대신용손실(ECL), 위험회피회계, 내재파생상품, 제거",
+
+  flowDiagram: {
+    title: "금융상품 회계처리 판단 흐름",
+    subtitle: "왼쪽: 판단 단계 (위→아래) · 오른쪽: 세부사항",
+    nodes: [
+      {id:"s1", label:"STEP 1", sub:"적용범위 판단", color:"purple", x:20, y:30, w:200, h:56,
+       notes:[]},
+      {id:"s1n", label:"", sub:"비금융항목: 순액결제 가능 시 적용 (문단 2.4)", color:"amber", x:280, y:20, w:260, h:30, notes:["모든 유형의 금융상품에 적용","제외: 종속기업, 리스, 종업원급여 등"]},
+
+      {id:"s2", label:"STEP 2", sub:"분류: 사업모형 + SPPI", color:"purple", x:20, y:140, w:200, h:56,
+       notes:[]},
+      {id:"s2a", label:"AC", sub:"상각후원가", color:"teal", x:280, y:120, w:120, h:36,
+       notes:["수취목적 + SPPI (문단 4.1.2)"]},
+      {id:"s2b", label:"FVOCI", sub:"기타포괄손익-FV", color:"teal", x:280, y:162, w:120, h:36,
+       notes:["수취+매도 + SPPI (문단 4.1.2A)"]},
+      {id:"s2c", label:"FVPL", sub:"당기손익-FV", color:"coral", x:280, y:204, w:120, h:36,
+       notes:["나머지 전부 (문단 4.1.4)"]},
+
+      {id:"s3", label:"STEP 3", sub:"최초 측정", color:"purple", x:20, y:290, w:200, h:56,
+       notes:["문단 5.1.1~5.1.3","공정가치 ± 거래원가 (FVPL은 비용 즉시)"]},
+      {id:"s4", label:"STEP 4", sub:"후속 측정", color:"purple", x:20, y:400, w:200, h:56,
+       notes:["문단 5.2.1~5.3.2","AC: 유효이자율법","FVOCI: 공정가치 (변동→OCI)","FVPL: 공정가치 (변동→P/L)"]},
+      {id:"s5", label:"STEP 5", sub:"손상 (ECL 모형)", color:"teal", x:20, y:520, w:200, h:56,
+       notes:[]},
+      {id:"s5n", label:"", sub:"간편법: 매출채권은 전체기간 ECL 즉시 (문단 5.5.15)", color:"amber", x:280, y:510, w:260, h:30, notes:["AC·FVOCI·리스채권·계약자산 대상","3단계: 12개월 ECL → 전체기간 ECL"]},
+
+      {id:"s6", label:"STEP 6", sub:"제거 판단", color:"coral", x:20, y:630, w:200, h:56,
+       notes:["문단 3.2.1~3.2.23","현금흐름 권리 소멸 or 양도","위험보상 이전 여부 분석"]},
+      {id:"s7", label:"STEP 7", sub:"위험회피회계 (선택)", color:"coral", x:20, y:740, w:200, h:56,
+       notes:["문단 6.1.1~6.7.4","공정가치/현금흐름/해외사업장순투자","적용조건: 문서화, 경제적 관계"]},
+      {id:"s8", label:"STEP 8", sub:"재분류·공시", color:"purple", x:20, y:850, w:200, h:56,
+       notes:["문단 4.4.1~4.4.3, 5.6.1~5.6.7","사업모형 변경 시에만 재분류","전진적 적용, 이전 손익 불소급"]}
+    ],
+    edges: [
+      {from:"s1", to:"s2", label:"적용대상", labelColor:"green"},
+      {from:"s1", to:"s1n", dir:"right", dash:true},
+      {from:"s2", to:"s2a", dir:"right", dash:true},
+      {from:"s2", to:"s2b", dir:"right", dash:true},
+      {from:"s2", to:"s2c", dir:"right", dash:true},
+      {from:"s2", to:"s3"},
+      {from:"s3", to:"s4"},
+      {from:"s4", to:"s5"},
+      {from:"s5", to:"s5n", dir:"right", dash:true},
+      {from:"s5", to:"s6"},
+      {from:"s6", to:"s7"},
+      {from:"s7", to:"s8"}
+    ],
+    viewBox: "0 0 820 960"
+  },
+
+  oxQuiz: [
+    // ── 1. 적용범위 (문단 2.1~2.7) : 5문제 ──
+    {
+      statement: "종속기업에 대한 투자지분은 어떤 경우에도 K-IFRS 1109호의 적용범위에서 제외된다.",
+      answer: false,
+      ref: "문단 2.1(1)",
+      wrongPart: "'어떤 경우에도'가 틀림 — K-IFRS 1110호 등에서 이 기준서의 일부나 전체 요구사항에 따라 회계처리하도록 요구하거나 허용하는 경우가 있음",
+      stdText: "기업회계기준서 제1110호, 제1027호, 제1028호에서 종속기업, 관계기업, 공동기업 투자지분에 이 기준서의 일부나 전체 요구사항에 따라 회계처리 하도록 요구하거나 허용하는 경우도 있다."
+    },
+    {
+      statement: "비금융항목을 매입하거나 매도하는 계약이라도 순액으로 결제할 수 있는 경우에는 이 기준서를 적용할 수 있다.",
+      answer: true,
+      ref: "문단 2.4~2.5",
+      wrongPart: "",
+      stdText: "비금융항목을 매입하거나 매도하는 계약으로서 현금 등 금융상품의 순액이나 금융상품의 교환으로 순액결제를 할 수 있는 계약은 금융상품인 것처럼 이 기준서의 적용범위에 포함된다."
+    },
+    {
+      statement: "금융보증계약의 발행자가 해당 계약을 보험계약으로 본다고 사전에 명백히 한 경우, 그 계약에는 K-IFRS 1117호만 적용할 수 있고 K-IFRS 1109호를 선택 적용할 수 없다.",
+      answer: false,
+      ref: "문단 2.1(5)(다)",
+      wrongPart: "'K-IFRS 1109호를 선택 적용할 수 없다'가 틀림 — K-IFRS 1109호나 K-IFRS 1117호를 선택하여 적용할 수 있음",
+      stdText: "금융보증계약의 정의를 충족하는 보험계약에서 발행자의 권리와 의무. 그러나, 금융보증계약의 발행자가 해당 계약을 보험계약으로 본다는 것을 사전에 명백히 하고 보험계약에 적용 가능한 회계처리를 하였다면, 그 계약발행자는 이러한 금융보증계약에 이 기준서나 기업회계기준서 제1117호를 선택하여 적용할 수 있다."
+    },
+    {
+      statement: "대출약정의 제공자는 해당 대출약정이 K-IFRS 1109호의 적용범위에 포함되지 않더라도 이 기준서의 손상 요구사항을 적용하여야 한다.",
+      answer: true,
+      ref: "문단 2.1(7)",
+      wrongPart: "",
+      stdText: "이 기준서의 적용범위에 포함되지 아니하는 대출약정의 제공자는 해당 대출약정에 이 기준서의 손상 요구사항을 적용한다."
+    },
+    {
+      statement: "자기 사용 목적으로 비금융항목을 매입하는 계약은 당기손익-공정가치 측정 항목으로 지정할 수 없다.",
+      answer: false,
+      ref: "문단 2.5",
+      wrongPart: "'지정할 수 없다'가 틀림 — 회계불일치를 제거하거나 유의적으로 줄이는 경우 최초 인식시점에 지정 가능",
+      stdText: "비금융항목을 매입하거나 매도하는 계약 중 기업 자체의 예상되는 매입, 매도, 사용에 필요한 목적으로 체결하고 계속 유지하는 계약은 이 기준서의 적용범위에서 제외되나, 기업은 그 계약을 당기손익-공정가치 측정 항목으로 지정할 수 있다."
+    },
+
+    // ── 2. 금융자산 분류: 사업모형 + SPPI (문단 4.1.1~4.1.5) : 8문제 ──
+    {
+      statement: "금융자산의 분류는 금융자산의 관리를 위한 사업모형과 금융자산의 계약상 현금흐름 특성 두 가지에 근거한다.",
+      answer: true,
+      ref: "문단 4.1.1",
+      wrongPart: "",
+      stdText: "다음 두 가지 사항 모두에 근거하여 금융자산이 후속적으로 상각후원가, 기타포괄손익-공정가치, 당기손익-공정가치로 측정되도록 분류한다. ⑴ 금융자산의 관리를 위한 사업모형 ⑵ 금융자산의 계약상 현금흐름 특성"
+    },
+    {
+      statement: "금융자산을 상각후원가로 측정하려면 계약상 현금흐름을 수취하기 위해 보유하는 것이 목적인 사업모형 하에서 보유하여야 하며, 계약 조건에 따라 원리금 지급만으로 구성되어 있는 현금흐름이 발생하여야 한다.",
+      answer: true,
+      ref: "문단 4.1.2",
+      wrongPart: "",
+      stdText: "다음 두 가지 조건을 모두 충족한다면 금융자산을 상각후원가로 측정한다. ⑴ 계약상 현금흐름을 수취하기 위해 보유하는 것이 목적인 사업모형 하에서 금융자산을 보유한다. ⑵ 금융자산의 계약 조건에 따라 특정일에 원금과 원금잔액에 대한 이자 지급만으로 구성되어 있는 현금흐름이 발생한다."
+    },
+    {
+      statement: "기타포괄손익-공정가치로 측정하는 금융자산의 사업모형은 계약상 현금흐름의 수취만을 통해 목적을 이루는 사업모형이다.",
+      answer: false,
+      ref: "문단 4.1.2A",
+      wrongPart: "'수취만을 통해'가 틀림 — 수취와 매도 둘 다를 통해 목적을 이루는 사업모형",
+      stdText: "다음 두 가지 조건을 모두 충족한다면 금융자산을 기타포괄손익-공정가치로 측정한다. ⑴ 계약상 현금흐름의 수취와 금융자산의 매도 둘 다를 통해 목적을 이루는 사업모형 하에서 금융자산을 보유한다."
+    },
+    {
+      statement: "원금이란 금융자산의 액면금액을 의미한다.",
+      answer: false,
+      ref: "문단 4.1.3(1)",
+      wrongPart: "'액면금액'이 틀림 — 최초 인식시점의 금융자산의 공정가치",
+      stdText: "원금은 최초 인식시점의 금융자산의 공정가치이다."
+    },
+    {
+      statement: "이자는 화폐의 시간가치에 대한 대가와 신용위험에 대한 대가로만 구성된다.",
+      answer: false,
+      ref: "문단 4.1.3(2)",
+      wrongPart: "'~로만 구성된다'가 틀림 — 그 밖의 기본적인 대여 위험과 원가에 대한 대가뿐만 아니라 이윤도 포함됨",
+      stdText: "이자는 화폐의 시간가치에 대한 대가, 특정 기간에 원금잔액과 관련된 신용위험에 대한 대가, 그 밖의 기본적인 대여 위험과 원가에 대한 대가뿐만 아니라 이윤으로 구성된다."
+    },
+    {
+      statement: "당기손익-공정가치로 측정되는 지분상품에 대한 투자는 후속적인 공정가치 변동을 기타포괄손익으로 표시하도록 최초 인식시점에 선택할 수 있으며, 이 선택은 이후에 취소할 수 있다.",
+      answer: false,
+      ref: "문단 4.1.4",
+      wrongPart: "'이후에 취소할 수 있다'가 틀림 — 한번 선택하면 이를 취소할 수 없다",
+      stdText: "당기손익-공정가치로 측정되는 '지분상품에 대한 특정 투자'에 대하여는 후속적인 공정가치 변동을 기타포괄손익으로 표시하도록 최초 인식시점에 선택할 수도 있다. 다만 한번 선택하면 이를 취소할 수 없다."
+    },
+    {
+      statement: "회계불일치를 제거하거나 유의적으로 줄이는 경우에는 최초 인식시점에 해당 금융자산을 당기손익-공정가치 측정 항목으로 지정할 수 있으며, 이 지정은 취소할 수 없다.",
+      answer: true,
+      ref: "문단 4.1.5",
+      wrongPart: "",
+      stdText: "금융자산을 당기손익-공정가치 측정 항목으로 지정한다면 이와 같은 불일치를 제거하거나 유의적으로 줄이는 경우에는 최초 인식시점에 해당 금융자산을 당기손익-공정가치 측정 항목으로 지정할 수 있다. 다만 한번 지정하면 이를 취소할 수 없다."
+    },
+    {
+      statement: "금융자산이 상각후원가나 기타포괄손익-공정가치로 분류되지 않는 경우에는 당기손익-공정가치로 측정한다.",
+      answer: true,
+      ref: "문단 4.1.4",
+      wrongPart: "",
+      stdText: "금융자산은 문단 4.1.2에 따라 상각후원가로 측정하거나 문단 4.1.2A에 따라 기타포괄손익-공정가치로 측정하는 경우가 아니라면, 당기손익-공정가치로 측정한다."
+    },
+
+    // ── 3. 금융부채 분류 (문단 4.2.1~4.2.2) : 5문제 ──
+    {
+      statement: "금융부채는 원칙적으로 후속적으로 당기손익-공정가치로 측정한다.",
+      answer: false,
+      ref: "문단 4.2.1",
+      wrongPart: "'당기손익-공정가치'가 틀림 — 원칙적으로 상각후원가로 측정",
+      stdText: "모든 금융부채는 다음을 제외하고는 후속적으로 상각후원가로 측정되도록 분류한다."
+    },
+    {
+      statement: "금융보증계약의 발행자는 최초 인식 후에 제5.5절에 따른 손실충당금과 최초 인식금액에서 수익누계액을 차감한 금액 중 큰 금액으로 후속 측정한다.",
+      answer: true,
+      ref: "문단 4.2.1(3)",
+      wrongPart: "",
+      stdText: "금융보증계약. 최초 인식 후에 이러한 계약의 발행자는 해당 계약을 후속적으로 다음 중 큰 금액으로 측정한다. ㈎ 제5.5절에 따라 산정한 손실충당금 ㈏ 최초 인식금액에서 기업회계기준서 제1115호에 따라 인식한 이익누계액을 차감한 금액"
+    },
+    {
+      statement: "사업결합에서 취득자가 인식하는 조건부 대가는 후속적으로 상각후원가로 측정한다.",
+      answer: false,
+      ref: "문단 4.2.1(5)",
+      wrongPart: "'상각후원가'가 틀림 — 당기손익-공정가치로 측정",
+      stdText: "기업회계기준서 제1103호를 적용하는 사업결합에서 취득자가 인식하는 조건부 대가. 이러한 조건부 대가는 후속적으로 당기손익-공정가치로 측정한다."
+    },
+    {
+      statement: "금융부채를 당기손익-공정가치 측정 항목으로 지정하는 것이 회계불일치를 제거하거나 유의적으로 줄이는 경우에는 최초 인식시점에 지정할 수 있다.",
+      answer: true,
+      ref: "문단 4.2.2(1)",
+      wrongPart: "",
+      stdText: "당기손익-공정가치 측정 항목으로 지정하면, 서로 다른 기준에 따라 자산이나 부채를 측정하거나 그에 따른 손익을 인식하여 생길 수 있는 인식이나 측정의 불일치를 제거하거나 유의적으로 줄인다."
+    },
+    {
+      statement: "문서화된 위험관리전략에 따라 금융상품 집합을 공정가치 기준으로 관리하고 그 성과를 평가하는 경우에도 금융부채를 당기손익-공정가치 측정 항목으로 지정할 수 있다.",
+      answer: true,
+      ref: "문단 4.2.2(2)",
+      wrongPart: "",
+      stdText: "문서화된 위험관리전략이나 투자전략에 따라, 금융상품 집합을 공정가치 기준으로 관리하고 그 성과를 평가하며 그 정보를 주요 경영진에게 그러한 공정가치 기준에 근거하여 내부적으로 제공한다."
+    },
+
+    // ── 4. 내재파생상품 (문단 4.3.1~4.3.7) : 5문제 ──
+    {
+      statement: "복합계약이 K-IFRS 1109호의 적용범위에 포함되는 자산을 주계약으로 포함하는 경우에는 내재파생상품을 분리하여야 한다.",
+      answer: false,
+      ref: "문단 4.3.2",
+      wrongPart: "'분리하여야 한다'가 틀림 — 복합계약 전체에 금융자산 분류 요구사항(문단 4.1.1~4.1.5)을 적용",
+      stdText: "복합계약이 이 기준서의 적용범위에 포함되는 자산을 주계약으로 포함하는 경우에는 해당 복합계약 전체에 문단 4.1.1~4.1.5의 요구사항을 적용한다."
+    },
+    {
+      statement: "주계약이 금융자산이 아닌 복합계약에서 내재파생상품을 분리하려면 경제적 특성·위험이 주계약과 밀접하게 관련되어 있지 않아야 한다.",
+      answer: true,
+      ref: "문단 4.3.3(1)",
+      wrongPart: "",
+      stdText: "내재파생상품의 경제적 특성·위험이 주계약의 경제적 특성·위험과 밀접하게 관련되어 있지 않다."
+    },
+    {
+      statement: "당기손익-공정가치 측정 금융부채에 내재된 파생상품도 분리하여야 한다.",
+      answer: false,
+      ref: "문단 4.3.3(3)",
+      wrongPart: "'분리하여야 한다'가 틀림 — 당기손익-공정가치 측정 금융부채에 내재된 파생상품은 분리하지 아니한다",
+      stdText: "복합계약의 공정가치 변동을 당기손익으로 인식하지 않는다(당기손익-공정가치 측정 금융부채에 내재된 파생상품은 분리하지 아니한다)."
+    },
+    {
+      statement: "주계약이 금융자산이 아닌 복합계약에 내재파생상품이 포함되어 있고, 분리가 가능하다면 복합계약 전체를 당기손익-공정가치 측정 항목으로 지정할 수 없다.",
+      answer: false,
+      ref: "문단 4.3.5",
+      wrongPart: "'지정할 수 없다'가 틀림 — 복합계약 전체를 당기손익-공정가치 측정 항목으로 지정할 수 있음",
+      stdText: "계약이 하나 이상의 내재파생상품을 포함하고 주계약이 이 기준서의 적용범위에 포함되는 자산이 아닌 경우에는 복합계약 전체를 당기손익-공정가치 측정 항목으로 지정할 수 있다."
+    },
+    {
+      statement: "주계약과 분리하여야 하는 내재파생상품을 분리하여 측정할 수 없는 경우에는 복합계약 전체를 당기손익-공정가치 측정 항목으로 지정한다.",
+      answer: true,
+      ref: "문단 4.3.6",
+      wrongPart: "",
+      stdText: "이 기준서에 따라 주계약과 분리하여야 하는 내재파생상품을 취득시점이나 그 후의 재무보고일에 주계약과 분리하여 측정할 수 없는 경우에는 복합계약 전체를 당기손익-공정가치 측정 항목으로 지정한다."
+    },
+
+    // ── 5. 최초 인식·최초 측정 (문단 3.1.1~3.1.2, 5.1.1~5.1.3) : 4문제 ──
+    {
+      statement: "금융자산은 계약의 당사자가 되는 때에 재무상태표에 인식한다.",
+      answer: true,
+      ref: "문단 3.1.1",
+      wrongPart: "",
+      stdText: "금융자산이나 금융부채는 해당 금융상품의 계약조건의 당사자가 되는 때에만 재무상태표에 인식한다."
+    },
+    {
+      statement: "금융자산의 최초 측정 시 당기손익-공정가치 측정 금융자산의 경우에도 거래원가를 공정가치에 가산한다.",
+      answer: false,
+      ref: "문단 5.1.1",
+      wrongPart: "'거래원가를 가산한다'가 틀림 — 당기손익-공정가치 측정 항목이 아닌 경우에만 거래원가를 가산",
+      stdText: "금융자산이나 금융부채의 최초 측정시, 당기손익-공정가치 측정 항목이 아닌 경우에는 해당 금융자산의 취득이나 금융부채의 발행에 직접 관련되는 거래원가를 공정가치에 가감하여 측정한다."
+    },
+    {
+      statement: "유의적인 금융요소를 포함하지 않는 매출채권은 최초 인식시점에 K-IFRS 1115호에 따른 거래가격으로 측정한다.",
+      answer: true,
+      ref: "문단 5.1.3",
+      wrongPart: "",
+      stdText: "기업회계기준서 제1115호의 적용범위에 포함되는 거래에서 생기는 매출채권에 유의적인 금융요소가 포함되어 있지 않다면 해당 매출채권은 최초에 기업회계기준서 제1115호에 따른 거래가격으로 측정한다."
+    },
+    {
+      statement: "금융자산의 정형화된 매입은 매매일 또는 결제일에 인식하거나 제거할 수 있다.",
+      answer: true,
+      ref: "문단 3.1.2",
+      wrongPart: "",
+      stdText: "금융자산의 정형화된 매입 또는 매도는 매매일 회계처리나 결제일 회계처리를 사용하여 인식하거나 제거한다."
+    },
+
+    // ── 6. 금융자산 제거 (문단 3.2.1~3.2.23) : 6문제 ──
+    {
+      statement: "금융자산에서 현금흐름에 대한 계약상 권리가 소멸한 경우에만 금융자산을 제거한다.",
+      answer: false,
+      ref: "문단 3.2.3",
+      wrongPart: "'소멸한 경우에만'이 틀림 — 양도로서 문단 3.2.6의 제거 조건을 충족하는 경우에도 제거",
+      stdText: "다음 중 하나에 해당하는 경우에만 금융자산을 제거한다. ㈎ 금융자산의 현금흐름에 대한 계약상 권리가 소멸한 경우 ㈏ 문단 3.2.4와 3.2.5에서 규정한 방식으로 금융자산을 양도하고 그 양도가 문단 3.2.6에서 규정한 제거의 조건을 충족하는 경우"
+    },
+    {
+      statement: "금융자산의 소유에 따른 위험과 보상의 대부분을 이전하는 경우에는 해당 금융자산을 제거한다.",
+      answer: true,
+      ref: "문단 3.2.6(a)",
+      wrongPart: "",
+      stdText: "소유에 따른 위험과 보상의 대부분을 이전한다면, 해당 금융자산을 제거하고 양도하여 생기거나 갖게 된 권리와 의무는 각각 자산과 부채로 인식한다."
+    },
+    {
+      statement: "금융자산의 소유에 따른 위험과 보상의 대부분을 보유하는 경우에는 해당 금융자산을 제거한다.",
+      answer: false,
+      ref: "문단 3.2.6(b)",
+      wrongPart: "'제거한다'가 틀림 — 해당 금융자산을 계속 인식한다",
+      stdText: "소유에 따른 위험과 보상의 대부분을 보유한다면, 해당 금융자산을 계속 인식한다."
+    },
+    {
+      statement: "소유에 따른 위험과 보상의 대부분을 이전하지도 보유하지도 않는 경우에 금융자산을 통제하고 있다면, 지속적으로 관여하는 정도까지 그 금융자산을 계속 인식한다.",
+      answer: true,
+      ref: "문단 3.2.6(c)(ii)",
+      wrongPart: "",
+      stdText: "금융자산을 통제하고 있다면, 지속적으로 관여하는 정도까지 그 금융자산을 계속 인식한다."
+    },
+    {
+      statement: "금융부채의 일부를 재매입하는 경우 종전 금융부채의 장부금액은 계속 인식하는 부분과 제거하는 부분에 대해 재매입일 현재 각 부분의 상대적 공정가치를 기준으로 배분한다.",
+      answer: true,
+      ref: "문단 3.3.4",
+      wrongPart: "",
+      stdText: "금융부채의 일부를 재매입하는 경우에 종전 금융부채의 장부금액은 계속 인식하는 부분과 제거하는 부분에 대해 재매입일 현재 각 부분의 상대적 공정가치를 기준으로 배분한다."
+    },
+    {
+      statement: "금융부채의 조건이 실질적으로 변경된 경우에는 종전 금융부채를 제거하고 새로운 금융부채를 인식한다.",
+      answer: true,
+      ref: "문단 3.3.2",
+      wrongPart: "",
+      stdText: "채무자와 채권자 사이에 실질적으로 다른 조건으로 채무상품을 교환한 경우에 최초의 금융부채는 제거되고 새로운 금융부채를 인식한다. 이와 비슷하게, 기존 금융부채의 조건이 실질적으로 변경된 경우에도 최초의 금융부채를 제거하고 새로운 금융부채를 인식한다."
+    },
+
+    // ── 7. ECL 손상 – 일반적인 접근법 (문단 5.5.1~5.5.8) : 8문제 ──
+    {
+      statement: "기대신용손실(ECL)을 손실충당금으로 인식하는 대상에는 상각후원가 측정 금융자산, 기타포괄손익-공정가치 측정 금융자산, 리스채권, 계약자산이 포함된다.",
+      answer: true,
+      ref: "문단 5.5.1",
+      wrongPart: "",
+      stdText: "문단 4.1.2나 4.1.2A에 따라 측정하는 금융자산, 리스채권, 계약자산, 문단 2.1⑺, 4.2.1⑶, 4.2.1⑷에 따라 손상 요구사항을 적용하는 대출약정, 금융보증계약의 기대신용손실을 손실충당금으로 인식한다."
+    },
+    {
+      statement: "기타포괄손익-공정가치 측정 금융자산의 손실충당금은 재무상태표에서 금융자산의 장부금액을 줄인다.",
+      answer: false,
+      ref: "문단 5.5.2",
+      wrongPart: "'장부금액을 줄인다'가 틀림 — 기타포괄손익에서 인식하고 재무상태표에서 금융자산의 장부금액을 줄이지 아니한다",
+      stdText: "문단 4.1.2A에 따른 기타포괄손익-공정가치 측정 금융자산의 손실충당금을 인식하고 측정하는 데 손상 요구사항을 적용한다. 그러나 해당 손실충당금은 기타포괄손익에서 인식하고 재무상태표에서 금융자산의 장부금액을 줄이지 아니한다."
+    },
+    {
+      statement: "최초 인식 후에 금융상품의 신용위험이 유의적으로 증가하지 않은 경우에는 12개월 기대신용손실에 해당하는 금액으로 손실충당금을 측정한다.",
+      answer: true,
+      ref: "문단 5.5.5",
+      wrongPart: "",
+      stdText: "최초 인식 후에 금융상품의 신용위험이 유의적으로 증가하지 아니한 경우에는 보고기간 말에 12개월 기대신용손실에 해당하는 금액으로 손실충당금을 측정한다."
+    },
+    {
+      statement: "최초 인식 후에 금융상품의 신용위험이 유의적으로 증가한 경우에는 매 보고기간 말에 12개월 기대신용손실에 해당하는 금액으로 손실충당금을 측정한다.",
+      answer: false,
+      ref: "문단 5.5.3",
+      wrongPart: "'12개월 기대신용손실'이 틀림 — 전체기간 기대신용손실에 해당하는 금액으로 측정",
+      stdText: "최초 인식 후에 금융상품의 신용위험이 유의적으로 증가한 경우에는 매 보고기간 말에 전체기간 기대신용손실에 해당하는 금액으로 손실충당금을 측정한다."
+    },
+    {
+      statement: "전기에 전체기간 기대신용손실로 측정했던 금융상품이 당기에 더는 유의적 증가 조건을 충족하지 않는다면, 당기말에 12개월 기대신용손실로 손실충당금을 측정한다.",
+      answer: true,
+      ref: "문단 5.5.7",
+      wrongPart: "",
+      stdText: "전기에 전체기간 기대신용손실에 해당하는 금액으로 금융상품에 대한 손실충당금을 측정하였으나 당기에 더는 문단 5.5.3을 충족하지 않는다고 판단하는 경우에는 당기 말에 12개월 기대신용손실에 해당하는 금액으로 손실충당금을 측정한다."
+    },
+    {
+      statement: "손실충당금을 조정하기 위한 기대신용손실액 또는 환입액은 손상차손(환입)으로 기타포괄손익에 인식한다.",
+      answer: false,
+      ref: "문단 5.5.8",
+      wrongPart: "'기타포괄손익'이 틀림 — 당기손익에 인식",
+      stdText: "보고기간 말에 이 기준서에 따라 인식해야 하는 금액으로 손실충당금을 조정하기 위한 기대신용손실액(또는 환입액)은 손상차손(환입)으로 당기손익에 인식한다."
+    },
+    {
+      statement: "대출약정과 금융보증계약에 손상 요구사항을 적용할 때는 해당 금융상품의 발행일을 최초 인식일로 본다.",
+      answer: false,
+      ref: "문단 5.5.6",
+      wrongPart: "'발행일'이 틀림 — 취소불가능한 약정의 당사자가 된 날을 최초 인식일로 본다",
+      stdText: "대출약정과 금융보증계약에 손상 요구사항을 적용할 때는, 취소불가능한 약정의 당사자가 된 날을 최초 인식일로 본다."
+    },
+    {
+      statement: "손상 요구사항의 목적은 최초 인식 후에 신용위험이 유의적으로 증가한 모든 금융상품에 대해 전체기간 기대신용손실을 인식하는 것이다.",
+      answer: true,
+      ref: "문단 5.5.4",
+      wrongPart: "",
+      stdText: "손상 요구사항의 목적은 최초 인식 후에 신용위험이 유의적으로 증가한 모든 금융상품에 대해 미래전망 정보를 포함하는 합리적이고 뒷받침될 수 있는 모든 정보를 고려하여, 개별평가나 집합평가로 전체기간 기대신용손실을 인식하는 것이다."
+    },
+
+    // ── 8. 신용위험 유의적 증가 판단 (문단 5.5.9~5.5.12) : 6문제 ──
+    {
+      statement: "신용위험의 유의적인 증가를 평가할 때 기대신용손실액의 변동을 사용한다.",
+      answer: false,
+      ref: "문단 5.5.9",
+      wrongPart: "'기대신용손실액의 변동'이 틀림 — 채무불이행 발생 위험의 변동을 사용",
+      stdText: "신용위험의 유의적인 증가를 평가할 때 기대신용손실액의 변동이 아니라 금융상품의 기대존속기간에 걸친 채무불이행 발생 위험의 변동을 사용한다."
+    },
+    {
+      statement: "보고기간 말에 금융상품의 신용위험이 낮다고 판단되면, 최초 인식 후에 신용위험이 유의적으로 증가하지 않았다고 볼 수 있다.",
+      answer: true,
+      ref: "문단 5.5.10",
+      wrongPart: "",
+      stdText: "보고기간 말에 금융상품의 신용위험이 낮다고 판단된다면 최초 인식 후에 해당 금융상품의 신용위험이 유의적으로 증가하지 않았다고 볼 수 있다."
+    },
+    {
+      statement: "계약상 지급의 연체일수가 30일을 초과하는 경우에는 최초 인식 후에 금융상품의 신용위험이 유의적으로 증가했다고 간주하며, 이 간주규정은 반증할 수 없다.",
+      answer: false,
+      ref: "문단 5.5.11",
+      wrongPart: "'반증할 수 없다'가 틀림 — 반증 가능한 간주규정",
+      stdText: "계약상 지급의 연체일수가 30일을 초과하는 경우에는 최초 인식 후에 금융상품의 신용위험이 유의적으로 증가했다는 반증 가능한 간주규정을 적용할 수 있다."
+    },
+    {
+      statement: "최초 인식 후에 신용위험이 유의적으로 증가하였는지를 판단할 때 미래전망 정보를 과도한 원가나 노력 없이 이용할 수 있다면 연체 정보에만 의존해서는 안 된다.",
+      answer: true,
+      ref: "문단 5.5.11",
+      wrongPart: "",
+      stdText: "최초 인식 후에 신용위험이 유의적으로 증가하였는지를 판단할 때 합리적이고 뒷받침될 수 있는 미래전망 정보를 과도한 원가나 노력 없이 이용할 수 있다면 연체 정보에만 의존해서는 안 된다."
+    },
+    {
+      statement: "변경된 금융자산의 신용위험 유의적 증가 판단 시 보고기간 말의 채무불이행 발생 위험은 변경된 계약조건에 기초하여 평가한다.",
+      answer: true,
+      ref: "문단 5.5.12",
+      wrongPart: "",
+      stdText: "금융자산의 계약상 현금흐름이 재협상되거나 변경되지만 그 금융자산이 제거되지 않는다면 문단 5.5.3에 따라 금융상품의 신용위험이 유의적으로 증가하였는지를 다음의 ⑴과 ⑵를 비교하여 평가한다. ⑴ 보고기간 말의 채무불이행 발생 위험(변경된 계약조건에 기초함)"
+    },
+    {
+      statement: "변경된 금융자산의 신용위험 유의적 증가 판단 시 최초 인식시점의 채무불이행 발생 위험도 변경된 계약조건에 기초하여 평가한다.",
+      answer: false,
+      ref: "문단 5.5.12(2)",
+      wrongPart: "'변경된 계약조건'이 틀림 — 최초 인식시점의 채무불이행 발생 위험은 변경되기 전 최초 계약조건에 기초",
+      stdText: "⑵ 최초 인식시점의 채무불이행 발생 위험(변경되기 전 최초 계약조건에 기초함)"
+    },
+
+    // ── 9. 취득시 신용손상·간편법·ECL 측정 (문단 5.5.13~5.5.20) : 6문제 ──
+    {
+      statement: "취득시 신용이 손상되어 있는 금융자산은 보고기간 말에 12개월 기대신용손실에 해당하는 금액으로 손실충당금을 인식한다.",
+      answer: false,
+      ref: "문단 5.5.13",
+      wrongPart: "'12개월 기대신용손실'이 틀림 — 최초 인식 이후 전체기간 기대신용손실의 누적변동분만을 손실충당금으로 인식",
+      stdText: "취득시 신용이 손상되어 있는 금융자산은 보고기간 말에 최초 인식 이후 전체기간 기대신용손실의 누적변동분만을 손실충당금으로 인식한다."
+    },
+    {
+      statement: "유의적인 금융요소를 포함하지 않는 매출채권이나 계약자산은 항상 전체기간 기대신용손실에 해당하는 금액으로 손실충당금을 측정한다.",
+      answer: true,
+      ref: "문단 5.5.15(1)(가)",
+      wrongPart: "",
+      stdText: "기업회계기준서 제1115호에 따른 유의적인 금융요소를 포함하고 있지 않은 매출채권이나 계약자산은 항상 전체기간 기대신용손실에 해당하는 금액으로 손실충당금을 측정한다."
+    },
+    {
+      statement: "리스채권에 대해서는 반드시 전체기간 기대신용손실에 해당하는 금액으로 손실충당금을 측정해야 한다.",
+      answer: false,
+      ref: "문단 5.5.15(2)",
+      wrongPart: "'반드시'가 틀림 — 회계정책으로 선택한 경우에만",
+      stdText: "기업회계기준서 제1116호의 적용범위에 포함되는 거래에서 생기는 리스채권으로서, 전체기간 기대신용손실에 해당하는 금액으로 손실충당금을 측정하는 것을 회계정책으로 선택한 경우."
+    },
+    {
+      statement: "기대신용손실의 측정시 화폐의 시간가치를 반영하여야 한다.",
+      answer: true,
+      ref: "문단 5.5.17(2)",
+      wrongPart: "",
+      stdText: "금융상품의 기대신용손실은 다음 사항을 반영하도록 측정한다. ⑵ 화폐의 시간가치"
+    },
+    {
+      statement: "기대신용손실을 측정할 때 고려하는 가장 긴 기간은 기업의 사업관행과 일관된 기간이다.",
+      answer: false,
+      ref: "문단 5.5.19",
+      wrongPart: "'사업관행과 일관된 기간'이 틀림 — 신용위험에 노출되는 최장 계약기간(연장옵션 포함)이며, 사업관행과 일관되더라도 최장 계약기간을 넘어설 수 없음",
+      stdText: "기대신용손실을 측정할 때 고려하는 가장 긴 기간은 신용위험에 노출되는 최장 계약기간(연장옵션 포함)이며, 이 보다 더 긴 기간이 사업관행과 일관된다고 하더라도 최장 계약기간을 넘어설 수 없다."
+    },
+    {
+      statement: "기대신용손실을 측정할 때 가능한 시나리오를 모두 고려하여야 한다.",
+      answer: false,
+      ref: "문단 5.5.18",
+      wrongPart: "'모두 고려하여야 한다'가 틀림 — 모두 고려할 필요는 없으나 신용손실의 발생 가능성과 발생하지 아니할 가능성을 반영하여야 함",
+      stdText: "기대신용손실을 측정할 때 가능한 시나리오를 모두 고려할 필요는 없다. 그러나 신용손실의 발생 가능성이 매우 낮더라도 신용손실이 발생할 가능성과 발생하지 아니할 가능성을 반영하여 신용손실이 발생할 위험이나 확률을 고려한다."
+    },
+
+    // ── 10. 재분류 (문단 4.4.1~4.4.3, 5.6.1~5.6.7) : 5문제 ──
+    {
+      statement: "금융자산의 관리를 위한 사업모형을 변경하는 경우에만 영향 받는 모든 금융자산을 재분류한다.",
+      answer: true,
+      ref: "문단 4.4.1",
+      wrongPart: "",
+      stdText: "금융자산의 관리를 위한 사업모형을 변경하는 경우에만 영향 받는 모든 금융자산을 문단 4.1.1~4.1.4에 따라 재분류한다."
+    },
+    {
+      statement: "금융자산의 재분류는 소급적으로 적용한다.",
+      answer: false,
+      ref: "문단 5.6.1",
+      wrongPart: "'소급적으로'가 틀림 — 재분류일부터 전진적으로 적용",
+      stdText: "문단 4.4.1에 따라 금융자산을 재분류하는 경우에 그 재분류를 재분류일부터 전진적으로 적용한다."
+    },
+    {
+      statement: "금융자산을 상각후원가 측정 범주에서 당기손익-공정가치 측정 범주로 재분류하는 경우, 재분류일의 공정가치와 상각후원가의 차이에 따른 손익은 당기손익으로 인식한다.",
+      answer: true,
+      ref: "문단 5.6.2",
+      wrongPart: "",
+      stdText: "금융자산을 상각후원가 측정 범주에서 당기손익-공정가치 측정 범주로 재분류하는 경우에 재분류일의 공정가치로 측정한다. 금융자산의 재분류 전 상각후원가와 공정가치의 차이에 따른 손익은 당기손익으로 인식한다."
+    },
+    {
+      statement: "금융부채는 사업모형이 변경되면 재분류한다.",
+      answer: false,
+      ref: "문단 4.4.2",
+      wrongPart: "금융부채는 재분류하지 아니한다",
+      stdText: "금융부채는 재분류하지 아니한다."
+    },
+    {
+      statement: "재분류 전에 인식한 손익이나 이자는 재분류시 다시 작성하지 않는다.",
+      answer: true,
+      ref: "문단 5.6.1",
+      wrongPart: "",
+      stdText: "재분류 전에 인식한 손익[손상차손(환입) 포함]이나 이자는 다시 작성하지 않는다."
+    },
+
+    // ── 11. 위험회피회계 (문단 6.1.1~6.5.14) : 10문제 ──
+    {
+      statement: "위험회피회계의 목적은 위험관리 활동의 효과를 재무제표에 반영하는 것이다.",
+      answer: true,
+      ref: "문단 6.1.1",
+      wrongPart: "",
+      stdText: "위험회피회계의 목적은 당기손익에 영향을 미칠 수 있는 특정 위험으로 생긴 익스포저를 관리하기 위하여 금융상품을 활용하는 위험관리 활동의 효과를 재무제표에 반영하는 것이다."
+    },
+    {
+      statement: "발행한 옵션을 포함하여 모든 당기손익-공정가치 측정 파생상품은 위험회피수단으로 지정할 수 있다.",
+      answer: false,
+      ref: "문단 6.2.1",
+      wrongPart: "'발행한 옵션을 포함하여'가 틀림 — 일부 발행한 옵션은 제외",
+      stdText: "일부 발행한 옵션을 제외하고, 당기손익-공정가치 측정 파생상품은 위험회피수단으로 지정할 수 있다."
+    },
+    {
+      statement: "당기손익-공정가치 측정 비파생금융자산이나 비파생금융부채도 위험회피수단으로 지정할 수 있다.",
+      answer: true,
+      ref: "문단 6.2.2",
+      wrongPart: "",
+      stdText: "당기손익-공정가치 측정 비파생금융자산이나 비파생금융부채는 위험회피수단으로 지정할 수 있다."
+    },
+    {
+      statement: "보고실체의 내부 거래도 위험회피수단으로 지정할 수 있다.",
+      answer: false,
+      ref: "문단 6.2.3",
+      wrongPart: "'내부 거래도'가 틀림 — 보고실체의 외부 당사자와 체결한 계약만을 위험회피수단으로 지정 가능",
+      stdText: "위험회피회계의 목적상, 보고실체의 외부 당사자와 체결한 계약만을 위험회피수단으로 지정할 수 있다."
+    },
+    {
+      statement: "옵션계약의 시간가치와 내재가치를 구분하여 내재가치의 변동만을 위험회피수단으로 지정할 수 있다.",
+      answer: true,
+      ref: "문단 6.2.4(1)",
+      wrongPart: "",
+      stdText: "옵션계약의 내재가치와 시간가치를 구분하여 내재가치의 변동만을 위험회피수단으로 지정하고 시간가치의 변동은 제외하는 경우"
+    },
+    {
+      statement: "위험회피수단의 잔여 만기 중 일부 기간에서만 생긴 공정가치의 일부 변동을 위험회피수단으로 지정할 수 있다.",
+      answer: false,
+      ref: "문단 6.2.4(3)",
+      wrongPart: "'지정할 수 있다'가 틀림 — 지정할 수 없음",
+      stdText: "전체 위험회피수단의 비례적 부분을 위험회피관계에서 위험회피수단으로 지정하는 경우. 그러나 위험회피수단의 잔여 만기 중 일부 기간에서만 생긴 공정가치의 일부 변동을 위험회피수단으로 지정할 수 없다."
+    },
+    {
+      statement: "위험회피회계의 적용조건에는 위험회피의 개시시점에 위험회피관계, 위험관리 목적, 위험회피 전략에 대한 공식적인 문서화가 포함된다.",
+      answer: true,
+      ref: "문단 6.4.1(a)",
+      wrongPart: "",
+      stdText: "위험회피의 개시시점에 위험회피관계와 위험관리 목적 및 위험회피 전략에 대한 공식적인 지정과 문서화가 있다."
+    },
+    {
+      statement: "공정가치위험회피에서는 위험회피수단의 손익을 당기손익으로 인식하고, 위험회피대상항목의 위험회피위험에 기인하는 공정가치 변동으로 위험회피대상항목의 장부금액을 조정하여 당기손익으로 인식한다.",
+      answer: true,
+      ref: "문단 6.5.8",
+      wrongPart: "",
+      stdText: "공정가치위험회피가 위험회피기간 중 적용조건을 충족한다면, 위험회피수단의 손익을 당기손익으로 인식하고 위험회피위험에 기인하는 위험회피대상항목의 공정가치 변동으로 위험회피대상항목의 장부금액을 조정하고 당기손익으로 인식한다."
+    },
+    {
+      statement: "현금흐름위험회피에서 위험회피수단의 손익 중 위험회피에 효과적인 부분은 당기손익으로 인식한다.",
+      answer: false,
+      ref: "문단 6.5.11",
+      wrongPart: "'당기손익'이 틀림 — 기타포괄손익으로 인식",
+      stdText: "현금흐름위험회피가 적용조건을 충족한다면 위험회피수단의 손익 중 효과적인 부분에 해당하는 금액은 기타포괄손익으로 인식한다."
+    },
+    {
+      statement: "해외사업장순투자의 위험회피에서 위험회피에 효과적인 부분은 기타포괄손익으로 인식한다.",
+      answer: true,
+      ref: "문단 6.5.13",
+      wrongPart: "",
+      stdText: "해외사업장순투자의 위험회피는 현금흐름위험회피와 비슷하게 회계처리한다. 위험회피수단의 손익 중 효과적인 부분은 기타포괄손익으로 인식한다."
+    },
+
+    // ── 12. 후속측정·손익인식 (문단 5.2.1~5.7.11) : 8문제 ──
+    {
+      statement: "상각후원가 측정 금융자산은 유효이자율법에 따라 후속 측정한다.",
+      answer: true,
+      ref: "문단 5.2.1",
+      wrongPart: "",
+      stdText: "문단 4.1.2에 따른 상각후원가 측정 금융자산은 최초 인식 후에 유효이자율법을 사용하여 상각후원가로 측정한다."
+    },
+    {
+      statement: "당기손익-공정가치 측정 금융부채 중 자기신용위험 변동에 따른 공정가치 변동은 항상 당기손익으로 인식한다.",
+      answer: false,
+      ref: "문단 5.7.7",
+      wrongPart: "'항상 당기손익'이 틀림 — 기타포괄손익으로 표시 (단, 회계불일치를 야기하거나 확대하는 경우는 당기손익)",
+      stdText: "문단 4.2.2에 따라 당기손익-공정가치 측정 항목으로 지정한 금융부채의 공정가치 변동 중 해당 부채의 신용위험 변동에 기인하는 금액은 기타포괄손익으로 표시한다."
+    },
+    {
+      statement: "기타포괄손익-공정가치로 측정하도록 선택한 지분상품의 배당금은 당기손익으로 인식한다.",
+      answer: true,
+      ref: "문단 5.7.6",
+      wrongPart: "",
+      stdText: "문단 5.7.5에 따른 선택을 한 지분상품에 대한 투자에서 발생한 배당금은 해당 배당금이 명백하게 투자의 원가 중 일부의 회수를 나타내는 경우가 아니라면 기업회계기준서 제1018호에 따라 당기손익으로 인식한다."
+    },
+    {
+      statement: "기타포괄손익-공정가치로 측정하도록 선택한 지분상품을 제거할 때 기타포괄손익누계액을 당기손익으로 재분류한다.",
+      answer: false,
+      ref: "문단 5.7.5",
+      wrongPart: "'당기손익으로 재분류한다'가 틀림 — 기타포괄손익누계액을 이익잉여금으로 대체할 수 있으나 당기손익으로 재분류하지 아니함",
+      stdText: "지분상품에 대한 투자를 제거할 때 기타포괄손익에 인식한 누적손익을 당기손익으로 재분류하지 아니한다."
+    },
+    {
+      statement: "기타포괄손익-공정가치 측정 금융자산(문단 4.1.2A)에서 유효이자율법으로 계산한 이자는 당기손익으로 인식한다.",
+      answer: true,
+      ref: "문단 5.7.10",
+      wrongPart: "",
+      stdText: "유효이자율법을 사용하여 계산한 이자는 당기손익으로 인식한다."
+    },
+    {
+      statement: "기타포괄손익-공정가치 측정 금융자산(문단 4.1.2A)의 손상차손은 기타포괄손익으로 인식한다.",
+      answer: false,
+      ref: "문단 5.7.10",
+      wrongPart: "손상차손은 기타포괄손익이 아닌 당기손익에 영향 — 손실충당금은 기타포괄손익에서 인식하되 손상차손(환입)은 당기손익",
+      stdText: "손상차손(환입)과 외환손익을 제외하고는, 문단 4.1.2A에 따른 기타포괄손익-공정가치 측정 금융자산의 손익은 해당 금융자산을 제거하거나 재분류할 때까지 기타포괄손익으로 인식한다."
+    },
+    {
+      statement: "문단 4.1.2A에 따라 기타포괄손익-공정가치로 측정하는 금융자산의 당기손익 인식 금액은 해당 금융자산을 상각후원가로 측정하였더라면 인식하였을 금액과 같다.",
+      answer: true,
+      ref: "문단 5.7.11",
+      wrongPart: "",
+      stdText: "금융자산을 문단 4.1.2A에 따라 기타포괄손익-공정가치로 측정하는 경우에 당기손익으로 인식하는 금액은 해당 금융자산을 상각후원가로 측정하였더라면 당기손익으로 인식하였을 금액과 같다."
+    },
+    {
+      statement: "기타포괄손익-공정가치 측정 금융자산(문단 4.1.2A)을 제거할 때 기타포괄손익누계액은 재분류조정으로 자본에서 당기손익으로 재분류한다.",
+      answer: true,
+      ref: "문단 5.7.10",
+      wrongPart: "",
+      stdText: "금융자산을 제거할 때에는 인식한 기타포괄손익누계액을 재분류조정으로 자본에서 당기손익으로 재분류한다."
+    }
+  ],
+
+  briefing: {
+    coreFramework: "K-IFRS 1109호는 금융상품의 인식·분류·측정·손상·제거·위험회피를 포괄하는 핵심 기준서입니다. 금융자산은 사업모형과 계약상 현금흐름 특성(SPPI) 두 축으로 AC(상각후원가)·FVOCI(기타포괄손익-공정가치)·FVPL(당기손익-공정가치)로 분류하며(문단 4.1.1~4.1.5), 금융부채는 원칙적으로 AC 측정입니다(문단 4.2.1). 손상은 기대신용손실(ECL) 모형을 적용하여 3단계로 관리하고(문단 5.5.1~5.5.20), 위험회피회계는 위험관리 활동의 효과를 재무제표에 반영합니다(문단 6.1.1~6.7.4). 감사인은 분류 판단의 적정성, ECL 추정의 합리성, 위험회피 문서화의 완전성에 특히 주의해야 합니다.",
+
+    keyDecisions: [
+      {
+        title: "적용범위 및 최초 인식 판단 (문단 2.1~3.1.2)",
+        content: "금융상품의 적용범위를 먼저 확인합니다. 종속기업·리스·종업원급여 등은 원칙적으로 제외되나 일부 예외가 있습니다(문단 2.1). 비금융항목 매매계약은 순액결제 가능 여부로 적용 여부를 판단합니다(문단 2.4~2.5). 금융자산·금융부채는 계약조건의 당사자가 되는 때에 인식하며(문단 3.1.1), 최초 측정은 공정가치+거래원가(FVPL은 거래원가 즉시 비용)입니다(문단 5.1.1)."
+      },
+      {
+        title: "금융자산 분류: 사업모형 + SPPI 테스트 (문단 4.1.1~4.1.5)",
+        content: "금융자산 분류의 핵심은 두 축입니다. ① 사업모형: 수취 목적(AC), 수취+매도(FVOCI), 기타(FVPL). ② SPPI(Solely Payments of Principal and Interest): 원금과 이자 지급만으로 구성된 현금흐름인지 판단합니다(문단 4.1.2~4.1.3). 지분상품은 FVPL이 원칙이나 FVOCI 선택 가능(취소불가, 문단 4.1.4). 회계불일치 제거 시 FVPL 지정 선택권도 있습니다(문단 4.1.5). 내재파생상품은 주계약이 금융자산이면 분리하지 않고, 비금융자산이면 분리 요건을 검토합니다(문단 4.3.2~4.3.3)."
+      },
+      {
+        title: "금융부채 분류 및 후속 측정 (문단 4.2.1~4.2.2, 5.3.1~5.7.9)",
+        content: "금융부채는 원칙적으로 상각후원가 측정입니다(문단 4.2.1). 예외로 FVPL 금융부채, 금융보증계약(손실충당금 vs 최초인식-수익누계 중 큰 금액), 사업결합 조건부 대가(FVPL) 등이 있습니다. FVPL 지정 금융부채의 자기신용위험 변동분은 OCI로 표시하며, 이를 당기손익에 표시하면 회계불일치를 야기하거나 확대하는 경우에만 예외적으로 당기손익에 인식합니다(문단 5.7.7~5.7.9)."
+      },
+      {
+        title: "기대신용손실(ECL) – 일반적 접근법 (문단 5.5.1~5.5.11)",
+        content: "ECL 모형은 3단계 접근법입니다. Stage 1: 신용위험 미증가 → 12개월 ECL. Stage 2: 신용위험 유의적 증가 → 전체기간 ECL. Stage 3: 신용손상 → 전체기간 ECL (순장부금액 기준 이자 인식). 신용위험 유의적 증가 판단 시 채무불이행 발생 위험의 변동을 사용하며(문단 5.5.9), 30일 초과 연체는 반증 가능한 간주규정입니다(문단 5.5.11). 매출채권·계약자산 간편법으로 처음부터 전체기간 ECL을 적용할 수 있습니다(문단 5.5.15)."
+      },
+      {
+        title: "ECL 측정 및 간편법 (문단 5.5.13~5.5.20)",
+        content: "ECL은 확률가중 금액, 화폐의 시간가치, 합리적이고 뒷받침될 수 있는 정보를 반영하여 측정합니다(문단 5.5.17). 취득시 신용손상 금융자산은 전체기간 ECL의 누적변동분만 인식합니다(문단 5.5.13). 측정 기간은 최장 계약기간이 원칙이나, 리볼빙 신용 등은 계약기간을 넘어서는 기간까지 확장 가능합니다(문단 5.5.19~5.5.20). 미래전망 정보 반영이 핵심이며, 복수의 경제 시나리오를 확률 가중하여 산정합니다."
+      },
+      {
+        title: "금융자산 제거 판단 (문단 3.2.1~3.2.23)",
+        content: "제거 판단은 ① 현금흐름 권리 소멸, ② 양도(pass-through 포함) + 위험보상 이전 여부의 순서로 진행합니다(문단 3.2.3~3.2.6). 위험과 보상의 대부분 이전 시 제거, 보유 시 계속 인식, 어느 쪽도 아닌 경우 통제 여부로 판단합니다. 지속적 관여가 있으면 관여 정도까지만 계속 인식합니다. 금융부채는 소멸(이행·취소·만료) 시 제거하며, 조건의 실질적 변경도 제거 후 재인식을 요구합니다(문단 3.3.1~3.3.2)."
+      },
+      {
+        title: "위험회피회계 적용 (문단 6.1.1~6.5.14)",
+        content: "위험회피유형은 공정가치위험회피, 현금흐름위험회피, 해외사업장순투자위험회피 세 가지입니다. 적용 조건: ① 문서화, ② 경제적 관계 존재, ③ 신용위험이 지배적이지 않음, ④ 위험회피비율 일관성(문단 6.4.1). 공정가치위험회피는 수단·대상 모두 당기손익에 인식(문단 6.5.8). 현금흐름위험회피는 효과적 부분을 OCI에 인식(문단 6.5.11). 위험회피수단은 원칙적으로 외부 당사자 계약만 가능합니다(문단 6.2.3)."
+      },
+      {
+        title: "재분류 및 손익 표시 (문단 4.4.1~4.4.3, 5.6.1~5.7.11)",
+        content: "금융자산은 사업모형 변경 시에만 재분류하며 전진적으로 적용합니다(문단 4.4.1, 5.6.1). 금융부채는 재분류하지 않습니다(문단 4.4.2). FVOCI(문단 4.1.2A) 금융자산은 이자·손상·외환은 당기손익, 나머지 공정가치 변동은 OCI에 인식하며 제거 시 재분류합니다(문단 5.7.10). FVOCI 선택 지분상품은 배당은 당기손익, 공정가치 변동은 OCI이며 제거 시에도 재분류하지 않습니다(문단 5.7.5~5.7.6)."
+      }
+    ],
+
+    auditFocus: "감사인은 다음에 집중해야 합니다: ① 사업모형 판단의 적정성 — 경영진의 의도가 아닌 실제 사업 운영 방식(과거 매도 빈도·규모·사유)을 검증, ② SPPI 테스트 — 구조화 금융상품, 전환사채, 변동금리 상품의 계약 조건 분석, ③ ECL 추정의 합리성 — 경제 시나리오 선정(낙관·중립·비관), 확률 가중치, PD/LGD/EAD 모수의 검증, 미래전망 정보 반영 적정성, ④ Stage 이동 판단 — 30일 연체 간주규정의 반증 근거 적정성, ⑤ 위험회피 문서화의 완전성과 유효성 테스트, ⑥ 제거 판단 — 자산유동화, 팩토링 거래의 pass-through 조건 및 위험보상 이전 분석.",
+
+    connections: "K-IFRS 1032호(금융상품: 표시)와 함께 금융상품의 분류·표시를 결정합니다. K-IFRS 1107호(금융상품: 공시)는 1109호 적용 결과의 공시를 요구합니다. K-IFRS 1113호(공정가치 측정)는 공정가치 결정 방법론을 제공합니다. K-IFRS 1115호(수익인식)와는 매출채권·계약자산의 ECL 적용 접점이 있고, K-IFRS 1116호(리스)와는 리스채권의 손상·제거에서 연결됩니다. K-IFRS 1103호(사업결합)는 조건부 대가의 FVPL 측정과 연관됩니다.",
+
+    practicalTip: "실무에서 가장 자주 문제가 되는 영역: ① SPPI 판단 — 금리 cap/floor, 레버리지 조건, 전환권 등이 포함된 상품은 SPPI 실패 가능성이 높으므로 계약서 정밀 검토 필요. ② ECL Stage 이동 — 30일 연체 외에도 산업 전망, 차주 재무상태, 거시경제 변수 등 정성적 정보를 종합적으로 고려해야 하며, 개별·집합 평가의 일관성이 중요. ③ 팩토링 제거 판단 — 상환청구권 유무, 지연이자 부담 등 계약 조건을 종합하여 위험보상 이전 여부를 실질 판단.",
+
+    auditProcedure: [
+      {
+        step: "STEP 1. 적용범위 및 최초 인식 검증",
+        ref: "문단 2.1~3.1.2, 5.1.1~5.1.3",
+        content: "금융상품 목록을 확보하여 적용범위 제외 항목(종속기업 투자, 리스, 종업원급여 등)을 확인합니다. 비금융항목 매매계약의 순액결제 가능 여부를 검토합니다. 최초 인식 시점(계약 당사자가 된 때)이 적정한지, 최초 측정 금액(공정가치 ± 거래원가)이 정확한지 검증합니다. FVPL 금융상품의 거래원가가 즉시 비용 처리되었는지 확인합니다."
+      },
+      {
+        step: "STEP 2. 금융자산 분류: 사업모형 + SPPI 테스트",
+        ref: "문단 4.1.1~4.1.5, B4.1.1~B4.1.26",
+        content: "사업모형 평가: 과거 매도 빈도·금액·시기·사유를 분석하여 '수취 목적' vs '수취+매도' vs '기타'를 판단합니다. SPPI 테스트: 계약서를 검토하여 현금흐름이 원금과 이자 지급만으로 구성되는지 확인합니다. 변동금리 조건, cap/floor, 전환권, 레버리지 조건 등 SPPI 실패 요인을 식별합니다. FVPL 지정 선택권 사용 시 회계불일치 해소 근거를 검증합니다."
+      },
+      {
+        step: "STEP 3. 금융부채 분류 및 후속 측정 검증",
+        ref: "문단 4.2.1~4.2.2, 5.3.1~5.7.9",
+        content: "금융부채의 분류(AC 원칙, FVPL 예외)를 확인합니다. 금융보증계약의 후속 측정이 손실충당금 vs 최초인식-수익누계 중 큰 금액인지 검증합니다. FVPL 지정 금융부채의 자기신용위험 변동분이 OCI로 적절히 분리 표시되었는지 확인합니다. 내재파생상품 분리 요건(주계약이 금융자산이 아닌 경우)의 충족 여부를 점검합니다."
+      },
+      {
+        step: "STEP 4. 기대신용손실(ECL) – Stage 분류 및 유의적 증가 판단",
+        ref: "문단 5.5.1~5.5.12",
+        content: "전체 금융자산 포트폴리오의 Stage 1/2/3 분류를 검증합니다. 신용위험 유의적 증가 판단 기준(채무불이행 발생 위험 변동, 30일 연체 간주규정, 미래전망 정보)의 적용을 평가합니다. 30일 연체 간주규정을 반증한 경우 그 근거의 적정성을 확인합니다. 변경된 금융자산의 비교 기준(변경된 조건 vs 최초 계약조건)이 적절한지 점검합니다."
+      },
+      {
+        step: "STEP 5. ECL 측정 및 간편법 적용 검증",
+        ref: "문단 5.5.13~5.5.20",
+        content: "ECL 산출 모형(PD×LGD×EAD)의 주요 가정과 모수를 검증합니다. 경제 시나리오(낙관·중립·비관)의 선정과 확률 가중치의 합리성을 평가합니다. 매출채권·계약자산 간편법(전체기간 ECL 즉시 적용) 사용 시 충당금 매트릭스(provision matrix)의 적정성을 확인합니다. 취득시 신용손상 금융자산의 누적변동분 산정이 적정한지 검토합니다. 리볼빙 신용의 측정 기간이 계약기간을 초과하는 경우 그 근거를 확인합니다."
+      },
+      {
+        step: "STEP 6. 금융자산 제거 판단 검증",
+        ref: "문단 3.2.1~3.2.23",
+        content: "팩토링·자산유동화·환매조건부 거래 등에서 제거 요건 충족 여부를 검증합니다. Pass-through 조건(지연 없이 최종 수취인에게 지급, 단기 투자만 허용 등)의 충족을 확인합니다. 위험과 보상의 대부분 이전 여부를 정량적으로 분석합니다(현금흐름 변동 노출 비교). 지속적 관여가 있는 경우 관여 정도의 측정이 적절한지 점검합니다."
+      },
+      {
+        step: "STEP 7. 위험회피회계 적용 검증",
+        ref: "문단 6.1.1~6.5.14",
+        content: "위험회피 문서화(위험회피관계, 위험관리 목적·전략, 수단·대상 식별, 비효과 원천, 위험회피비율)의 완전성을 확인합니다. 경제적 관계의 존재와 신용위험의 비지배성을 검증합니다. 공정가치위험회피에서 수단·대상의 손익이 당기손익에 적절히 인식되었는지, 현금흐름위험회피에서 효과적 부분이 OCI에 인식되었는지 확인합니다. 위험회피비율의 변경(재조정)이 적시에 이루어졌는지 검토합니다."
+      },
+      {
+        step: "STEP 8. 재분류 및 손익 표시 검증",
+        ref: "문단 4.4.1~4.4.3, 5.6.1~5.7.11",
+        content: "금융자산 재분류 사유(사업모형 변경)의 실질을 검증합니다. 재분류가 전진적으로 적용되었는지, 이전 손익이 소급 조정되지 않았는지 확인합니다. FVOCI(채무상품) 제거 시 OCI 누계액의 재분류가 적절한지, FVOCI(지분상품) 제거 시 OCI 누계액이 재분류되지 않았는지 확인합니다. 금융부채가 재분류되지 않았는지 점검합니다."
+      }
+    ],
+
+    drills: [
+      {
+        step: "STEP 1. 적용범위 및 최초 인식 검증",
+        situation: "(주)한빛종합금융은 물류 운송계약에 따라 향후 6개월간 항공유를 고정가격에 매입하는 선도계약을 체결했다. 계약서에 순액결제(차액결제) 조항이 포함되어 있으며, 실제로 항공유를 인도받아 자가 사용할 목적이다. 재무팀은 '자가 사용 목적이므로 K-IFRS 1109호 적용범위에서 제외된다'고 판단하였다.",
+        choiceA: "순액결제 조항이 있더라도 자가 사용 목적으로 체결하고 계속 유지하는 계약은 적용범위에서 제외되므로 재무팀의 판단이 타당하다. 다만, 당기손익-공정가치 측정 항목으로 지정할 수 있는 선택권이 있음을 주석 공시한다.",
+        choiceB: "순액결제 조항이 있으면 자가 사용 목적이더라도 K-IFRS 1109호의 적용범위에 포함된다. 따라서 재무팀의 판단은 부적절하며, 금융상품으로 인식하여 공정가치로 측정하거나 FVPL 지정 선택권을 검토해야 한다.",
+        correct: "B",
+        ref: "K-IFRS 1109 문단 2.4~2.5",
+        stdText: "비금융항목을 매입하거나 매도하는 계약으로서 현금 등 금융상품의 순액이나 금융상품의 교환으로 순액결제를 할 수 있는 계약은 금융상품인 것처럼 이 기준서의 적용범위에 포함된다.",
+        explain: "문단 2.4에 따라 순액결제 가능한 비금융항목 매매계약은 K-IFRS 1109호 적용범위에 포함됩니다. 자가 사용 목적 면제(문단 2.4 단서)는 순액결제 조항이 없는 경우에 주로 적용되며, 순액결제 조항이 명시적으로 있는 계약은 적용범위 포함이 원칙입니다."
+      },
+      {
+        step: "STEP 2. 금융자산 분류: 사업모형 + SPPI 테스트",
+        situation: "(주)세한캐피탈은 중소기업 대출채권 포트폴리오를 보유하고 있다. 최근 3년간 유동성 관리 목적으로 포트폴리오의 약 25%를 매도하였으며, 매도 사유는 모두 차주의 신용등급 하락이었다. 재무팀은 '수취 목적 사업모형(AC)'으로 분류하면서 이러한 매도는 사업모형과 일관된다고 판단했다.",
+        choiceA: "신용위험 증가에 따른 매도는 수취 목적 사업모형과 일관되므로, 25%의 매도 비율에도 불구하고 AC 분류가 적절하다. 신용위험 관리 목적의 매도는 사업모형 판단에서 허용되는 범위이다.",
+        choiceB: "포트폴리오의 25%를 매도한 것은 빈도와 규모 면에서 단순한 수취 목적을 넘어서며, '수취+매도' 사업모형(FVOCI)으로 분류하는 것이 적절하다. 신용위험 관리 목적이더라도 매도의 빈도·금액이 유의적이면 사업모형 재평가가 필요하다.",
+        correct: "A",
+        ref: "K-IFRS 1109 문단 B4.1.3A~B4.1.3C",
+        stdText: "신용위험의 증가에 따른 금융자산의 매도는, 매도의 빈도나 금액이 크더라도 사업모형의 목적이 계약상 현금흐름을 수취하는 것임에 일관된다.",
+        explain: "적용지침 B4.1.3A~B4.1.3C에 따라 신용위험 증가에 기인한 매도는 수취 목적 사업모형과 일관됩니다. 이는 신용손실의 최소화가 수취 사업모형의 필수적인 부분이기 때문입니다. 빈도·금액이 크더라도 신용위험 관리 목적이 명확하면 AC 분류가 유지됩니다."
+      },
+      {
+        step: "STEP 3. 금융부채 분류 및 후속 측정 검증",
+        situation: "(주)동해에너지는 전환사채(CB)를 발행하였다. 전환권은 분리해야 하는 내재파생상품에 해당한다. 재무팀은 '전환사채의 주계약(사채 부분)이 금융부채이므로 K-IFRS 1109호 문단 4.3.2에 따라 복합계약 전체에 금융자산 분류 규정을 적용한다'고 판단하였다.",
+        choiceA: "전환사채의 주계약은 금융부채(자산이 아님)이므로 문단 4.3.2가 아닌 문단 4.3.3의 분리 요건을 적용해야 한다. 내재파생상품(전환권)을 분리하여 파생상품으로 회계처리하거나, 문단 4.3.5에 따라 복합계약 전체를 FVPL로 지정할 수 있다.",
+        choiceB: "전환사채는 K-IFRS 1032호에 따라 자본과 부채로 분류하는 것이 우선이므로, K-IFRS 1109호의 내재파생상품 분리 규정은 적용되지 않는다. 문단 4.3.2는 전환사채에 대한 특별 규정이다.",
+        correct: "A",
+        ref: "K-IFRS 1109 문단 4.3.2~4.3.3",
+        stdText: "복합계약이 이 기준서의 적용범위에 포함되는 자산을 주계약으로 포함하는 경우에는 해당 복합계약 전체에 문단 4.1.1~4.1.5의 요구사항을 적용한다. 복합계약이 이 기준서의 적용범위에 포함되는 자산이 아닌 주계약을 포함하는 경우에는 분리 요건을 검토한다.",
+        explain: "문단 4.3.2는 주계약이 '금융자산'인 경우에만 적용됩니다. 전환사채의 주계약은 금융부채이므로 문단 4.3.3의 분리 요건을 적용해야 합니다. 다만 실무에서 전환사채는 K-IFRS 1032호의 복합금융상품 규정이 먼저 적용되어 전환권이 자본요소로 분류되는 경우가 일반적입니다."
+      },
+      {
+        step: "STEP 4. 기대신용손실(ECL) – Stage 분류 및 유의적 증가 판단",
+        situation: "(주)대륙은행은 대출채권 포트폴리오에 ECL 모형을 적용하고 있다. 특정 차주의 대출에 대해 연체일수가 25일이지만, 해당 차주의 산업(항공업)이 급격한 경기 침체를 겪고 있어 PD(채무불이행확률)가 최초 인식 시 대비 3배로 증가하였다. 재무팀은 '30일 연체 미만이므로 Stage 1을 유지한다'고 판단했다.",
+        choiceA: "30일 연체 미만이므로 간주규정이 적용되지 않으나, PD가 3배로 증가한 것은 유의적인 신용위험 증가의 징후이다. 미래전망 정보를 반영하여 Stage 2로 이동시키고 전체기간 ECL을 인식해야 한다.",
+        choiceB: "문단 5.5.11에 따라 30일 연체가 유의적 증가의 간주규정이므로, 25일 연체는 아직 기준에 미달한다. PD 증가는 참고 정보이나 30일 미만에서는 Stage 1 유지가 적절하다.",
+        correct: "A",
+        ref: "K-IFRS 1109 문단 5.5.9, 5.5.11",
+        stdText: "최초 인식 후에 금융상품의 신용위험이 유의적으로 증가하였는지를 매 보고기간 말에 평가한다. 합리적이고 뒷받침될 수 있는 미래전망 정보를 과도한 원가나 노력 없이 이용할 수 있다면 연체 정보에만 의존해서는 안 된다.",
+        explain: "문단 5.5.9에 따라 신용위험의 유의적 증가는 채무불이행 발생 위험의 변동으로 평가하며, 문단 5.5.11은 미래전망 정보가 이용 가능하면 연체 정보에만 의존하지 말 것을 요구합니다. 30일 연체는 '반증 가능한 간주규정'이지 유일한 기준이 아닙니다."
+      },
+      {
+        step: "STEP 5. ECL 측정 및 간편법 적용 검증",
+        situation: "(주)미래전자는 매출채권(유의적 금융요소 없음)에 대해 충당금 매트릭스를 사용하여 ECL을 측정하고 있다. 보고기간 말 현재 경기 침체가 심화되고 있으나, 충당금 매트릭스는 과거 3년 평균 대손율만을 반영하고 미래전망 정보는 포함하지 않았다. 손실충당금 잔액은 매출채권의 1.2%이다.",
+        choiceA: "유의적 금융요소 없는 매출채권은 간편법을 적용하므로 전체기간 ECL로 측정하지만, 과거 대손율 기반 충당금 매트릭스만으로도 충분하다. 매출채권은 단기이므로 미래전망 정보의 영향이 제한적이다.",
+        choiceB: "간편법을 적용하더라도 ECL 측정 시 미래 경제적 상황 예측에 대한 합리적이고 뒷받침될 수 있는 정보를 반영해야 한다. 경기 침체 심화를 반영하지 않은 충당금 매트릭스는 ECL을 과소 측정할 수 있으므로 미래전망 조정이 필요하다.",
+        correct: "B",
+        ref: "K-IFRS 1109 문단 5.5.17(3)",
+        stdText: "금융상품의 기대신용손실은 다음 사항을 반영하도록 측정한다. ⑶ 보고기간 말에 과거사건, 현재 상황과 미래 경제적 상황의 예측에 대한 정보로서 합리적이고 뒷받침될 수 있으며 과도한 원가나 노력 없이 이용할 수 있는 정보",
+        explain: "문단 5.5.17(3)은 간편법 적용 여부와 무관하게 ECL 측정 시 미래전망 정보의 반영을 요구합니다. 경기 침체 심화는 과도한 원가나 노력 없이 이용 가능한 정보이므로 충당금 매트릭스에 forward-looking 조정을 적용해야 합니다."
+      },
+      {
+        step: "STEP 6. 금융자산 제거 판단 검증",
+        situation: "(주)중앙유통은 매출채권 100억원을 팩토링회사에 양도했다. 계약 조건: ① 양도대가 95억원 즉시 수령, ② 매출채권 부도 시 (주)중앙유통이 양도대가를 환불하는 상환청구권(recourse) 존재, ③ 만기까지 매출채권 관리·추심 업무는 (주)중앙유통이 수행. 재무팀은 '매출채권을 이전했으므로 제거한다'고 판단했다.",
+        choiceA: "상환청구권이 존재하므로 신용위험이 양도인에게 남아 있어 위험과 보상의 대부분을 보유하고 있다. 따라서 매출채권을 계속 인식하고 수령 대가 95억원은 차입거래로 처리해야 한다.",
+        choiceB: "매출채권의 법적 소유권이 이전되었고 양도대가를 수령했으므로 제거가 적절하다. 상환청구권은 금융보증계약으로 별도 인식하면 된다.",
+        correct: "A",
+        ref: "K-IFRS 1109 문단 3.2.6(b)",
+        stdText: "소유에 따른 위험과 보상의 대부분을 보유한다면, 해당 금융자산을 계속 인식한다.",
+        explain: "상환청구권이 있는 팩토링에서는 매출채권의 신용위험(핵심 위험)이 양도인에게 남아 있으므로, 위험과 보상의 대부분을 보유하고 있습니다. 문단 3.2.6(b)에 따라 매출채권을 계속 인식하고, 수령 대가는 담보차입으로 회계처리합니다."
+      },
+      {
+        step: "STEP 7. 위험회피회계 적용 검증",
+        situation: "(주)글로벌무역은 6개월 후 USD 수취 예정인 확정계약에 대해 현금흐름위험회피를 적용하고 있다. 위험회피수단은 6개월 만기 USD/KRW 선도환 매도계약이다. 보고기간 말 위험회피수단의 공정가치 변동은 ₩500만원 손실이고, 위험회피대상항목의 공정가치 변동은 ₩480만원 이익이다. 재무팀은 위험회피수단의 손실 ₩500만원 전액을 기타포괄손익에 인식했다.",
+        choiceA: "현금흐름위험회피에서 효과적인 부분만 OCI에 인식하므로 ₩480만원을 OCI에, 비효과적 부분 ₩20만원은 당기손익에 인식해야 한다. 재무팀의 처리는 비효과적 부분의 당기손익 인식이 누락되어 부적절하다.",
+        choiceB: "현금흐름위험회피에서 위험회피수단의 공정가치 변동 전액을 OCI에 인식하는 것이 원칙이며, 비효과적 부분은 위험회피관계 종료 시에만 당기손익으로 재분류하므로 재무팀의 처리가 적절하다.",
+        correct: "A",
+        ref: "K-IFRS 1109 문단 6.5.11",
+        stdText: "현금흐름위험회피가 적용조건을 충족한다면 위험회피수단의 손익 중 효과적인 부분에 해당하는 금액은 기타포괄손익으로 인식한다.",
+        explain: "문단 6.5.11에 따라 현금흐름위험회피에서 OCI에 인식하는 금액은 '효과적인 부분'에 한정됩니다. 위험회피수단 손실 500만원 중 위험회피대상 이익 480만원에 대응하는 부분만 효과적이므로 480만원만 OCI에 인식하고, 차이 20만원(비효과적 부분)은 당기손익에 인식합니다."
+      },
+      {
+        step: "STEP 8. 재분류 및 손익 표시 검증",
+        situation: "(주)서울자산운용은 채권 포트폴리오를 AC로 분류하여 보유해 왔다. 최근 규제 변경으로 인해 포트폴리오의 상당 부분을 적극적으로 매매하는 전략으로 사업모형을 변경했다. 재무팀은 '사업모형 변경이므로 재분류일의 공정가치로 재측정하고, 재분류 전까지 인식한 이자수익과 손상차손을 소급 조정한다'고 판단했다.",
+        choiceA: "사업모형 변경에 따른 재분류는 재분류일부터 전진적으로 적용하며, 재분류 전에 인식한 이자수익과 손상차손은 다시 작성하지 않는다. 재분류일 공정가치와 상각후원가의 차이만 당기손익으로 인식한다.",
+        choiceB: "사업모형 변경은 중대한 회계추정 변경에 해당하므로, K-IFRS 1008호에 따라 소급 적용이 원칙이다. 재분류 전 이자수익을 공정가치 변동으로 재산정해야 한다.",
+        correct: "A",
+        ref: "K-IFRS 1109 문단 4.4.1, 5.6.1~5.6.2",
+        stdText: "문단 4.4.1에 따라 금융자산을 재분류하는 경우에 그 재분류를 재분류일부터 전진적으로 적용한다. 재분류 전에 인식한 손익이나 이자는 다시 작성하지 않는다.",
+        explain: "문단 5.6.1은 재분류를 전진적으로 적용하도록 명시합니다. 이전에 인식한 이자수익과 손상차손은 소급 조정하지 않으며, AC에서 FVPL로 재분류하는 경우 재분류일의 공정가치와 상각후원가의 차이만 당기손익에 인식합니다."
+      }
+    ]
+  },
+
+  questions: [
+    {
+      id: 1,
+      tag: "분류·SPPI·ECL·Stage이동",
+      situation: "(주)한강파이낸스 — 저축은행 (감사 3년차)",
+      question: "(주)한강파이낸스는 당기 중 P2P 플랫폼 연계대출 500억원을 신규 취급하였다. 계약조건은 원금분할상환, 변동금리(기준금리+3%)이며, 차주의 매출이 일정 수준을 초과하면 이자율이 50% 할인되는 조건이 포함되어 있다. 해당 대출은 만기까지 보유하여 이자를 수취할 목적으로 취급되었으며, 재무팀은 AC(상각후원가)로 분류하였다.\n\n한편, 기존 소매대출 포트폴리오(2,000억원) 중 연체 25~29일 채권이 300억원 존재한다. 해당 차주들은 음식·숙박업 종사자로 최근 경기침체 영향으로 PD(채무불이행확률)가 최초 인식 시 대비 2.5배 증가하였으나, 리스크관리팀은 30일 미만 연체를 이유로 전체 Stage 1 유지를 결정하였다. 또한, 손실충당금 변동 내역에서 Stage 2 → Stage 1 환원이 150억원 발생하였으며, 환원 사유는 '연체 해소(30일 이내 입금)'이다.\n\n<!--TABLE-->\n\n감사인의 관점에서 (1) P2P 연계대출의 분류, (2) 연체 25~29일 채권의 Stage 분류, (3) Stage 2 → Stage 1 환원의 적정성에 대해 검토 의견을 서술하시오.",
+      tableHTML: "<table class='q-table'><tr><th>구분</th><th>금액(억원)</th><th>현재 Stage</th></tr><tr><td>P2P 연계대출</td><td>500</td><td>Stage 1</td></tr><tr><td>연체 25~29일 소매대출</td><td>300</td><td>Stage 1</td></tr><tr><td>Stage 2→1 환원</td><td>150</td><td>Stage 1</td></tr></table>",
+      keyPoints: [
+        {text:"", ref:"K-IFRS 1109 문단 4.1.2~4.1.3", stdText:"다음 두 가지 조건을 모두 충족한다면 금융자산을 상각후원가로 측정한다. ⑴ 계약상 현금흐름을 수취하기 위해 보유하는 것이 목적인 사업모형 ⑵ 원리금 지급만으로 구성되어 있는 현금흐름", keywords:[], needAll:false, needCount:0},
+        {text:"", ref:"K-IFRS 1109 문단 B4.1.7A, B4.1.9A~B4.1.9E", stdText:"이자는 화폐의 시간가치에 대한 대가, 신용위험에 대한 대가, 그 밖의 기본적인 대여 위험과 원가에 대한 대가뿐만 아니라 이윤으로 구성된다.", keywords:[], needAll:false, needCount:0},
+        {text:"", ref:"K-IFRS 1109 문단 5.5.9, 5.5.11", stdText:"신용위험의 유의적인 증가를 평가할 때 기대신용손실액의 변동이 아니라 금융상품의 기대존속기간에 걸친 채무불이행 발생 위험의 변동을 사용한다. 합리적이고 뒷받침될 수 있는 미래전망 정보를 이용할 수 있다면 연체 정보에만 의존해서는 안 된다.", keywords:[], needAll:false, needCount:0},
+        {text:"P2P 연계대출의 매출연동 이자할인 조건은 기본적 대여관계의 대가가 아닌 사업성과 연동 → SPPI 실패 가능성 → FVPL 분류 검토 필요", ref:"K-IFRS 1109 문단 4.1.3, B4.1.9A", stdText:"이자는 화폐의 시간가치에 대한 대가, 신용위험에 대한 대가, 그 밖의 기본적인 대여 위험과 원가에 대한 대가뿐만 아니라 이윤으로 구성된다.", keywords:["SPPI","매출","이자","FVPL","공정가치"], needAll:false, needCount:2},
+        {text:"연체 25~29일이나 PD 2.5배 증가 + 경기침체 = 미래전망 정보 반영 필요 → Stage 2 전환 검토", ref:"K-IFRS 1109 문단 5.5.9, 5.5.11", stdText:"합리적이고 뒷받침될 수 있는 미래전망 정보를 과도한 원가나 노력 없이 이용할 수 있다면 연체 정보에만 의존해서는 안 된다.", keywords:["Stage 2","PD","미래전망","유의적","증가","전체기간"], needAll:false, needCount:2},
+        {text:"Stage 2→1 환원 시 연체 해소만으로 불충분 — 신용위험이 실질적으로 개선되었는지 종합 판단 필요", ref:"K-IFRS 1109 문단 5.5.3, 5.5.7", stdText:"전기에 전체기간 기대신용손실에 해당하는 금액으로 측정하였으나 당기에 더는 문단 5.5.3을 충족하지 않는다고 판단하는 경우에는 12개월 기대신용손실로 측정한다.", keywords:["환원","연체","신용위험","개선","판단"], needAll:false, needCount:2},
+        {text:"ECL 영향 합산: 500억(분류변경→충당금 해소) + 300억(Stage 2→전체기간ECL) + 150억(환원 적정성) = 재무제표 전체 손실충당금 수준에 중대한 영향", ref:"K-IFRS 1109 문단 5.5.8", stdText:"손실충당금을 조정하기 위한 기대신용손실액(또는 환입액)은 손상차손(환입)으로 당기손익에 인식한다.", keywords:["손실충당금","당기손익","영향","중대"], needAll:false, needCount:2}
+      ],
+      modelAnswer: "⑴ P2P 연계대출 분류: 해당 대출의 이자율이 차주 매출에 연동하여 50% 할인되는 조건은 K-IFRS 1109 문단 4.1.3에 따른 '이자'의 구성요소(화폐의 시간가치, 신용위험, 기본적 대여 위험·원가, 이윤)에 해당하지 않습니다. 매출 연동 조건은 사업 성과에 따른 변동이므로 SPPI(원리금 지급만의 현금흐름) 테스트를 충족하지 못할 가능성이 높습니다. 따라서 AC 분류는 부적절하며, FVPL(당기손익-공정가치)로 분류해야 합니다. FVPL로 재분류 시 500억원에 대한 손실충당금은 해소되고 공정가치 변동이 당기손익에 반영됩니다.\n\n⑵ 연체 25~29일 소매대출 Stage 분류: 문단 5.5.9에 따라 신용위험의 유의적 증가는 채무불이행 발생 위험의 변동으로 평가하며, 문단 5.5.11은 미래전망 정보가 이용 가능할 때 연체 정보에만 의존하지 말 것을 요구합니다. 30일 연체 미만이라도 PD가 최초 대비 2.5배 증가하고 경기침체라는 미래전망 정보가 있으므로, Stage 2로 이동시켜 전체기간 ECL을 인식해야 합니다. 리스크관리팀의 '30일 미만 연체=Stage 1' 일률적 판단은 부적절합니다.\n\n⑶ Stage 2→1 환원 적정성: 문단 5.5.7에 따라 Stage 1으로 환원하려면 '더는 문단 5.5.3(유의적 증가 조건)을 충족하지 않는다'고 판단해야 합니다. 단순 연체 해소(30일 이내 입금)만으로는 신용위험의 실질적 개선을 입증하기 어렵습니다. 차주의 재무상태, 산업 전망, PD 변동 추이 등을 종합적으로 검토하여 환원의 적정성을 판단해야 하며, 150억원 환원 중 상당 부분이 부적절할 수 있습니다."
+    },
+    {
+      id: 2,
+      tag: "제거·위험보상·지속적관여·위험회피",
+      situation: "(주)코스모금융그룹 — 종합금융 (감사 2년차)",
+      question: "당기 중 (주)코스모금융그룹은 보유 중인 회사채 포트폴리오(장부금액 800억원)를 SPC에 양도하였다. 양도구조는 회사채에서 발생하는 현금흐름을 SPC가 발행한 수익증권 투자자에게 pass-through하는 형태이며, (주)코스모금융그룹은 후순위 수익증권(전체의 15%)을 보유하고 있다. 양도대가 680억원을 수령하였고, 손실보전 한도는 120억원(= 후순위 수익증권)이다. 재무팀은 위험과 보상의 대부분을 이전했다고 판단하여 전액 제거 처리하였다.\n\n한편, USD 차입금 1,000만불에 대해 통화스왑(CCS)을 체결하여 현금흐름위험회피를 적용하고 있다. 위험회피 문서화에는 위험관리 목적과 위험회피전략이 기재되어 있으나, 위험회피비율 산정근거와 비효과 원천 분석은 기재되어 있지 않다. 보고기간 말 현재 위험회피수단의 공정가치 변동은 +₩2억원이고, 위험회피대상항목의 공정가치 변동은 -₩1.8억원이다.\n\n감사인의 관점에서 (1) 회사채 양도의 제거 적정성, (2) 현금흐름위험회피의 적용조건 충족 여부 및 회계처리의 적정성에 대해 검토 의견을 서술하시오.",
+      tableHTML: "",
+      keyPoints: [
+        {text:"", ref:"K-IFRS 1109 문단 3.2.6", stdText:"㈎ 소유에 따른 위험과 보상의 대부분을 이전한다면, 해당 금융자산을 제거 ㈏ 보유한다면, 계속 인식 ㈐ 이전하지도 보유하지도 않는다면, 통제 여부로 판단", keywords:[], needAll:false, needCount:0},
+        {text:"", ref:"K-IFRS 1109 문단 6.4.1", stdText:"위험회피의 개시시점에 위험회피관계와 위험관리 목적 및 위험회피 전략에 대한 공식적인 지정과 문서화가 있다.", keywords:[], needAll:false, needCount:0},
+        {text:"후순위 15% 보유 = 최초 손실을 집중 부담 → 신용위험의 상당 부분 보유 → 위험과 보상의 대부분 이전으로 보기 어려움", ref:"K-IFRS 1109 문단 3.2.6(b)", stdText:"소유에 따른 위험과 보상의 대부분을 보유한다면, 해당 금융자산을 계속 인식한다.", keywords:["후순위","위험","보상","보유","계속 인식","제거"], needAll:false, needCount:2},
+        {text:"위험회피 문서화에 비율 산정근거·비효과 원천 분석 누락 → 문단 6.4.1 적용조건 불충족 → 위험회피회계 적용 불가", ref:"K-IFRS 1109 문단 6.4.1", stdText:"위험회피의 개시시점에 위험회피관계와 위험관리 목적 및 위험회피 전략에 대한 공식적인 지정과 문서화가 있다.", keywords:["문서화","비율","비효과","적용조건","불충족"], needAll:false, needCount:2},
+        {text:"현금흐름위험회피에서 효과적 부분만 OCI 인식, 비효과적 부분은 P/L → 금액 확인 필요", ref:"K-IFRS 1109 문단 6.5.11", stdText:"위험회피수단의 손익 중 효과적인 부분에 해당하는 금액은 기타포괄손익으로 인식한다.", keywords:["효과적","OCI","비효과","당기손익","현금흐름"], needAll:false, needCount:2},
+        {text:"전액 제거 시 P/L 영향 + 위험회피회계 부적격 시 파생상품 P/L 전액 인식 = 재무제표 중대 왜곡 가능", ref:"K-IFRS 1109 문단 5.5.8, 6.5.11", stdText:"손실충당금을 조정하기 위한 기대신용손실액(또는 환입액)은 손상차손(환입)으로 당기손익에 인식한다.", keywords:["제거","위험회피","당기손익","왜곡","중대"], needAll:false, needCount:2}
+      ],
+      modelAnswer: "⑴ 회사채 양도의 제거 적정성: (주)코스모금융그룹이 후순위 수익증권(전체의 15%)을 보유하고 120억원의 손실보전 한도를 부담하고 있습니다. 후순위 보유는 포트폴리오의 최초 손실(first loss)을 집중 부담하는 구조로, 신용위험이라는 핵심 위험의 상당 부분을 양도인이 보유하고 있습니다. K-IFRS 1109 문단 3.2.6에 따라 위험과 보상의 이전 여부를 판단할 때, 양도 전후의 현금흐름 변동 노출(variance analysis)을 비교해야 합니다. 후순위 15% 보유로 인해 현금흐름 변동의 상당 부분을 계속 부담하므로, '위험과 보상의 대부분을 이전했다'고 보기 어렵습니다. 오히려 '대부분을 보유'하고 있거나 최소한 '이전하지도 보유하지도 않는' 상태에 해당할 수 있습니다. 따라서 전액 제거 처리는 부적절하며, ① 위험과 보상의 대부분을 보유하는 경우 계속 인식(담보차입 처리), 또는 ② 이전하지도 보유하지도 않는 경우 통제 판단 후 지속적 관여 정도까지 계속 인식하는 회계처리가 적절합니다.\n\n⑵ 현금흐름위험회피 적용조건 및 회계처리: K-IFRS 1109 문단 6.4.1은 위험회피 개시시점에 공식적인 문서화를 요구하며, 이에는 위험회피비율 산정 근거와 비효과 원천 분석이 포함되어야 합니다. 파생상품팀의 문서화에 이 두 가지가 누락되어 있으므로 위험회피회계의 적용조건을 충족하지 못합니다. 적용조건 불충족 시 위험회피회계를 적용할 수 없으며, 통화스왑의 공정가치 변동 전액(+₩2억원)을 당기손익에 인식해야 합니다. 현재의 현금흐름위험회피 회계처리(효과적 부분 OCI 인식)는 부적절합니다. 가사적으로 문서화가 보완된다 하더라도, 위험회피수단 공정가치 변동 +₩2억원 중 효과적 부분 ₩1.8억원만 OCI에 인식하고, 비효과적 부분 ₩0.2억원은 당기손익에 인식해야 합니다."
+    },
+    {
+      id: 3,
+      tag: "FVOCI지분·자기신용위험·재분류·복합금융상품",
+      situation: "(주)태백홀딩스 — 지주회사 (감사 1년차)",
+      question: "(주)태백홀딩스는 비상장 지분상품(A사 지분 8%) 50억원을 FVOCI로 지정하여 보유해 왔으며, 당기 중 전량을 60억원에 처분하였다. 재무팀은 처분이익 10억원을 당기손익으로 인식하였고, 기존 OCI 누계액은 8억원(이익)이다.\n\n또한, 당기 중 FVPL 지정 회사채(장부금액 200억원)를 보유하고 있는데, 자기신용등급 하락으로 공정가치가 15억원 감소하였다. 이 중 자기신용위험 변동에 기인하는 부분은 10억원이며, 재무팀은 공정가치 변동 15억원 전액을 당기손익에 인식하였다.\n\n한편, 당기 중 사업모형을 변경하여 채권 포트폴리오(AC 분류, 장부금액 300억원)를 FVPL로 재분류하였다. 재분류일 공정가치는 310억원이며, 재무팀은 차이 10억원을 당기손익에 인식하고 추가로 재분류 전 인식했던 이자수익 15억원도 소급 조정하였다.\n\n감사인의 관점에서 각 항목의 회계처리 적정성을 검토하시오.",
+      tableHTML: "",
+      keyPoints: [
+        {text:"", ref:"K-IFRS 1109 문단 5.7.5~5.7.6", stdText:"지분상품에 대한 투자를 제거할 때 기타포괄손익에 인식한 누적손익을 당기손익으로 재분류하지 아니한다.", keywords:[], needAll:false, needCount:0},
+        {text:"", ref:"K-IFRS 1109 문단 5.7.7", stdText:"문단 4.2.2에 따라 당기손익-공정가치 측정 항목으로 지정한 금융부채의 공정가치 변동 중 해당 부채의 신용위험 변동에 기인하는 금액은 기타포괄손익으로 표시한다.", keywords:[], needAll:false, needCount:0},
+        {text:"FVOCI 지분상품 처분 시 OCI 누계액(8억)을 당기손익에 재분류하면 안 됨 → 이익잉여금으로 대체 가능", ref:"K-IFRS 1109 문단 5.7.5", stdText:"지분상품에 대한 투자를 제거할 때 기타포괄손익에 인식한 누적손익을 당기손익으로 재분류하지 아니한다.", keywords:["재분류","당기손익","OCI","이익잉여금","지분"], needAll:false, needCount:2},
+        {text:"FVPL 지정 부채의 자기신용위험 변동분(10억)은 OCI로 표시, 나머지(5억)만 당기손익 → 전액 P/L 인식은 부적절", ref:"K-IFRS 1109 문단 5.7.7", stdText:"당기손익-공정가치 측정 항목으로 지정한 금융부채의 공정가치 변동 중 해당 부채의 신용위험 변동에 기인하는 금액은 기타포괄손익으로 표시한다.", keywords:["자기신용","OCI","10억","당기손익","부채"], needAll:false, needCount:2},
+        {text:"AC→FVPL 재분류 시 공정가치와 AC 차이(10억)는 P/L 인식 적절, 그러나 이전 이자수익(15억) 소급 조정은 부적절 → 전진적 적용", ref:"K-IFRS 1109 문단 5.6.1~5.6.2", stdText:"재분류를 재분류일부터 전진적으로 적용한다. 재분류 전에 인식한 손익이나 이자는 다시 작성하지 않는다.", keywords:["전진적","이자","소급","재분류","5.6.1"], needAll:false, needCount:2},
+        {text:"3가지 오류의 P/L 영향: FVOCI 처분이익 과대(10억), 자기신용 P/L 과대(10억), 이자수익 소급조정(15억) = 당기순이익 중대 왜곡", ref:"K-IFRS 1109 문단 5.7.5, 5.7.7, 5.6.1", stdText:"지분상품에 대한 투자를 제거할 때 기타포괄손익에 인식한 누적손익을 당기손익으로 재분류하지 아니한다.", keywords:["과대","왜곡","당기순이익","수정"], needAll:false, needCount:2}
+      ],
+      modelAnswer: "⑴ FVOCI 지분상품 처분: K-IFRS 1109 문단 5.7.5에 따라 FVOCI로 지정한 지분상품을 제거할 때 기타포괄손익에 인식한 누적손익을 당기손익으로 재분류하지 아니합니다. 따라서 처분이익 10억원(= 처분대가 60억 - 장부금액 50억)을 당기손익에 인식하는 것은 부적절합니다. 올바른 회계처리는 ① OCI 누계액 8억원은 이익잉여금으로 대체(또는 OCI 내에서 유지), ② 당기손익에는 어떤 처분손익도 인식하지 않습니다. 재무팀의 처리로 당기손익이 10억원 과대 계상되었습니다.\n\n⑵ FVPL 지정 회사채의 자기신용위험: K-IFRS 1109 문단 5.7.7에 따라 FVPL 지정 금융부채의 공정가치 변동 중 자기신용위험 변동에 기인하는 금액(10억원)은 기타포괄손익으로 표시해야 합니다. 나머지 5억원(= 15억 - 10억)만 당기손익에 인식합니다. 재무팀이 15억원 전액을 당기손익에 인식한 것은 부적절하며, 10억원을 OCI로 재분류해야 합니다.\n\n⑶ AC→FVPL 재분류: K-IFRS 1109 문단 5.6.1~5.6.2에 따라 재분류는 전진적으로 적용합니다. 재분류일 공정가치(310억)와 상각후원가(300억)의 차이 10억원을 당기손익에 인식하는 것은 적절합니다. 그러나 재분류 전에 인식한 이자수익 15억원을 소급 조정하는 것은 문단 5.6.1에 명시적으로 금지되어 있으므로 부적절합니다. 이미 인식한 이자수익 15억원은 그대로 유지하고 소급 조정을 취소해야 합니다.\n\n종합하면, 3가지 오류로 인해 당기순이익이 왜곡되어 있습니다: FVOCI 처분이익 과대 10억원, 자기신용위험 당기손익 과대 10억원, 이자수익 소급조정 15억원. 총 35억원 규모의 수정이 필요합니다."
+    }
+  ]
+},
+
+
+// ─────────────────────────────────────────────────
+// 새 기준서를 추가하려면 위 closing brace 앞에
+// 동일한 형식의 객체를 추가하세요.
+// 예: "K-IFRS 1038": { code:"K-IFRS 1038", name:"무형자산", ... }
+// ─────────────────────────────────────────────────
+
+};
+
+// ╔══════════════════════════════════════════════════════════════════════╗
+// ║  ENGINE SECTION — 아래 코드는 수정하지 마세요.                      ║
+// ║  데이터(D 객체)만 변경하면 자동으로 렌더링됩니다.                    ║
+// ╚══════════════════════════════════════════════════════════════════════╝
+
+// ═══ STATE ═══
+let cur=null, curQ=0, shown={}, curD=0, dAnswered={}, curOx=0, oxAnswered={};
+const esc=s=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+// ═══ NAV ═══
+function go(s) {
+  document.querySelectorAll('.screen').forEach(e=>e.classList.remove('on'));
+  document.getElementById('s-'+s).classList.add('on');
+  window.scrollTo(0,0);
+  if(s==='brief') rBrief();
+  if(s==='ox') rOx();
+  if(s==='drill') rDrill();
+  if(s==='quiz') rQuiz();
+  if(s==='result') rResult();
+}
+
+function sel(code) {
+  cur=D[code]; curQ=0; shown={}; curD=0; dAnswered={}; curOx=0; oxAnswered={};
+  go('brief');
+}
+
+// ═══ HOME ═══
+function rHome() {
+  document.getElementById('std-list').innerHTML = Object.values(D).map(s =>
+    `<div class="card fu" style="cursor:pointer;margin-bottom:10px" onclick="sel('${s.code}')">
+      <div style="font-size:13px;font-weight:600;color:var(--gold);margin-bottom:4px">${esc(s.code)}</div>
+      <div style="font-size:15px;font-weight:600;margin-bottom:6px">${esc(s.name)}</div>
+      <div style="font-size:12px;color:#666;line-height:1.5">${esc(s.desc)}</div>
+      <div style="margin-top:10px;font-size:11px;color:var(--gold);font-weight:500">${s.oxQuiz?s.oxQuiz.length+'개 OX · ':''}${s.briefing.drills.length}개 기본문제 · ${s.questions.length}개 케이스 →</div>
+    </div>`
+  ).join('');
+}
+
+// ═══ FLOW DIAGRAM RENDERER ═══
+function renderFlowDiagram(fd) {
+  if(!fd) return '';
+  const colorMap = {purple:'c-purple',teal:'c-teal',coral:'c-coral',amber:'c-amber',gray:'c-gray'};
+  let svg = `<div class="sec"><h3>${esc(fd.title)}</h3>
+  <p style="font-size:12px;color:var(--t3);margin-bottom:12px">${esc(fd.subtitle)}</p>
+  <div style="overflow-x:auto">
+  <svg width="100%" viewBox="${fd.viewBox}" xmlns="http://www.w3.org/2000/svg" style="display:block">
+    <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>`;
+
+  // Render nodes
+  fd.nodes.forEach(n => {
+    const cls = colorMap[n.color] || '';
+    // Skip rect for invisible nodes (w=0 or no color)
+    if(n.w > 0 && n.color) {
+      svg += `<g class="${cls}"><rect x="${n.x}" y="${n.y}" width="${n.w}" height="${n.h}" rx="${n.h>40?8:6}" stroke-width="0.5"/>`;
+      const cx = n.x + n.w/2;
+      if(n.label && n.sub) {
+        svg += `<text class="th" x="${cx}" y="${n.y + n.h*0.38}" text-anchor="middle" dominant-baseline="central">${esc(n.label)}</text>`;
+        svg += `<text class="ts" x="${cx}" y="${n.y + n.h*0.68}" text-anchor="middle" dominant-baseline="central">${esc(n.sub)}</text>`;
+      } else if(n.label) {
+        svg += `<text class="th" x="${cx}" y="${n.y + n.h/2}" text-anchor="middle" dominant-baseline="central">${esc(n.label)}</text>`;
+      } else if(n.sub) {
+        svg += `<text class="ts" x="${cx}" y="${n.y + n.h/2}" text-anchor="middle" dominant-baseline="central">${esc(n.sub)}</text>`;
+      }
+      svg += `</g>`;
+    }
+    // Notes to the right (render even for invisible nodes)
+    const noteX = n.x + n.w + 20;
+    n.notes.forEach((note, ni) => {
+      svg += `<text class="ts" x="${noteX}" y="${n.y + 12 + ni*16}">${esc(note)}</text>`;
+    });
+  });
+
+  // Render edges
+  const nodeMap = {};
+  fd.nodes.forEach(n => nodeMap[n.id] = n);
+
+  fd.edges.forEach(e => {
+    if(e.merge) {
+      // Merge two nodes into one target
+      const ids = e.from;
+      const t = nodeMap[e.to];
+      const n1 = nodeMap[ids[0]], n2 = nodeMap[ids[1]];
+      const cx1 = n1.x + n1.w/2, cx2 = n2.x + n2.w/2;
+      const midX = (cx1+cx2)/2;
+      const botY = Math.max(n1.y+n1.h, n2.y+n2.h);
+      const mergeY = botY + 26;
+      svg += `<line x1="${cx1}" y1="${botY}" x2="${cx1}" y2="${mergeY}" class="arr"/>`;
+      svg += `<line x1="${cx2}" y1="${botY}" x2="${cx2}" y2="${mergeY}" class="arr"/>`;
+      svg += `<line x1="${cx1}" y1="${mergeY}" x2="${cx2}" y2="${mergeY}" class="arr"/>`;
+      svg += `<line x1="${midX}" y1="${mergeY}" x2="${t.x+t.w/2}" y2="${t.y}" class="arr" marker-end="url(#arrow)"/>`;
+    } else {
+      const f = nodeMap[e.from];
+      const t = nodeMap[e.to];
+      if(!f || !t) return;
+      const fx = e.fromX || (f.x + f.w/2);
+      const tx = t.x + t.w/2;
+      if(e.dir === 'right') {
+        // Horizontal arrow
+        svg += `<line x1="${f.x+f.w}" y1="${f.y+f.h/2}" x2="${t.x}" y2="${t.y+t.h/2}" class="arr" marker-end="url(#arrow)"/>`;
+        if(e.label) {
+          // Place label above the arrow line, centered between source and target
+          const lx = (f.x+f.w + t.x)/2;
+          const ly = f.y+f.h/2 - 10;
+          const lc = e.labelColor==='green'?'#4ade80':e.labelColor==='red'?'#f87171':'#aaa';
+          svg += `<text class="ts" x="${lx}" y="${ly}" text-anchor="middle" fill="${lc}">${esc(e.label)}</text>`;
+        }
+      } else {
+        // Vertical arrow
+        svg += `<line x1="${fx}" y1="${f.y+f.h}" x2="${tx}" y2="${t.y}" class="arr" marker-end="url(#arrow)"/>`;
+        if(e.label) {
+          const midY = (f.y+f.h + t.y)/2;
+          const lc = e.labelColor==='green'?'#4ade80':e.labelColor==='red'?'#f87171':'#aaa';
+          svg += `<text class="ts" x="${fx+12}" y="${midY}" fill="${lc}">${esc(e.label)}</text>`;
+        }
+      }
+    }
+  });
+
+  svg += `</svg></div></div>`;
+  return svg;
+}
+
+// ═══ BRIEFING ═══
+function sec(n,t,b){return `<div class="sec"><h3><span class="n">${n}</span>${t}</h3>${b}</div>`;}
+
+function rBrief() {
+  if(!cur) return;
+  const b=cur.briefing;
+  document.getElementById('b-code').textContent=cur.code;
+  document.getElementById('b-name').textContent=cur.name;
+  document.getElementById('b-desc').textContent=cur.desc;
+
+  let h='';
+
+  // Flow diagram (data-driven)
+  if(cur.flowDiagram) {
+    h += renderFlowDiagram(cur.flowDiagram);
+  }
+
+  // Hierarchical sections
+  h+=sec('1','핵심 프레임',`<div class="bp">${esc(b.coreFramework)}</div>`);
+
+  // Key decisions as expandable cards
+  h+=`<div class="sec"><h3><span class="n">2</span>핵심 판단 논점</h3>`;
+  b.keyDecisions.forEach((k,i)=>{
+    h+=`<div class="card" style="margin-bottom:8px;cursor:pointer" onclick="toggleKd(${i})">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="font-size:13.5px;font-weight:600;color:var(--text)">${esc(k.title)}</div>
+        <span id="kd-arrow-${i}" style="color:var(--gold);font-size:12px;transition:transform .2s">▸</span>
+      </div>
+      <div id="kd-body-${i}" style="max-height:0;overflow:hidden;transition:max-height .35s ease;margin-top:0">
+        <div style="padding-top:10px;font-size:13px;color:#aaa;line-height:1.75">${esc(k.content)}</div>
+      </div>
+    </div>`;
+  });
+  h+=`</div>`;
+
+  h+=sec('3','기준서 간 연결',`<div class="bp">${esc(b.connections)}</div>`);
+
+  // Audit Procedure steps
+  if(b.auditProcedure && b.auditProcedure.length) {
+    h+=`<div class="sec"><h3><span class="n">4</span>감사절차 포인트</h3>`;
+    b.auditProcedure.forEach(function(ap,i){
+      h+=`<div class="card" style="margin-bottom:10px;cursor:pointer" onclick="toggleAp(${i})">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div style="font-size:13.5px;font-weight:600;color:var(--text)">${esc(ap.step)}</div>
+          <span id="ap-arrow-${i}" style="color:var(--gold);font-size:12px;transition:transform .2s">▸</span>
+        </div>
+        <div id="ap-body-${i}" style="max-height:0;overflow:hidden;transition:max-height .35s ease">
+          <div style="padding-top:10px">
+            <span style="font-size:10.5px;padding:2px 8px;border-radius:4px;background:#c9a96e14;color:var(--gold);font-weight:600">${esc(ap.ref)}</span>
+            <div style="font-size:13px;color:#aaa;line-height:1.75;margin-top:8px">${esc(ap.content)}</div>
+          </div>
+        </div>
+      </div>`;
+    });
+    h+=`</div>`;
+  }
+
+  h+=sec('5','감사 포커스',`<div class="card2"><div class="bp">${esc(b.auditFocus)}</div></div>`);
+
+  // Practical tip (optional)
+  if(b.practicalTip) {
+    h+=sec('6','실무 팁',`<div class="card2"><div class="bp">${esc(b.practicalTip)}</div></div>`);
+  }
+  document.getElementById('b-content').innerHTML=h;
+}
+
+// ── Toggle key decisions ──
+function toggleKd(i) {
+  var body = document.getElementById('kd-body-'+i);
+  var arrow = document.getElementById('kd-arrow-'+i);
+  if(!body) return;
+  if(body.style.maxHeight && body.style.maxHeight !== '0px') {
+    body.style.maxHeight = '0px'; body.style.marginTop = '0';
+    if(arrow) arrow.style.transform = 'rotate(0deg)';
+  } else {
+    body.style.maxHeight = body.scrollHeight + 'px'; body.style.marginTop = '0';
+    if(arrow) arrow.style.transform = 'rotate(90deg)';
+  }
+}
+
+function toggleAp(i) {
+  var body = document.getElementById('ap-body-'+i);
+  var arrow = document.getElementById('ap-arrow-'+i);
+  if(!body) return;
+  if(body.style.maxHeight && body.style.maxHeight !== '0px') {
+    body.style.maxHeight = '0px';
+    if(arrow) arrow.style.transform = 'rotate(0deg)';
+  } else {
+    body.style.maxHeight = body.scrollHeight + 'px';
+    if(arrow) arrow.style.transform = 'rotate(90deg)';
+  }
+}
+
+// ═══ OX QUIZ (기준서 원문 OX) ═══
+function rOx() {
+  if(!cur || !cur.oxQuiz || !cur.oxQuiz.length) return;
+  var oxs = cur.oxQuiz;
+  var q = oxs[curOx];
+  var answered = oxAnswered[curOx];
+  var total = oxs.length;
+  var correctCount = 0, answeredCount = 0;
+  for(var k in oxAnswered) { answeredCount++; if(oxAnswered[k]===((oxs[k]&&oxs[k].answer)?'O':'X')) correctCount++; }
+
+  document.getElementById('ox-prog').style.width = ((curOx+1)/total*100)+'%';
+
+  var h = '<div class="fu">';
+  // Header with score
+  h += '<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">';
+  h += '<span style="background:#c9a96e18;color:var(--gold);padding:3px 10px;border-radius:5px;font-size:11.5px;font-weight:600">' + (curOx+1) + '/' + total + '</span>';
+  if(answeredCount > 0) h += '<span style="font-size:11.5px;color:var(--t2)">' + correctCount + '/' + answeredCount + ' 정답</span>';
+  h += '</div>';
+
+  // Statement
+  h += '<div class="card2" style="margin-bottom:20px"><p style="font-size:15px;line-height:2.0;color:#ddd;font-weight:500">"' + esc(q.statement) + '"</p></div>';
+
+  // O/X buttons
+  h += '<div style="display:flex;gap:12px;margin-bottom:16px">';
+  var correctAns = q.answer ? 'O' : 'X';
+
+  // O button
+  var oStyle = '', oLabel = 'O';
+  if(answered) {
+    if(correctAns === 'O') { oStyle = 'border-color:var(--green);background:#4ade800a;color:var(--green);'; oLabel = 'O ✓'; }
+    else if(answered === 'O') { oStyle = 'border-color:var(--red);background:#f871710a;color:var(--red);'; oLabel = 'O ✗'; }
+    else { oStyle = 'opacity:0.35;'; }
+  }
+  h += '<button style="flex:1;padding:18px;border-radius:10px;border:1.5px solid var(--bd);background:var(--sf);color:var(--text);font-size:20px;font-weight:700;transition:all .18s;'+oStyle+'" '+(answered?'disabled':'onclick="pickOx(\'O\')"')+'>'+oLabel+'</button>';
+
+  // X button
+  var xStyle = '', xLabel = 'X';
+  if(answered) {
+    if(correctAns === 'X') { xStyle = 'border-color:var(--green);background:#4ade800a;color:var(--green);'; xLabel = 'X ✓'; }
+    else if(answered === 'X') { xStyle = 'border-color:var(--red);background:#f871710a;color:var(--red);'; xLabel = 'X ✗'; }
+    else { xStyle = 'opacity:0.35;'; }
+  }
+  h += '<button style="flex:1;padding:18px;border-radius:10px;border:1.5px solid var(--bd);background:var(--sf);color:var(--text);font-size:20px;font-weight:700;transition:all .18s;'+xStyle+'" '+(answered?'disabled':'onclick="pickOx(\'X\')"')+'>'+xLabel+'</button>';
+  h += '</div>';
+
+  // Explanation
+  if(answered) {
+    var isCorrect = (answered === correctAns);
+    h += '<div style="padding:16px;border-radius:10px;background:'+(isCorrect?'#4ade800a;border:1px solid #4ade8022':'#f871710a;border:1px solid #f8717122')+'">';
+    h += '<div style="font-size:13px;font-weight:600;color:'+(isCorrect?'var(--green)':'var(--red)')+';margin-bottom:8px">'+(isCorrect?'정답입니다':'오답입니다 — 정답은 '+correctAns)+'</div>';
+    if(q.wrongPart) h += '<div style="font-size:13px;color:#ccc;line-height:1.7;margin-bottom:10px"><span style="color:var(--red);font-weight:600">틀린 부분:</span> ' + esc(q.wrongPart) + '</div>';
+    h += '<div style="margin-top:8px"><span style="font-size:10.5px;padding:2px 8px;border-radius:4px;background:#c9a96e14;color:var(--gold);font-weight:600">' + esc(cur.code) + ' ' + esc(q.ref) + '</span></div>';
+    if(q.stdText) h += '<div style="font-size:12.5px;color:var(--gold);line-height:1.65;margin-top:8px;padding:10px 12px;border-radius:6px;background:#c9a96e08;border-left:3px solid #c9a96e44">' + esc(q.stdText) + '</div>';
+    h += '</div>';
+  }
+
+  // Navigation
+  h += '<div style="display:flex;gap:10px;margin-top:20px;align-items:center">';
+  if(curOx > 0) h += '<button class="btn-o" onclick="curOx--;rOx()">← 이전</button>';
+  if(answered && curOx < total-1) h += '<button class="btn-o" style="margin-left:auto" onclick="curOx++;rOx()">다음 →</button>';
+  if(answered && curOx === total-1) h += '<button class="btn-g sm" style="margin-left:auto" onclick="go(\'drill\')">기본문제 →</button>';
+  h += '</div>';
+
+  h += '</div>';
+  document.getElementById('ox-content').innerHTML = h;
+}
+
+function pickOx(choice) {
+  if(oxAnswered[curOx]) return;
+  oxAnswered[curOx] = choice;
+  rOx();
+}
+
+// ═══ DRILL (객관식) ═══
+function rDrill() {
+  if(!cur || !cur.briefing.drills) return;
+  var drills = cur.briefing.drills;
+  var d = drills[curD];
+  var answered = dAnswered[curD];
+
+  document.getElementById('d-prog').style.width = ((curD+1)/drills.length*100)+'%';
+
+  var h = '<div class="fu">';
+  h += '<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">';
+  h += '<span style="background:#c9a96e18;color:var(--gold);padding:3px 10px;border-radius:5px;font-size:11.5px;font-weight:600">' + (curD+1) + '/' + drills.length + '</span>';
+  h += '<span style="font-size:13px;font-weight:600;color:var(--gold)">' + esc(d.step) + '</span>';
+  h += '</div>';
+
+  h += '<div class="card2" style="margin-bottom:20px"><p style="font-size:14px;line-height:1.85;color:#ccc">' + esc(d.situation) + '</p></div>';
+
+  h += '<div style="font-size:13px;font-weight:600;color:var(--t2);margin-bottom:10px">감사인으로서 적절한 판단은?</div>';
+
+  // Choice A
+  var aState = '', aStyle = '';
+  if(answered) {
+    if(d.correct === 'A') { aState = ' ✓'; aStyle = 'border-color:var(--green);background:#4ade800a;'; }
+    else if(answered === 'A') { aState = ' ✗'; aStyle = 'border-color:var(--red);background:#f871710a;'; }
+    else { aStyle = 'opacity:0.5;'; }
+  }
+  h += '<div class="card" style="cursor:'+(answered?'default':'pointer')+';margin-bottom:10px;'+aStyle+'" '+(answered?'':'onclick="pickDrill(\'A\')"')+'>';
+  h += '<div style="display:flex;gap:10px;align-items:flex-start">';
+  h += '<span style="min-width:24px;height:24px;border-radius:6px;background:var(--sf2);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--t2)">A</span>';
+  h += '<div style="font-size:13.5px;line-height:1.7;color:#bbb">' + esc(d.choiceA) + aState + '</div>';
+  h += '</div></div>';
+
+  // Choice B
+  var bState = '', bStyle = '';
+  if(answered) {
+    if(d.correct === 'B') { bState = ' ✓'; bStyle = 'border-color:var(--green);background:#4ade800a;'; }
+    else if(answered === 'B') { bState = ' ✗'; bStyle = 'border-color:var(--red);background:#f871710a;'; }
+    else { bStyle = 'opacity:0.5;'; }
+  }
+  h += '<div class="card" style="cursor:'+(answered?'default':'pointer')+';margin-bottom:10px;'+bStyle+'" '+(answered?'':'onclick="pickDrill(\'B\')"')+'>';
+  h += '<div style="display:flex;gap:10px;align-items:flex-start">';
+  h += '<span style="min-width:24px;height:24px;border-radius:6px;background:var(--sf2);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--t2)">B</span>';
+  h += '<div style="font-size:13.5px;line-height:1.7;color:#bbb">' + esc(d.choiceB) + bState + '</div>';
+  h += '</div></div>';
+
+  // Explanation (after answering)
+  if(answered) {
+    h += '<div style="margin-top:18px;padding:16px;border-radius:10px;background:'+(answered===d.correct?'#4ade800a;border:1px solid #4ade8022':'#f871710a;border:1px solid #f8717122')+'">';
+    h += '<div style="font-size:13px;font-weight:600;color:'+(answered===d.correct?'var(--green)':'var(--red)')+';margin-bottom:8px">'+(answered===d.correct?'정답입니다':'오답입니다 — 정답은 '+d.correct)+'</div>';
+    h += '<div style="font-size:13px;color:#aaa;line-height:1.7">' + esc(d.explain) + '</div>';
+    h += '<div style="margin-top:12px"><span style="font-size:10.5px;padding:2px 8px;border-radius:4px;background:#c9a96e14;color:var(--gold);font-weight:600">' + esc(d.ref) + '</span></div>';
+    if(d.stdText) h += '<div style="font-size:12px;color:var(--gold);line-height:1.6;margin-top:8px;padding:10px 12px;border-radius:6px;background:#c9a96e08;border-left:3px solid #c9a96e44">' + esc(d.stdText) + '</div>';
+    h += '</div>';
+  }
+
+  // Navigation
+  h += '<div style="display:flex;gap:10px;margin-top:20px;align-items:center">';
+  if(curD > 0) h += '<button class="btn-o" onclick="curD--;rDrill()">← 이전</button>';
+  if(answered && curD < drills.length-1) h += '<button class="btn-o" style="margin-left:auto" onclick="curD++;rDrill()">다음 →</button>';
+  if(answered && curD === drills.length-1) h += '<button class="btn-g sm" style="margin-left:auto" onclick="go(\'quiz\')">케이스 시뮬레이션 →</button>';
+  h += '</div>';
+
+  h += '</div>';
+  document.getElementById('d-content').innerHTML = h;
+}
+
+function pickDrill(choice) {
+  if(dAnswered[curD]) return;
+  dAnswered[curD] = choice;
+  rDrill();
+}
+
+// ═══ QUIZ ═══
+function rQuiz() {
+  if(!cur) return;
+  const qs=cur.questions, q=qs[curQ];
+  var revealed = shown[curQ];
+
+  // dots
+  document.getElementById('q-dots').innerHTML=qs.map((_,i)=>{
+    let c='dot';if(i===curQ)c+=' cur';else if(shown[i])c+=' done';
+    return `<button class="${c}" onclick="curQ=${i};rQuiz()">${i+1}</button>`;
+  }).join(' ');
+  document.getElementById('q-prog').style.width=((curQ+1)/qs.length*100)+'%';
+
+  let h=`<div class="fu">
+    <div style="margin-bottom:28px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap">
+        <span style="background:#c9a96e18;color:var(--gold);padding:3px 10px;border-radius:5px;font-size:11.5px;font-weight:600">CASE ${curQ+1}/${qs.length}</span>
+      </div>
+      ${q.situation?'<div style="font-size:14px;font-weight:600;color:var(--gold);margin-bottom:12px">'+esc(q.situation)+'</div>':''}
+      <p style="font-size:15px;line-height:1.9;color:#ccc;white-space:pre-line">${esc(q.question).replace('&lt;!--TABLE--&gt;', q.tableHTML||'')}</p>
+      <div style="margin-top:20px;padding:14px 18px;border-radius:9px;background:#c9a96e08;border:1px solid #c9a96e22">
+        <div style="font-size:14px;font-weight:600;color:var(--gold)">감사인으로서 적절한 판단은?</div>
+        <div style="font-size:12.5px;color:var(--t2);margin-top:4px">머릿속으로 판단을 정리한 후 아래에서 모범답안을 확인하세요.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">`;
+
+  if(!revealed) {
+    h+=`<button class="btn-g sm" onclick="showAnswer()">모범답안 확인</button>`;
+  }
+  if(curQ<qs.length-1) h+=`<button class="btn-o" style="margin-left:auto" onclick="curQ++;rQuiz()">다음 케이스 →</button>`;
+  if(curQ===qs.length-1 && revealed) h+=`<button class="btn-o" style="margin-left:auto" onclick="go('home')">처음으로</button>`;
+  h+=`</div>`;
+
+  if(revealed) {
+    // 상황포인트
+    h+=`<div style="margin-top:28px" class="fu">
+      <div class="card2" style="margin-bottom:18px">
+        <div style="font-size:12.5px;font-weight:600;color:var(--text);margin-bottom:12px">상황포인트</div>`;
+    q.keyPoints.forEach(function(pt){
+      if(!pt || !pt.text) return;
+      h+=`<div style="display:flex;gap:8px;margin-bottom:8px;align-items:flex-start">
+        <span style="color:var(--gold);margin-top:2px;font-size:12px">▸</span>
+        <div style="font-size:13px;color:#ccc;line-height:1.6">${esc(pt.text)}</div>
+      </div>`;
+    });
+    h+=`</div>`;
+
+    // 모범답안 (해설)
+    h+=`<div class="card2" style="margin-bottom:18px">
+        <div style="font-size:12.5px;font-weight:600;color:var(--green);margin-bottom:12px">모범답안 — 감사인의 올바른 판단</div>
+        <div style="font-size:14px;line-height:2.1;color:#ccc;white-space:pre-line">${esc(q.modelAnswer)}</div>
+      </div>`;
+
+    // 기준서 근거
+    h+=`<div class="card2">
+        <div style="font-size:12.5px;font-weight:600;color:var(--gold);margin-bottom:12px">기준서 근거</div>`;
+    q.keyPoints.forEach(function(pt){
+      if(!pt || !pt.ref || !pt.stdText) return;
+      h+=`<div style="margin-bottom:14px">
+        <span style="font-size:11px;padding:2px 8px;border-radius:4px;background:#c9a96e14;color:var(--gold);font-weight:600">${esc(pt.ref)}</span>
+        <div style="font-size:12.5px;color:#aaa;line-height:1.7;margin-top:6px">${esc(pt.stdText)}</div>
+      </div>`;
+    });
+    h+=`</div>
+    </div>`;
+  }
+
+  h+=`</div>`;
+  document.getElementById('q-content').innerHTML=h;
+}
+
+function showAnswer() {
+  shown[curQ] = true;
+  rQuiz();
+}
+
+// ═══ RESULT ═══
+function rResult() {}
+
+try { rHome(); } catch(e) { console.error('rHome error:', e); }
+</script>
+</body>
+</html>
